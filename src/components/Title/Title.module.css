@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction:row;
+    justify-content: center;
+    margin-bottom: var(--margin-big);
+}
+
+
+.text{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-m);
+    font-weight: 700;
+    margin: 0px var(--margin-s);
+}
+.line{
+    width: var(--size-big);
+    height: 3.5px;
+    background-color: var(--text-ttitle-color);
+}

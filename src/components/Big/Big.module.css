@@ -1,0 +1,117 @@
+.big_img{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('/img/big.jpeg') center/cover no-repeat;
+}
+
+.big_img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--img-color);
+    opacity: 0.3;
+}
+
+.big_img::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,#1f231f 0% ,#1f231f3d 20% ,#93ab9e6c 100% );
+    opacity: 0.8;
+}
+
+.container{
+    position: relative;
+    left: 0;
+    top: calc(50% - 80px);
+    z-index: 2;
+    overflow: hidden;
+}
+.la_h2{
+    color: var(--text-block-color);
+    font-weight: 700;
+    font-size: var(--size-big-pro);
+    letter-spacing: 0.8rem;
+}
+.la_p{
+    color: var(--text-block-color);
+    margin: var(--margin-xs) 0px var(--margin-m) 0px;
+    font-size:var(--size-s);
+    font-weight:300;
+    letter-spacing: 0.1rem;
+}
+.btn{
+    background-color:rgba(240, 248, 255, 0);
+    cursor: pointer;
+    color: var(--text-block-color);
+    padding: 10px 30px;
+    border: var(--border-width)  solid var(--text-block-color);
+    border-radius: var(--border-radius);
+    font-size:var(--size-s);
+    letter-spacing: 0.1rem;
+    font-weight:300;
+    width: auto;
+    height: auto;    
+    transition: all 0.3s ease-in-out;
+}
+.btn:hover{ 
+    background-color:var(--text-block-color);
+    color: #576E61;
+    font-weight:400;
+}
+
+  /* 手機 */
+@media (max-width: 576px) {
+    .container{
+        top: 50%;
+        display: flex;
+        flex-direction: column;
+        transform:translateY(-50%);
+        align-items: center; /* 讓所有內容水平置中 */
+    }
+    .la_h2{
+        font-size:var(--size-big-pro);
+        letter-spacing: unset;
+
+    }
+    .la_p{
+        font-size:var(--size-xs);
+        letter-spacing:unset;
+       
+    }
+    .btn{
+        font-size:var(--size-xs);
+    }
+}
+
+@media (max-width: 350px) {
+    .big_img{
+        width: 100%;
+        height: 100vh; /* 讓它填滿整個手機畫面高度 */
+        aspect-ratio: unset; /* 取消原本的 aspect-ratio，避免影響高度 */
+    }
+    .container{
+        top: 50%;
+        display: flex;
+        flex-direction: column;
+        transform:translateY(-50%);
+        align-items: center; /* 讓所有內容水平置中 */
+    }
+    .la_h2{
+        font-size: 3rem;
+
+    }
+    .la_p{
+        font-size:0.9rem;
+    }
+    .btn{
+        font-size:0.9rem;
+    }
+}

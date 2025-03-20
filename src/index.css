@@ -1,0 +1,98 @@
+:root {
+  /* ------------------ 顏色管理 ------------------ */
+
+  /* 背景色 */
+  --bg-color:#d5dad9;  
+  --bg-block-color:#576E61;
+  --bg-small-color:#93AB9E;
+  --bg-shop-color:#F9FCFB;
+
+
+  /* 文字顏色 */
+  --text-header-color:#3D4341;
+  --text-block-color:#d5dad9;
+  --text-ttitle-color:#576E61;
+  --text-p-color:#737675;
+
+  /* 特別按鈕設計顏色變化 */
+  --btn-color:#576E61;
+  /* 訂閱方案半透明顏色變化 */
+  --plan-color:#576e6199;
+
+  /* 成功、警告、錯誤顏色 */
+  --success-color: #28a745; /* 成功色：綠色 */
+  --warning-color: #ffcc00; /* 警告色：黃色 */
+  --error-color: #dc3545; /* 錯誤色：紅色 */
+
+
+  /* 字體大小設置 */
+
+  --size-big-pro:4rem;
+  --size-big:2.25rem;
+  --size-m:2rem;
+  --size-s:1.25rem;
+  --size-xs:1rem;
+
+  /* ------------------ 間距設置 ------------------ */
+  --margin-big:64px;
+  --margin-m:32px;
+  --margin-s:24px;
+  --margin-xs:16px;
+
+
+  /* ------------------ 邊框與圓角設置 ------------------ */
+  --border-width: 1px;  /* 邊框寬度 */
+  --border-radius: 30px; /* 圓角半徑 */
+
+    /* 照片遮罩顏色 */
+  --img-color:#576e614d
+  
+  
+
+}
+
+
+html[data-theme='dark']{
+  /* 背景色 */
+  --bg-color:#2D2E2D;  
+  --bg-block-color:#3D4341;
+  --bg-small-color:#82a090;
+  --bg-shop-color:#414241;
+
+
+  /* 文字顏色 */
+  --text-header-color:#d2d7d4;
+  --text-block-color:#d2d7d4;
+  --text-ttitle-color:#82a090;
+  --text-p-color:#b7bcb9;  
+
+  /* 照片遮罩顏色 */
+  --img-color:#3d4341;
+  /* 特別按鈕設計顏色變化 */
+  --btn-color:#d2d7d4;
+  /* 訂閱方案半透明顏色變化 */
+  --plan-color:rgba(61, 67, 65, 0.6);
+}
+
+
+
+
+html{
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  
+}
+
+*,*:before,*:after{
+  box-sizing: inherit;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+
+}
