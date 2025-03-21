@@ -4,7 +4,7 @@
   /* 背景色 */
   --bg-color:#d5dad9;  
   --bg-block-color:#576E61;
-  --bg-small-color:#93AB9E;
+  --bg-small-color:#87a194;
   --bg-shop-color:#F9FCFB;
 
 
@@ -56,7 +56,7 @@ html[data-theme='dark']{
   /* 背景色 */
   --bg-color:#2D2E2D;  
   --bg-block-color:#3D4341;
-  --bg-small-color:#82a090;
+  --bg-small-color:#7e8f86;
   --bg-shop-color:#414241;
 
 
@@ -95,4 +95,15 @@ body{
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
 
+}
+
+.aaa {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999; /* 確保它在最上層 */
+  background-color: white; /* 可依需求調整背景色 */
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }

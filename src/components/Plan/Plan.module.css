@@ -68,6 +68,10 @@
     position: absolute;
     left: 0;
 }
+.img{
+    width: 100%;
+
+}
 
 .word{
     width: 56%;
@@ -112,4 +116,85 @@
 .btn:hover{ 
     background-color:var(--text-block-color);
     color: var(--bg-block-color);
+}
+
+@media (max-width:1200px){
+    .div_img{
+        position: absolute;
+        left: -70px;
+    }
+    .h3 {
+        font-size: var(--size-xs);
+    }
+    .btn{
+        font-size: var(--size-xs);
+    }
+    .img{
+        width: 95%;
+    }
+    
+}
+  
+
+
+
+@media (max-width: 992px) {
+    .down {
+        flex-direction: column-reverse;
+        align-items: center; /* 水平置中 */
+        justify-content: center;
+    }
+
+    .div_img {
+        position: absolute; 
+        left: auto; 
+        top: -80px;
+    }
+
+    .word{
+        margin-top: 370px;
+        width: 100%;
+        padding: var(--margin-big) ;
+
+    }
+}
+
+
+@media (max-width: 600px) {
+    .down {
+        flex-direction: column-reverse;
+        align-items: center; /* 水平置中 */
+        justify-content: center;
+       
+    }
+    .div_img {
+        position: absolute;
+        transform: none; /* 移除所有變形 */
+        margin: 0px;
+        width: 100%;
+    }
+    .word{
+        width: 100%;
+        padding: var(--margin-big) var(--margin-s) ;
+        margin-top: 260px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .div_img {
+        position: static;
+        transform: none; /* 移除所有變形 */
+        margin: 0px;
+        width: 100%;
+
+    }
+    .word{
+        position: relative;
+        top: -80px;
+        margin-top: 0px;
+        width: 100%;
+        padding: var(--margin-big) var(--margin-s) ;
+
+    }
 }

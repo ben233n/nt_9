@@ -3,6 +3,7 @@
     padding: var(--margin-big) 0px;
     position: relative;
     overflow: hidden;
+
 }
 .tophana{
     
@@ -14,6 +15,15 @@
     position: absolute;
     right: 0;
     bottom: 80px;
+}
+.butterfly{
+    display: none;
+}
+.bug{
+    display: none;
+}
+.turnline{
+    display: none;
 }
 .down{
     display: flex;
@@ -63,12 +73,35 @@
 
 @media (max-width: 992px) {
     .tophana{
-        display: none;
+        transform: scale(1) translateY(-50%);
+        right: -20px;
+        top: 40%;
+        opacity: 0.7;
+
 
     }
     .aphana{
-        display: none;
+        transform: scaleX(-1) scale(1) translateY(-50%);
+        left: -30px;
+        top: 75%;
+        opacity: 0.7;
 
+    }
+    .butterfly{
+        transform:  rotate(-20deg);
+        position: absolute;
+        left: 50px;
+        top: 90px;
+        display: block;
+        opacity: 0.7;
+    }
+    .bug{
+        transform:  rotate(-15deg);
+        position: absolute;
+        right: 45px;
+        bottom:  50px;
+        display: block;
+        opacity: 0.7;
     }
     .down{
         flex-direction: column;
@@ -87,17 +120,71 @@
     }
     .p {
         font-size: var(--size-xs);
-        line-height: 1.1;
+        line-height: 1.5;
         text-align:center; /* 左對齊，避免過度拉伸 */
     }
     .bg{
         background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
-        url('/img/幸運草草草.jpg') center/cover no-repeat;
+        /* url('/img/幸運草草草.jpg') center/cover no-repeat; */
     }
+
+}
+@media (max-width: 750px) {
+    .tophana{
+        transform: scale(0.8) translateY(-50%) ;
+        right: -75px;
+        top: 28%;
+
+
+    }
+    .aphana{
+        transform: scaleX(-1) scale(0.8) translateY(-50%);
+        left: -75px;
+        top: 70%;
+
+    }
+    .butterfly{
+        transform:  scale(0.8) translateY(-50%) rotate(-10deg);
+        left: 0px;
+        top: 28%;
+    }
+    .bug{
+        transform:  scale(0.8) translateY(-50%);
+        right: 0px;
+        top: 70%;
+    }
+
 
 }
 
 
 @media (max-width: 576px) {
+    .tophana{
+        display: none;
 
+    }
+    .aphana{
+        display: none;
+
+
+    }
+    .butterfly{
+        display: none;
+    }
+    .bug{
+        display: none;
+    }
+    .down{
+        flex-direction: column;
+        justify-content: left;
+        gap: var(--margin-s);
+        
+    }
+    .h3{
+        text-align:left; /* 左對齊，避免過度拉伸 */
+    }
+    .p{
+        text-align:left; /* 左對齊，避免過度拉伸 */
+        line-height: 2.5;
+    }
 }

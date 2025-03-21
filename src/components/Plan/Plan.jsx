@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Plan.module.css'
+import { motion } from "motion/react"
 const Plan = () => {
   return (
     <div className={styles.bg}>
@@ -17,9 +18,20 @@ const Plan = () => {
                 <h3 className={styles.h3}>✅ 有機會可以抽到紐西蘭米佛峽灣的機票</h3>
                 <button className={styles.btn}>查看更多方案</button>
             </div>
-            <div className={styles.div_img}>
-                <img src="/img/飛翔的山.png" alt="" />
-            </div>
+            <motion.div
+              className={styles.div_img}
+              animate={{
+                y: [0, -20, 0] // 上下移動
+              }}
+              transition={{
+                duration: 3, // 動畫時間
+                repeat: Infinity, // 無限循環
+                repeatType: "mirror", // 來回動畫
+                ease: "easeInOut" // 緩動效果
+              }}
+            >
+                <img src="/img/飛翔的山.png" alt="" className={styles.img}/>
+            </motion.div>
 
         </div>
     </div>

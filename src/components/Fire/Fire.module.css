@@ -74,6 +74,13 @@
     .hana{
         display: none;
     }
+    .down{
+        flex-direction: column;
+        gap: var(--margin-big);
+    }
+    .text{
+        display: none;
+    }
 }
 
 

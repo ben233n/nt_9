@@ -1,0 +1,20 @@
+.btn{
+    background-color:rgba(240, 248, 255, 0);
+    cursor: pointer;
+    color: var(--text-p-color);
+    padding: 10px 30px;
+    border: 1.5px  solid var(--text-p-color);
+    border-radius: var(--border-radius);
+    font-size:var(--size-s);
+    letter-spacing: 0.1rem;
+    font-weight:500;
+    width: 100%;
+    height: auto;    
+    transition: all 0.3s ease-in-out;
+    margin-top: var(--margin-s);
+}
+.btn:hover{ 
+    background-color:var(--btn-color);
+    color: var(--bg-color);
+}
+

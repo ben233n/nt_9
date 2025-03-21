@@ -39,6 +39,7 @@
     align-items: center;
 }
 .nav_li{
+    text-decoration: none;
     position: relative;
     list-style: none;
     margin:0px  var(--margin-s);
