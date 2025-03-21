@@ -56,11 +56,13 @@
         display: block;
     }
     .card{
-        width: 100%;
+        width: calc(50% - var(--margin-s));
     }
 }
 
 
 @media (max-width: 576px) {
-
+    .card{
+        width: 100%;
+    }
 }

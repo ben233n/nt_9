@@ -75,15 +75,19 @@
         display: none;
     }
     .down{
-        flex-direction: column;
-        gap: var(--margin-big);
+        flex-direction: row;
     }
     .text{
         display: none;
     }
 }
 
+@media (max-width: 750px) {
 
+}
 @media (max-width: 576px) {
-
+    .down{
+        flex-direction: column;
+        gap: var(--margin-big);
+    }
 }
