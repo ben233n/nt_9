@@ -1,8 +1,9 @@
 import React from 'react'
+import { Ad } from '../Ad/Ad'
 
 const Store = () => {
   return (
-    <div>Store</div>
+    <Ad/>
   )
 }
 
