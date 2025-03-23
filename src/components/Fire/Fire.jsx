@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Fire.module.css'
 import Title from '../Title/Title'
 import Firecard from '../Firecard/Firecard'
+import { Link } from 'react-router'
 const Fire = () => {
   return (
     <div className={styles.bg}>
@@ -22,7 +23,8 @@ const Fire = () => {
                     <p className={styles.p}>每塊石頭、小草等商品皆保留天然紋理</p>
                     <p className={styles.p}>使得每件商品都是獨一無二的</p>
                     <p className={styles.p}>快來商店探索大自然的美妙吧</p>
-                    <button className={styles.btn}>前往商店</button>
+                    <Link to="/shop/"><button className={styles.btn}>前往商店</button></Link>
+                    
                 </div>            
                 <Firecard shopimg='/img/嵐山石.png' top="TOP 1" word="嵐山的岩"/>
                 <Firecard shopimg='/img/亞馬遜草.png' top="TOP 2" word="亞馬遜雨林的草"/>

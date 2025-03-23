@@ -1,0 +1,105 @@
+.card {
+    text-decoration: none;
+    width: calc( (100% - var(--margin-m)*2)/3);
+    background-color: var(--bg-shop-color);
+    margin: var(--margin-xs) 0px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 柔和的陰影 */
+}
+.card:hover{
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 滑鼠懸停時增加陰影，強調層次感 */
+    transform: translateY(-3px); /* 微微上移，營造浮起的感覺 */
+}
+.img_div{
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 讓圖片填滿容器，但保持比例 */
+}
+
+.content{
+    width: 100%;
+    padding: var(--margin-xs);
+    flex-grow: 1; /* 讓內容區域撐開，但不影響圖片 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.name{
+    color: var(--text-ttitle-color);
+    font-weight: 700;
+    font-size: var(--size-s);
+    word-wrap: break-word; /* 遇到長單詞自動換行 */
+    overflow-wrap: break-word; /* 讓長字串換行 */
+    white-space: normal; /* 允許換行 */
+    
+}
+
+.down{
+    margin-top: var(--margin-xs);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.h4{
+    color: var(--text-p-color);
+    font-size: var(--size-s);
+    font-weight: 500;
+}
+.icon_div{
+    display: flex;
+    gap: var(--margin-xs);
+}
+.icon{
+    color: var(--text-p-color);
+    cursor: pointer;
+}
+
+.icon:hover{
+    color: var(--text-ttitle-color);
+}
+
+
+@media (max-width: 992px) {
+    .card{
+        width: calc( (100% - 32px)/2);
+        background-color: var(--bg-shop-color);
+        height: auto;
+        margin: 1px 0px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    } 
+    .icon_div{
+        display: flex;
+        justify-content: right;
+        gap: 2px;
+    }
+    .content{
+        padding: 12px;
+
+    }
+     
+
+}
+@media (max-width: 690px) {
+    .card{
+        width: calc( (100% - 12px)/2);
+    } 
+
+}
+
+

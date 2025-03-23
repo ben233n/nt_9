@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "name": "嵐山的岩",
+        "text": "來自嵐山的天然岩石",
+        "price": 27990,
+        "category": "岩石",
+        "stock": 4,
+        "image": "/img/嵐山石.png",
+        "star": 4.5,
+        "like":980,
+        "reviews": 89,
+        "discount": 0
+      },
+      {
+        "id": 2,
+        "name": "亞馬遜雨林的草",
+        "text": "來自亞馬遜雨林的草",
+        "price": 299,
+        "category": "自然植物",
+        "stock": 245,
+        "image": "/img/亞馬遜草.png",
+        "star": 4.3,
+        "like":30,
+        "reviews": 89,
+        "discount": 0
+      },
+      {
+        "id": 3,
+        "name": "巴塔哥尼亞的岩石",
+        "text": "來自巴塔哥尼亞的岩石",
+        "price": 1816,
+        "category": "岩石",
+        "stock": 7,
+        "image": "/img/巴塔.png",
+        "star": 4.5,
+        "like":60,
+        "reviews": 89,
+        "discount": 0
+      },
+      {
+        "id": 4,
+        "name": "三葉草",
+        "text": "來自三葉草的三葉草",
+        "price": 799,
+        "category": "自然植物",
+        "stock": 120,
+        "image": "/img/巴塔.png",
+        "star": 4.8,
+        "like":210,
+        "reviews": 89,
+        "discount": 0
+      }
+]

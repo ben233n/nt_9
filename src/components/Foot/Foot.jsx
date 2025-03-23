@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Foot.module.css'
-import logo from '/svg/logo.svg'
 
 const Foot = () => {
   return (

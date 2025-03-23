@@ -1,0 +1,349 @@
+.bg{
+    padding:0px 0px var(--margin-big) 0px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+
+    gap: calc(var(--margin-s) * 2);
+}
+.choose{
+    width: calc(25% - var(--margin-s));
+}
+.h2{
+    font-weight: 700;
+    color: var(--text-ttitle-color);
+    margin: var(--margin-xs) 0px;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-small-color);
+}
+
+.div_classbtn{
+    display: flex;
+    flex-direction: column;
+    margin: var(--margin-xs) 0px;
+}
+.classbtn{
+    all: unset;
+    cursor: pointer; /* 讓它仍然像按鈕 */
+    color: var(--text-p-color);
+    font-weight: 500;
+    margin: 8px 0px;
+    font-size: var(--size-xs);
+}
+/* 按鈕點擊變色 */
+.active{
+    color: var(--bg-small-color);
+
+}
+
+
+
+.goods{
+    width: calc(75% - var(--margin-s));
+    display: flex;
+    flex-direction:column;
+}
+.goods_up{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goods_up_phone{
+    display: none;
+}
+
+.search_container{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.search_input{
+    all: unset;
+    width: 250px;
+    height: var(--margin-m);
+    background-color: var(--bg-shop-color);
+    border-radius: 5px;
+    border: 2px solid var(--bg-small-color);
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    color: var(--text-ttitle-color);
+    font-weight: 500;
+}
+
+.search_input::placeholder {
+    color: var(--text-p-color);
+    opacity: 1;  /* 確保顯示完全不透明 */
+}
+
+
+.magnifier{
+    position: absolute;
+    right: 4px;
+    color: var(--bg-small-color);
+    cursor: pointer;
+}
+/* 彈跳視窗遮罩 */
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 15;
+}
+/* 彈跳視窗 */
+.modal{
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bg-shop-color);
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 16;
+}
+/*彈跳視窗關閉按鈕  */
+.close_btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 17;
+    color: var(--text-p-color);
+}
+
+/* 彈跳視窗搜尋 */
+.phone_search_div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.phone_search{
+    all: unset;
+    height: var(--margin-m);
+    background-color: var(--bg-shop-color);
+    border-radius: 5px;
+    border: 1.5px solid var(--text-p-color);
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    color: var(--text-p-color);
+    font-weight: 500;
+    margin-top: 4px;
+}
+.money_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+}
+.price_input_phone{
+    all: unset;
+    height: var(--margin-m);
+    flex-grow: 1;
+    background-color: var(--bg-shop-color);
+    border-radius: 5px;
+    border: 1.5px solid var(--text-p-color);
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    color: var(--text-p-color);
+    font-weight: 500;
+    margin-top: 4px;
+}
+.price_line_phone{
+    width: 100%;
+    height: 1.5px;
+    background-color:  var(--text-p-color);
+    border-radius: 10px;
+    margin: var(--margin-xs) 0px;
+    display: flex;
+    position: relative;
+    top: calc(var(--margin-m) + 4px)  ;
+}
+/* 篩選結束按鈕 */
+.ok_btn{
+    background-color: var(--bg-small-color);
+    color: var(--text-block-color);
+    border: none;
+    width: 100%;
+    font-size: var(--margin-xs);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: var(--margin-m) 0px;
+    
+}
+.ok_btn:hover{
+    background-color: #576E61;
+}
+
+
+
+.phone_line{
+    width: 100%;
+    height: 1.5px;
+    background-color:  var(--text-p-color);
+    border-radius: 10px;
+    margin: var(--margin-xs) 0px;
+}
+
+
+.card_div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap:var(--margin-m);
+    margin: var(--margin-s) 0px;
+
+}
+
+
+.interval_div{
+    display: flex;
+    flex-direction: row;
+    margin: var(--margin-xs) 0px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    
+}
+.price_input_div{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+}
+.label{
+    color: var(--text-p-color);
+    font-weight: 500;
+    margin: 4px 0px;
+    font-size: var(--margin-xs);
+    
+}
+
+.price_input{
+    width: 100%;
+
+    all: unset;
+    height: var(--margin-m);
+    background-color: var(--bg-shop-color);
+    border-radius: 5px;
+    border: 2px solid var(--bg-small-color);
+    padding: 2px 8px;
+    font-size: 0.9rem;
+    color: var(--text-ttitle-color);
+    font-weight: 500;
+
+}
+
+.price_line{
+    position: relative;
+    top: var(--margin-xs);
+    height: 2px;
+    background-color: var(--bg-small-color);
+    flex-grow: 1; /* 讓中間的線條彈性縮放 */
+    max-width: var(--margin-s);
+}
+
+
+/* 手機 */
+@media (max-width: 690px) {
+    .choose{
+        display: none;
+    }
+    .goods{
+        width: 100%;
+    }
+    .goods_up{
+        display: none;
+    }
+    .line{
+        display: none;
+    }
+
+    .goods_up_phone{
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+        column-gap: var(--margin-m);
+
+    }
+    .check_div{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        gap: var(--margin-s); /* 設定內部間距 */
+    }
+    
+    .phonebtn{
+        all: unset;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        height: auto;
+        background-color: var(--bg-shop-color);
+        border-radius: 5px;
+        border: 2px solid var(--bg-small-color);
+        padding: 8px;
+        font-size: var(--margin-xs);
+        color: var(--text-ttitle-color);
+        font-weight: 500;
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M7 10l5 5 5-5z" fill="%23666"/></svg>');
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 24px;
+        padding-right: 30px; 
+        cursor: pointer;
+    }
+
+    .filter_btn {
+        background-color: var(--bg-small-color);
+        color: var(--text-block-color);
+        border: none;
+        width: 30%;
+        font-size: var(--margin-xs);
+        font-weight: 500;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+    .filter_btn:hover{
+        background-color: #576E61;
+    }
+
+    .card_div{
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: left;
+        row-gap: 0px;
+        gap: 12px;
+        height: auto;
+
+    
+    }
+
+
+}

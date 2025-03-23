@@ -25,14 +25,14 @@ html {
     font-size: 15px; 
   }
   .container{
-    max-width: 85%;
+    width: 85%;
   }
 }
 
 /* 手機 */
 @media (max-width: 576px) {
   html {
-    font-size: 14px; 
+    font-size: 14.5px; 
   }
   
   .container {

@@ -22,6 +22,8 @@
     height: 80px;
     cursor: pointer;
     width: auto;
+    color: var(--text-header-color);
+    transition: all 0.3s ease-in-out;
   
 }
 /* 修改svg面積部分fill */
@@ -68,13 +70,16 @@
 .shop{
     cursor: pointer;
     margin: 0px var(--margin-s);
+    color: var(--text-header-color);
 }
 .user{
     cursor: pointer;
+    color: var(--text-header-color);
 }
 .menu{
     cursor: pointer;
     display: none;
+    color: var(--text-header-color);
 }
 
 .icon{

@@ -91,7 +91,7 @@
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 370px) {
     .big_img{
         width: 100%;
         height: 100vh; /* 讓它填滿整個手機畫面高度 */
