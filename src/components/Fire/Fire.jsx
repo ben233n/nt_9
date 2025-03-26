@@ -3,6 +3,7 @@ import styles from './Fire.module.css'
 import Title from '../Title/Title'
 import Firecard from '../Firecard/Firecard'
 import { Link } from 'react-router'
+import data from '../../../public/json/store.json'
 const Fire = () => {
   return (
     <div className={styles.bg}>
@@ -26,8 +27,8 @@ const Fire = () => {
                     <Link to="/shop/"><button className={styles.btn}>前往商店</button></Link>
                     
                 </div>            
-                <Firecard shopimg='/img/嵐山石.png' top="TOP 1" word="嵐山的岩"/>
-                <Firecard shopimg='/img/亞馬遜草.png' top="TOP 2" word="亞馬遜雨林的草"/>
+                <Firecard shopimg={data[0].image} top="TOP 1" word={data[0].name}/>
+                <Firecard shopimg={data[1].image} top="TOP 2" word={data[1].name}/>
 
             </div>
         </div>
