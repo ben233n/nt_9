@@ -1,0 +1,194 @@
+.bg{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    padding: var(--margin-big) 0px;
+}
+
+.up{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: var(--margin-big);
+    align-items: stretch;
+
+}
+
+.img_div{
+    width: 60%;
+}
+.img {
+    width: 100%;
+    height: auto; /* 保持圖片比例 */
+    object-fit: cover; /* 讓圖片自動填充並且剪裁超出部分 */
+}
+
+.info{
+    width: 40%;
+    display: flex;
+    flex-direction:column;
+}
+.goods_name{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-m);
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    
+}
+.goods_size{
+    margin-top:var(--size-xs) ;
+    color: var(--text-p-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    text-align: left; /* 左對齊，避免過度拉伸 */
+    line-height: 1.2;
+}
+.line{
+    width: 100%;
+    height: 0.5px;
+    background-color: var(--text-p-color);
+    margin:var(--margin-xs) 0px;
+}
+.goods_text{
+    color: var(--text-p-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    text-align: left; /* 左對齊，避免過度拉伸 */
+    margin-bottom: var(--margin-big);
+    line-height: 2;
+
+}
+
+.goods_price{
+    color: var(--text-p-color);
+    font-size: var(--size-m);
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+
+}
+.price_and_like{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.like{
+    width: var(--margin-m);
+    height: var(--margin-m);
+    color: #576E61;
+    cursor: pointer;
+}
+.nolike{
+    width: var(--margin-m);
+    height: var(--margin-m);
+    color:var(--text-p-color);
+    cursor: pointer;
+}
+
+
+
+.how_many {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    background-color: var(--bg-shop-color);
+    margin: var(--margin-s) 0px;
+}
+
+.how_many_button {
+    width: calc(var(--margin-xs) * 3);
+    height: calc(var(--margin-xs) * 3);
+    border: 1px solid var(--text-p-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-p-color);
+    font-weight: 800;
+    font-size: var(--size-xs);
+    background-color: var(--bg-shop-color);
+    transition: all 0.3s ease-in-out;
+}
+.how_many_button:hover{
+    background-color:var(--btn-color);
+    color: var(--bg-color);
+    font-size: calc(var(--size-xs)*1.5);
+}
+  
+.value {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--text-p-color);
+    border-bottom: 1px solid var(--text-p-color);
+    justify-content: center;
+    flex: 1;
+    font-size: var(--size-xs);
+    font-weight: 500;
+    color: var(--text-p-color);
+}
+
+
+
+
+.buy{
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--bg-small-color);
+    display: flex;
+    justify-content: center;
+    color: var(--text-block-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    padding: var(--margin-xs) 0px;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+
+
+}
+.buy:hover{
+    letter-spacing: 0.5rem; 
+    background-color: #576E61;
+}
+.shopicon{
+    width: var(--size-s);
+    height: var(--size-s);
+    margin-right: var(--size-xs);
+}
+
+@media (max-width: 992px) {
+    .img_div{
+        width: 50%;
+    }
+    
+    .info{
+        width: 50%;
+    }
+
+}
+@media (max-width: 690px) {
+    .bg{
+        padding: var(--margin-xs) 0px;
+    }
+    .up{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        gap: var(--margin-big);
+        align-items: stretch;
+    
+    }
+    .img_div{
+        width: 100%;
+    }
+    
+    .info{
+        width: 100%;
+    }
+
+}

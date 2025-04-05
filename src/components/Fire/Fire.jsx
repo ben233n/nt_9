@@ -27,8 +27,8 @@ const Fire = () => {
                     <Link to="/shop/"><button className={styles.btn}>前往商店</button></Link>
                     
                 </div>            
-                <Firecard shopimg={data[0].image} top="TOP 1" word={data[0].name}/>
-                <Firecard shopimg={data[1].image} top="TOP 2" word={data[1].name}/>
+                <Firecard shopimg={data[0].image} top="TOP 1" word={data[0].name} link_name={"/shop/1"}/>
+                <Firecard shopimg={data[1].image} top="TOP 2" word={data[1].name} link_name={"/shop/2"}/>
 
             </div>
         </div>

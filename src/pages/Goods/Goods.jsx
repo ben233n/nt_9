@@ -22,7 +22,7 @@ const Goods = () => {
     <>
     <Head/>
     <Air/>
-    <Goodscard/>
+    <Goodscard name={goodsdata.name} text={goodsdata.text} price={goodsdata.price} img={goodsdata.image} photos={goodsdata.photos} size={goodsdata.size}/>
     <Foot/>
     </>
   )

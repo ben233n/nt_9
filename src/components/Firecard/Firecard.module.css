@@ -1,4 +1,6 @@
 .card{
+    color: inherit;
+    text-decoration: none;
     width: calc(33.33% - var(--margin-s)); /* 減掉 gap 的一半 */
     height: auto;
     text-align: center;

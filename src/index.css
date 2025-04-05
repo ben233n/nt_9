@@ -2,7 +2,7 @@
   /* ------------------ 顏色管理 ------------------ */
 
   /* 背景色 */
-  --bg-color:#d9dcdc;  
+  --bg-color:#e6ece9;  
   --bg-block-color:#576E61;
   --bg-small-color:#87a194;
   --bg-shop-color:#e8eae9;
@@ -10,7 +10,7 @@
 
   /* 文字顏色 */
   --text-header-color:#3D4341;
-  --text-block-color:#d5dad9;
+  --text-block-color:#e6ece9;
   --text-ttitle-color:#576E61;
   --text-p-color:#737675;
 
