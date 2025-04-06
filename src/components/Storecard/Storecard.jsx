@@ -3,10 +3,10 @@ import styles from './Storecard.module.css'
 import Love from '../../assets/svg/love.svg?react';
 import Car from '../../assets/svg/itemshopcar.svg?react';
 import { Link } from 'react-router';
-const Storecard = ({name,price,image,itemid}) => {
+const Storecard = ({name,price,image,itemid,isone}) => {
   return (
     <>
-        <Link to={`/shop/${itemid}`} className={styles.card}>
+        <Link to={`/shop/${itemid}`} className={isone?styles.one_card:styles.card}>
             <div className={styles.img_div}>
                 <img src={image} alt="" className={styles.img}/>
             </div>

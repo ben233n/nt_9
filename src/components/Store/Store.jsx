@@ -191,7 +191,7 @@ const Store = () => {
                 storeFind.length>0?(
                   storeFind.map((goodsitem)=>(
                     <>
-                      <Storecard key={goodsitem.id} itemid={goodsitem.id} name={goodsitem.name} price={goodsitem.price} image={goodsitem.image}/>
+                      <Storecard key={goodsitem.id} isone={false} itemid={goodsitem.id} name={goodsitem.name} price={goodsitem.price} image={goodsitem.image}/>
                     </>
                   )
                   )

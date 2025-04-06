@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Goodscard.module.css'
 import Carouselgoods from '../Carouselgoods/Carouselgoods';
 import Shopicon from '../../assets/svg/shop.svg?react';
 import Love from '../../assets/svg/love.svg?react';
+import Storecard from '../Storecard/Storecard';
+import { map } from 'motion/react-client';
+import Message from '../Message/Message';
 
-const Goodscard = ({name,text,price,photos,size}) => {
+const Goodscard = ({name,text,price,photos,size,category}) => {
+    const [data, setData] = useState([]); // 存放商品資料
+    const [loading, setLoading] = useState(true); // 是否正在載入
+    const [error, setError] = useState(null); // 錯誤訊息
+
     const [numbang,SetNumBang]=useState(1);
     const [islove,SetLove]=useState(false);
     const subtraction=()=>{
@@ -16,6 +23,26 @@ const Goodscard = ({name,text,price,photos,size}) => {
     const bangColor=()=>{
         SetLove(!islove);
     }
+
+    useEffect(() => {
+        fetch("/json/store.json") // 從 public/json/store.json 載入
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("無法載入商品資料");
+            }
+            return res.json();
+          })
+          .then((json) => {
+            setData(json);
+            setLoading(false);
+          })
+          .catch((err) => {
+            setError(err.message);
+            setLoading(false);
+          });
+      }, []);
+
+      const product = data.find(item => item.name === name);//尋找我商品的留言用的
     
   return (
     <>
@@ -57,7 +84,38 @@ const Goodscard = ({name,text,price,photos,size}) => {
                     
                 </div>
                 <div className={styles.down}>
+                    {/* 留言區在左邊 */}
+                    <div className={styles.message_div}>
+                        <h2 className={styles.h2}>顧客評價</h2>
+                        <div className={styles.down_line}></div>
+                        <div className={styles.message}>
+                            {
+                                product?.message?.map(item=>(
+                                    <Message date={item.date} usename={item.usename} ueshead={item.head} star={item.star} speak={item.speak}/>
+                                ))
+                            }
+                            
+                            
+                        </div>
+                    </div>
+                    {/* 推薦商品在右邊 */}
+                    <div className={styles.advise}>
+                        <h2 className={styles.h2}>類似商品</h2>
+                        <div className={styles.down_line}></div>
+                        <div className={styles.storecard_div}>
+                            {
+                                data.filter(item=>
+                                    item.category===category && item.name!=name
+                                ).slice(0, 3).map(item=>(
+                                    <Storecard key={item.id} isone={true} name={item.name} price={item.price} image={item.image} itemid={item.id}/>
+                                ))
+                            }
+                        </div>
 
+                        
+                        
+                        
+                    </div>
                 </div>
             </div>
         </div>

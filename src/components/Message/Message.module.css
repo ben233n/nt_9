@@ -1,0 +1,74 @@
+.bg{
+    width: 100%;
+    padding: var(--margin-xs);
+    background-color: var(--bg-shop-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 柔和的陰影 */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+}
+.up{
+    display: flex;
+    flex-direction: row;
+    gap: var(--margin-xs);
+
+}
+.head_div{
+    width: calc(var(--margin-xs)*3) ;
+    height: calc(var(--margin-xs)*3);
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center; 
+    align-items: center;
+}
+
+.head {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.name_and_date{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    font-size: var(--size-s);
+    color: var(--text-header-color);
+    font-weight: 700;
+}
+.date{
+    font-size: var(--size-xs);
+    color: var(--text-header-color);
+    font-weight: 500;
+}
+
+
+
+.star_icon{
+    color: var(--text-ttitle-color);
+    width: var(--size-s);
+    height:var(--size-s) ;
+}
+.star_no_icon{
+    color: var(--text-ttitle-color);
+    opacity: 0.3;
+    width: var(--size-s);
+    height:var(--size-s) ;
+}
+
+.speak{
+    font-size: var(--size-xs);
+    font-weight: 500;
+    color: var(--text-p-color);
+    overflow-wrap: break-word;
+    white-space: normal; /* 允許多行顯示 */
+    width: auto;
+    flex: 1; /* 讓留言區域自適應可用空間 */
+    word-break: break-word; /* 讓長文字換行 */
+    
+    letter-spacing: 0.1rem; /* 調小字距，提升可讀性 */
+    text-align: left; /* 左對齊，避免過度拉伸 */
+    line-height: 1.5;
+}

@@ -12,7 +12,23 @@
         "reviews": 89,
         "discount": 0,
         "size":"L13cm x W20cm x H18cm",
-        "photos":["/img/嵐山石.png","/img/嵐山石2.jpg"]
+        "photos":["/img/嵐山石.png","/img/嵐山石2.jpg"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "Xavier",
+            "speak":"幹，太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧幹，太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧幹，太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧幹，太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧太屌了吧",
+            "star":5,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "偷椅子",
+            "speak":"狗都不住saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "star":1,
+            "date":"2025/2/30"
+          }
+        ]
       },
       {
         "id": 2,
@@ -27,7 +43,23 @@
         "reviews": 89,
         "discount": 0,
         "size":"L0.15cm x W4.5cm x H1cm",
-        "photos":["/img/亞馬遜草.png","/img/亞馬遜草.png"]
+        "photos":["/img/亞馬遜草.png","/img/亞馬遜草.png"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "Xavier",
+            "speak":"幹，太屌了吧",
+            "star":5,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "偷椅子",
+            "speak":"狗都不住",
+            "star":1,
+            "date":"2025/2/30"
+          }
+        ]
       },
       {
         "id": 3,
@@ -42,7 +74,23 @@
         "reviews": 89,
         "discount": 0,
         "size":"L15cm x W27cm x H25cm",
-        "photos":["/img/巴塔.png","/img/巴塔.png"]
+        "photos":["/img/巴塔.png","/img/巴塔.png"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "Xavier",
+            "speak":"幹，太屌了吧",
+            "star":5,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "偷椅子",
+            "speak":"狗都不住",
+            "star":1,
+            "date":"2025/2/30"
+          }
+        ]
       },
       {
         "id": 4,
@@ -57,6 +105,22 @@
         "reviews": 89,
         "discount": 0,
         "size":"L0.15cm x W3.5cm x H3.5cm",
-        "photos":["/img/幸運草草草.jpg","/img/幸運草.jpg","/img/幸運草草.jpg","/img/幸運草草草.jpg"]
+        "photos":["/img/幸運草草草.jpg","/img/幸運草.jpg","/img/幸運草草.jpg","/img/幸運草草草.jpg"],
+        "message" :[
+          {
+            "head":"/img/幸運草草草.jpg",
+            "usename": "Xavier",
+            "speak":"幹，太屌了吧",
+            "star":5,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "偷椅子",
+            "speak":"狗都不住",
+            "star":1,
+            "date":"2025/2/30"
+          }
+        ]
       }
 ]
