@@ -6,11 +6,13 @@ import Shop from './pages/Shop/Shop'
 import { useLocation } from "react-router-dom";
 import Goods from "./pages/Goods/Goods";
 import Cartpage from "./pages/Cartpage/Cartpage";
-
+import { motion } from 'framer-motion';
+import Sun from './assets/svg/sun.svg?react';
+import Moon from './assets/svg/moon.svg?react';
+import Head from "./components/Head/Head";
 
 function App() {
   const [theme, setTheme] = useState("light");
-
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
@@ -22,17 +24,29 @@ function App() {
 
   return (
     <>
+     <Head/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/shop' element={<Shop/>}/>
         <Route path="/shop/:id" element={<Goods/>}/>
         <Route path="/cart" element={<Cartpage/>}/>
       </Routes>
-      <div className='aaa'>
-            <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
-                {theme === "light" ? "暗色" : "亮色"} 
-            </button>
-      </div>
+
+
+      <motion.div 
+       className="dark_light"
+       animate={{rotateY:theme === "light" ? 0 :180}}
+       transition={{
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+      }}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+        {
+          theme === "light" ?<Sun className='sun'/>:<Moon className='sun'/>
+        }
+
+      </motion.div>
     </>
   )
 }

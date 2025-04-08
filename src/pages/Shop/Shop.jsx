@@ -7,7 +7,6 @@ import Store from '../../components/Store/Store'
 const Shop = () => {
   return (
     <>
-        <Head/>
         <Air/>
         <Store/>
         <Foot/>

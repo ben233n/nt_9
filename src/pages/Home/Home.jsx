@@ -11,7 +11,6 @@ const Home = () => {
 
   return (
     <>
-        <Head/>
         <Big/>
         <Hope/>
         <Fire/>

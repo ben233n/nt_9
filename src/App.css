@@ -12,6 +12,27 @@ a {
   color: inherit;
 }
 
+.dark_light {
+  position: fixed;
+  right: var(--margin-xs);
+  bottom: var(--margin-xs);
+  background-color: var(--bg-shop-color);
+  z-index: 6;
+  border-radius: 50%;
+  width: calc(var(--margin-s)*2);
+  height: calc(var(--margin-s)*2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  cursor: pointer;
+
+}
+.sun{
+  color: var(--text-header-color);
+}
+
+
 
 @media (max-width:1200px){
   html{

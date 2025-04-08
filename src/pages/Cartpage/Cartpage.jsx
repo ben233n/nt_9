@@ -10,7 +10,6 @@ const Cartpage = () => {
     const isMobile = useMediaQuery({ maxWidth: 690 });
   return (
     <>
-        <Head/>
         <Air/>
         <Cartinside/>
         {!isMobile && <Foot/>}
