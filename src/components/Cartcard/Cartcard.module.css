@@ -1,0 +1,159 @@
+.bg{
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-shop-color);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 柔和的陰影 */
+    border-radius: 5px;
+    padding: var(--margin-xs);
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    gap: var(--margin-xs);
+    position: relative;
+}
+
+.img_div{
+    width: calc(var(--margin-s)*4) ;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 5px;
+    
+
+}
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.name{
+    color: var(--text-ttitle-color);
+    font-weight: 700;
+    font-size: var(--size-s);
+    word-wrap: break-word; /* 遇到長單詞自動換行 */
+    overflow-wrap: break-word; /* 讓長字串換行 */
+    white-space: normal; /* 允許換行 */
+}
+
+.price_and_num{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.price{
+    color: var(--text-p-color);
+    font-size: var(--size-s);
+    font-weight: 500;
+}
+
+
+.how_many {
+    display: flex;
+
+    background-color: var(--bg-shop-color);
+}
+
+.how_many_button {
+    width: calc(var(--margin-xs) * 2);
+    height: calc(var(--margin-xs) * 2);
+    border: 1px solid var(--text-p-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-p-color);
+    font-weight: 800;
+    font-size: var(--size-xs);
+    background-color: var(--bg-shop-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.how_many_button:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.how_many_button:nth-child(3) {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+.how_many_button:hover{
+    background-color:var(--btn-color);
+    color: var(--bg-color);
+    font-size: calc(var(--size-xs)*1.2);
+}
+  
+.value {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--text-p-color);
+    border-bottom: 1px solid var(--text-p-color);
+    justify-content: center;
+    width: var(--margin-big);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    color: var(--text-p-color);
+    text-align:center;
+    background-color: var(--bg-shop-color);
+
+}
+
+.close_btn{
+    position: absolute;
+    top: var(--margin-xs);
+    right: var(--margin-xs);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 5;
+    color: var(--text-p-color);
+}
+
+
+@media (max-width: 992px) {
+    .bg{
+        justify-content: space-between;
+        padding: calc(var(--margin-s)/2) ;
+
+    }
+    .img_div{
+        width: var(--margin-big);
+
+    }
+    .name{
+        color: var(--text-ttitle-color);
+        font-weight: 700;
+        font-size: var(--size-s);
+        word-wrap: break-word; /* 遇到長單詞自動換行 */
+        overflow-wrap: break-word; /* 讓長字串換行 */
+        white-space: normal; /* 允許換行 */
+        margin: 0px 0px 12px 0px;
+    }
+    .how_many_button {
+        width: calc(var(--margin-s) );
+        height: calc(var(--margin-s) );
+        border: 1px solid var(--text-p-color);
+
+    }
+    .value {
+        width: calc(var(--margin-s)*2) ;
+
+    
+    }
+    .close_btn{
+        top: calc(var(--margin-xs)/3);
+        right: calc(var(--margin-s)/2);
+
+    }
+
+}

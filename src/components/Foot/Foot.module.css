@@ -22,7 +22,7 @@
     height: 80px;
     cursor: pointer;
     width: auto;
-  
+    color: var(--text-block-color);
 }
 
 .dividing_line{
@@ -51,6 +51,7 @@
     margin-right:  var(--margin-s);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    color: var(--text-block-color);
 
 }
 .icon path{

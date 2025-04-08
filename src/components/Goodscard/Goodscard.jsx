@@ -4,25 +4,56 @@ import Carouselgoods from '../Carouselgoods/Carouselgoods';
 import Shopicon from '../../assets/svg/shop.svg?react';
 import Love from '../../assets/svg/love.svg?react';
 import Storecard from '../Storecard/Storecard';
-import { map } from 'motion/react-client';
 import Message from '../Message/Message';
+import { useDispatch } from 'react-redux';
+import {addItems} from '../../redux/cartSlice'
+import { useSelector } from 'react-redux';
 
-const Goodscard = ({name,text,price,photos,size,category}) => {
+const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
+    const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
     const [data, setData] = useState([]); // 存放商品資料
     const [loading, setLoading] = useState(true); // 是否正在載入
     const [error, setError] = useState(null); // 錯誤訊息
 
     const [numbang,SetNumBang]=useState(1);
     const [islove,SetLove]=useState(false);
+
+    const dispatch = useDispatch(); // 初始化 dispatch 來執行 action
+
     const subtraction=()=>{
         SetNumBang(numbang>1?numbang-1:numbang);
     }
     const add=()=>{
         SetNumBang(numbang+1);
+    
     }
+    const handleChange = (e) => {
+        const value = parseInt(e.target.value, 10);
+        if (!isNaN(value) && value >= 0) {
+            SetNumBang(value);
+        } else {
+            SetNumBang('');
+        }
+    }
+
+
+
     const bangColor=()=>{
         SetLove(!islove);
     }
+
+    const buyGoods=()=>{
+        const item = {
+            name: name,  // 商品名稱
+            image: image,    // 商品圖片
+            price:price,
+            num:numbang,
+            goodsid:goodsid,
+
+          };
+        dispatch(addItems(item));
+    }
+
 
     useEffect(() => {
         fetch("/json/store.json") // 從 public/json/store.json 載入
@@ -69,11 +100,17 @@ const Goodscard = ({name,text,price,photos,size,category}) => {
                         {/* 加減商品數量 */}
                         <div className={styles.how_many}> {/* 包住按鈕與數字顯示的區塊 */}
                           <button className={styles.how_many_button} onClick={subtraction}>−</button> {/* 減號按鈕 */}
-                          <p className={styles.value}>{numbang}</p> {/* 顯示目前數量 */}
+                          <input
+                           type="number"
+                           className={styles.value} // 原本 p 的樣式也可應用在 input 上，或微調
+                           value={numbang}
+                           onChange={handleChange}
+                           min="0"
+                         />
                           <button className={styles.how_many_button} onClick={add}>＋</button> {/* 加號按鈕 */}
                         </div>
 
-                        <button className={styles.buy}> 
+                        <button className={styles.buy} onClick={buyGoods}> 
                         <Shopicon className={styles.shopicon}/>
                         <p>加入購物車</p>
                         </button>
@@ -91,11 +128,9 @@ const Goodscard = ({name,text,price,photos,size,category}) => {
                         <div className={styles.message}>
                             {
                                 product?.message?.map(item=>(
-                                    <Message date={item.date} usename={item.usename} ueshead={item.head} star={item.star} speak={item.speak}/>
+                                    <Message key={item.id} date={item.date} usename={item.usename} ueshead={item.head} star={item.star} speak={item.speak}/>
                                 ))
-                            }
-                            
-                            
+                            }                            
                         </div>
                     </div>
                     {/* 推薦商品在右邊 */}

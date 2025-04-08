@@ -129,6 +129,9 @@
     font-size: var(--size-xs);
     font-weight: 500;
     color: var(--text-p-color);
+    text-align:center;
+    background-color: var(--bg-shop-color);
+
 }
 
 

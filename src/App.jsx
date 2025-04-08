@@ -5,6 +5,7 @@ import { Route, Routes, Link } from 'react-router'
 import Shop from './pages/Shop/Shop'
 import { useLocation } from "react-router-dom";
 import Goods from "./pages/Goods/Goods";
+import Cartpage from "./pages/Cartpage/Cartpage";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/shop' element={<Shop/>}/>
         <Route path="/shop/:id" element={<Goods/>}/>
+        <Route path="/cart" element={<Cartpage/>}/>
       </Routes>
       <div className='aaa'>
             <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>

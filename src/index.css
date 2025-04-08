@@ -2,7 +2,7 @@
   /* ------------------ 顏色管理 ------------------ */
 
   /* 背景色 */
-  --bg-color:#e6ece9;  
+  --bg-color:#e2e5e4;  
   --bg-block-color:#576E61;
   --bg-small-color:#87a194;
   --bg-shop-color:#e8eae9;
@@ -75,7 +75,20 @@ html[data-theme='dark']{
 }
 
 
-
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
+input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
 
 html{
   box-sizing: border-box;
@@ -97,6 +110,16 @@ body{
 
 }
 
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  -webkit-user-drag: none; /* 禁止拖拉圖片 */
+  pointer-events: auto; /* 若要保留點擊功能 */
+}
+
 .aaa {
   position: fixed;
   right: 20px;
@@ -105,5 +128,5 @@ body{
   padding: 5px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 9;
+  z-index: 6;
 }
