@@ -117,7 +117,7 @@
     .icon_div{
         display: flex;
         justify-content: right;
-        gap: 2px;
+        gap: 12px;
     }
     .content{
         padding: 12px;
@@ -138,6 +138,17 @@
         transition: all 0.3s ease-in-out;
         cursor: pointer;
     } 
+
+    
+
+}
+
+@media (max-width: 370px) {
+
+    .icon_div{
+        gap: 6px;
+    }
+    
 
 }
 

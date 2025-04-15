@@ -10,7 +10,7 @@
 
   /* 文字顏色 */
   --text-header-color:#3D4341;
-  --text-block-color:#e6ece9;
+  --text-block-color:#e2e5e4;
   --text-ttitle-color:#576E61;
   --text-p-color:#737675;
 
@@ -72,7 +72,11 @@ html[data-theme='dark']{
   --btn-color:#d2d7d4;
   /* 訂閱方案半透明顏色變化 */
   --plan-color:rgba(61, 67, 65, 0.6);
+
 }
+
+
+
 
 
 input[type=number]::-webkit-inner-spin-button,

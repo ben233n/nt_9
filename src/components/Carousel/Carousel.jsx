@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect, useRef } from "react";
 import styles from './Carousel.module.css'
 import { motion } from "motion/react"
+import { DownLook } from '../Anime';
 
 const images=[
     {src:'/img/幸運草草草.jpg',id:'1'},{src:'/img/幸運草草.jpg', id:'2'},{src:'/img/幸運草.jpg',id:'3'}
@@ -28,10 +29,10 @@ useEffect(() => {
 
 
   return (
-    <div className={styles.carousel} ref={controlsRef}> {/* ref是讓controlsRef 找到這個容器 */}
+    <motion.div className={styles.carousel} ref={controlsRef} > {/* ref是讓controlsRef 找到這個容器 */}
       
       {/* 圖片區域，使用 motion 添加淡入淡出的動畫 */}
-      <div className={styles.image}>
+      <div className={styles.image} >
             <motion.img
               key={images[selected].id}
               src={images[selected].src} 
@@ -60,7 +61,7 @@ useEffect(() => {
           />
         ))}
       </div>
-    </div>
+    </motion.div>
 
   )
   

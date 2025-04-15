@@ -68,7 +68,7 @@ const Cartinside = () => {
                         <div className={styles.phone_total}>
                             <div className={styles.phone_total_info}>
                                 <p className={styles.phone_total_p} onClick={()=>setShowModal(true)}>明細</p>
-                                <h4 className={styles.total_h4}>總計 ${moneyTotal+1200}</h4>
+                                <h4 className={styles.total_h4}>總計 ${cartitems.length>0?moneyTotal+1200:moneyTotal}</h4>
                             </div>
                             <button className={styles.phone_buy}> 前往買單</button>
                         </div>

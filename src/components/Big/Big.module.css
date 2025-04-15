@@ -3,7 +3,11 @@
     width: 100%;
     height: 100vh;
     background: url('/img/big.jpeg') center/cover no-repeat;
+    overflow: hidden;
 }
+
+
+
 
 .big_img::before {
     content: "";
@@ -16,15 +20,20 @@
     opacity: 0.3;
 }
 
-.big_img::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top,#1f231f 0% ,#1f231f3d 20% ,#93ab9e6c 100% );
-    opacity: 0.8;
+.big_img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    #0e120e 0%,      
+    #2b2e2b55 25%,    
+    #5a7d6e66 100%    
+  );
+  opacity: 0.85; 
 }
 
 .container{
@@ -66,6 +75,68 @@
     color: #576E61;
     font-weight:400;
 }
+.fogLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  z-index: 1; /* 位於字下方、背景上方 */
+  pointer-events: none; /* 不要擋住點擊 */
+  overflow: hidden;
+}
+
+.fog {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: cover;
+  opacity: 0.8;
+  animation: fogMove 30s linear infinite;
+  filter: blur(4px);
+}
+
+.fog1 {
+  background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
+  animation-duration: 30s;
+  
+}
+
+.fog2 {
+  background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
+  top: 20px;
+  opacity: 0.25;
+  animation-duration: 60s;
+  animation-direction: reverse;
+  filter: 
+  grayscale(0.8)        /* 變黑白，讓色彩更集中 */
+  brightness(0.4)       /* 降低亮度，讓霧變暗沉 */
+  contrast(1.5)         /* 提高對比，強化層次感 */
+  saturate(0.6)         /* 降低飽和度，霧看起來更冷冽 */
+  hue-rotate(-20deg)    /* 讓霧偏冷色調（灰綠） */
+  blur(3px);            /* 模糊度視需求調整 */
+
+}
+
+.fog3 {
+  background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
+  top: 40px;
+  opacity: 0.2;
+  animation-duration: 90s;
+}
+
+@keyframes fogMove {
+  0% {
+      transform: translateX(0%);
+  }
+  100% {
+      transform: translateX(-50%);
+  }
+}
+
+
 
   /* 手機 */
 @media (max-width: 576px) {
