@@ -5,14 +5,14 @@ export const FadeIn = {
   initial: { opacity: 0 }, // 初始透明
   whileInView: { opacity: 1 }, // 當進入畫面時變成不透明
   transition: { duration: 0.6, delay: 0 , ease: "easeInOut"}, // 動畫時間與延遲
-  viewport: { once: false, amount: 0.3 }, // 每次都觸發，當元素約有 30% 進入畫面
+  viewport: { once: false, amount: 0.8 }, // 每次都觸發，當元素約有 30% 進入畫面
 };
 
 export const FadeInBangBig = {
   initial:{opacity: 0, scale: 0.8 },
   whileInView:{ opacity: 1, scale: 1 },
   transition:{ duration: 0.8, ease: "easeInOut" },
-  viewport:{ once: false, amount: 0.3 }
+  viewport:{ once: false, amount: 0.8 }
 };
 
 // 由下往上慢滑出來

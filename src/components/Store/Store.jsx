@@ -7,6 +7,7 @@ import Magnifier from '../../assets/svg/magnifier.svg?react';
 import styles from './Store.module.css';
 import Storecard from '../Storecard/Storecard';
 import Title from '../Title/Title';
+import { DownLook } from '../Anime';
 
 
 const categorBtn = ["全部", "自然植物", "沙子土壤", "水資源", "岩石", "空氣"];
@@ -27,6 +28,8 @@ const Store = () => {
 
   //彈跳視窗
   const [showModal, setShowModal] = useState(false); 
+
+  
 
   useEffect(() => {
     fetch("/json/store.json") // 從 public/json/store.json 載入
@@ -68,7 +71,7 @@ const Store = () => {
     <>
       <Ad/>
       <div className={styles.bg}>
-        <div className={`${styles.container} container`}>
+        <motion.div className={`${styles.container} container`} {...DownLook}>
           <div className={styles.choose}>
             <h2 className={styles.h2}>商品分類</h2>
             <div className={styles.line}></div>
@@ -186,7 +189,14 @@ const Store = () => {
             </div>
             
             <div className={styles.line}></div>
-            <div className={styles.card_div}>
+            <motion.div 
+              className={styles.card_div}
+              key={storeCategory + search + minPrice + maxPrice} // 觸發動畫更新
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
               {
                 storeFind.length>0?(
                   storeFind.map((goodsitem)=>(
@@ -199,9 +209,9 @@ const Store = () => {
                   <p className={styles.label} style={{width:'100%',textAlignLast:'center'}}>找不到相關商品</p>
                 )
               }
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   )

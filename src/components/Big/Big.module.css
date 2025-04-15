@@ -29,11 +29,12 @@
   height: 100%;
   background: linear-gradient(
     to top,
-    #0e120e 0%,      
-    #2b2e2b55 25%,    
+    #000000 0%,      
+    #16181655 35%,    
     #5a7d6e66 100%    
   );
-  opacity: 0.85; 
+  mix-blend-mode:multiply;
+  opacity: 0.6; 
 }
 
 .container{
@@ -84,7 +85,10 @@
   z-index: 1; /* 位於字下方、背景上方 */
   pointer-events: none; /* 不要擋住點擊 */
   overflow: hidden;
+  mix-blend-mode:exclusion;
+  
 }
+
 
 .fog {
   position: absolute;
@@ -94,13 +98,19 @@
   background-repeat: repeat-x;
   background-size: cover;
   opacity: 0.8;
-  animation: fogMove 30s linear infinite;
-  filter: blur(4px);
+  animation: fogMove 20s linear infinite;
+  
+  
+  filter: 
+
+  brightness(0.6)       /* 降低亮度，讓霧變暗沉 */
+  drop-shadow(16px 16px 20px #005b26) 
+  blur(4px)          /* 模糊度視需求調整 */
 }
 
 .fog1 {
   background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
-  animation-duration: 30s;
+  animation-duration: 20s;
   
 }
 
@@ -108,15 +118,10 @@
   background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
   top: 20px;
   opacity: 0.25;
-  animation-duration: 60s;
+  animation-duration: 40s;
   animation-direction: reverse;
-  filter: 
-  grayscale(0.8)        /* 變黑白，讓色彩更集中 */
-  brightness(0.4)       /* 降低亮度，讓霧變暗沉 */
-  contrast(1.5)         /* 提高對比，強化層次感 */
-  saturate(0.6)         /* 降低飽和度，霧看起來更冷冽 */
-  hue-rotate(-20deg)    /* 讓霧偏冷色調（灰綠） */
-  blur(3px);            /* 模糊度視需求調整 */
+  
+  
 
 }
 
@@ -124,17 +129,26 @@
   background-image: url("https://64.media.tumblr.com/224f9198d5d88a5e92e43f5ef4f7a592/139ff9bb70edd708-66/s540x810/0edbf6d586b6b4c85c5bd61569992f036c21191b.png");
   top: 40px;
   opacity: 0.2;
-  animation-duration: 90s;
+  animation-duration: 80s;
+  
 }
 
 @keyframes fogMove {
-  0% {
+    0% {
       transform: translateX(0%);
-  }
-  100% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 0.7;
+    }
+    90% {
+      opacity: 0.7;
+    }
+    100% {
       transform: translateX(-50%);
+      opacity: 0;
+    }
   }
-}
 
 
 

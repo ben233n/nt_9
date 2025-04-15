@@ -5,6 +5,7 @@ import Car from '../../assets/svg/itemshopcar.svg?react';
 import { Link, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import {addItems} from '../../redux/cartSlice'
+import { motion } from "motion/react"
 
 const Storecard = ({name,price,image,itemid,isone}) => {
     const dispatch=useDispatch();

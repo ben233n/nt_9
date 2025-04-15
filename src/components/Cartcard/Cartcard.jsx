@@ -3,7 +3,7 @@ import styles from './Cartcard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartsub, cartadd,updateQuantity,removeItem } from '../../redux/cartSlice';
 
-const Cartcard = ({name,num,image,price,idnum}) => {
+const Cartcard = ({name,num,image,price,idnum,onRemove}) => {
   const dispatch=useDispatch();
 
   const subtraction=()=>{
@@ -13,6 +13,8 @@ const Cartcard = ({name,num,image,price,idnum}) => {
       dispatch(cartadd({name}));
 
   }
+
+
   const handleChange = (e) => {
     const value = parseInt(e.target.value, 10);
     if (!isNaN(value) && value >= 0) {
@@ -20,6 +22,7 @@ const Cartcard = ({name,num,image,price,idnum}) => {
     }
   }
   const remove=()=>{
+    onRemove(); // 不直接 dispatch，交給父層控制 timing
     dispatch(removeItem({name}));
   }
 

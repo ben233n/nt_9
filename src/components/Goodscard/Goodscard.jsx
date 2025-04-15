@@ -8,6 +8,8 @@ import Message from '../Message/Message';
 import { useDispatch } from 'react-redux';
 import {addItems} from '../../redux/cartSlice'
 import { useSelector } from 'react-redux';
+import { motion } from "motion/react"
+import { DownLook, LeftLook } from '../Anime';
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
@@ -80,11 +82,11 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
         <div className={styles.bg}>
             <div className={`${styles.container} container`}>
                 {/* 分成上下兩區，上面圖片和資訊，下面評論 */}
-                <div className={styles.up}>
+                <motion.div className={styles.up} {...DownLook}>
                     <div className={styles.img_div}>
                         <Carouselgoods photos={photos}/>
                     </div>
-                    <div className={styles.info}>
+                    <motion.div className={styles.info} {...LeftLook}>
                         {/* 商品名稱 */}
                         <h2 className={styles.goods_name}>{name}</h2>
                         <p className={styles.goods_size}>尺寸：約{size}</p>
@@ -116,11 +118,11 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         </button>
 
 
-                    </div>
+                    </motion.div>
 
                     
-                </div>
-                <div className={styles.down}>
+                </motion.div>
+                <motion.div className={styles.down} {...DownLook}>
                     {/* 留言區在左邊 */}
                     <div className={styles.message_div}>
                         <h2 className={styles.h2}>顧客評價</h2>
@@ -151,7 +153,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         
                         
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     </>
