@@ -120,6 +120,7 @@
 }
   
 .value {
+    all: unset;
     display: flex;
     align-items: center;
     border-top: 1px solid var(--text-p-color);
@@ -131,6 +132,7 @@
     color: var(--text-p-color);
     text-align:center;
     background-color: var(--bg-shop-color);
+
 
 }
 

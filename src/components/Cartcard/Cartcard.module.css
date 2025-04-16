@@ -93,6 +93,7 @@
 }
   
 .value {
+    all: unset;
     display: flex;
     align-items: center;
     border-top: 1px solid var(--text-p-color);
@@ -115,7 +116,7 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    z-index: 5;
+    z-index: 4;
     color: var(--text-p-color);
 }
 

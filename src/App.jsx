@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import Sun from './assets/svg/sun.svg?react';
 import Moon from './assets/svg/moon.svg?react';
 import Head from "./components/Head/Head";
+import Blog from "./pages/Blog/Blog";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -30,6 +31,7 @@ function App() {
         <Route path='/shop' element={<Shop/>}/>
         <Route path="/shop/:id" element={<Goods/>}/>
         <Route path="/cart" element={<Cartpage/>}/>
+        <Route path="/blog" element={<Blog/>}/>
       </Routes>
 
 

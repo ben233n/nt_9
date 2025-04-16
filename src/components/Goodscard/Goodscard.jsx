@@ -10,6 +10,8 @@ import {addItems} from '../../redux/cartSlice'
 import { useSelector } from 'react-redux';
 import { motion } from "motion/react"
 import { DownLook, LeftLook } from '../Anime';
+import { useMediaQuery } from "react-responsive";
+
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
@@ -56,6 +58,8 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
         dispatch(addItems(item));
     }
 
+    const isMobile = useMediaQuery({ maxWidth: 690 });
+
 
     useEffect(() => {
         fetch("/json/store.json") // 從 public/json/store.json 載入
@@ -86,7 +90,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                     <div className={styles.img_div}>
                         <Carouselgoods photos={photos}/>
                     </div>
-                    <motion.div className={styles.info} {...LeftLook}>
+                    <motion.div className={styles.info} {...!isMobile ? LeftLook : {}}>
                         {/* 商品名稱 */}
                         <h2 className={styles.goods_name}>{name}</h2>
                         <p className={styles.goods_size}>尺寸：約{size}</p>

@@ -1,0 +1,85 @@
+.Container{
+    width: 100%;
+    aspect-ratio: 4 / 1; /* ✅ 這一行搞定一切 */
+    overflow: hidden;
+}
+
+
+.mySwiper {
+    width: 100%;
+    aspect-ratio: 4 / 1; /* ✅ 這一行搞定一切 */
+    position: relative;
+}
+.mySwiper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--img-color);
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.swiperSlide {
+    text-align: center;
+    font-size: 25px;   
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: #e2e5e4;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.5;
+  
+}
+
+
+:global(.swiper-button-next:hover),
+:global(.swiper-button-prev:hover) {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* 箭頭大小 */
+:global(.swiper-button-next::after),
+:global(.swiper-button-prev::after) {
+    font-size: var(--size-m);       /* 變大 */
+  font-weight: bold;     /* 變粗 */
+  display: block;
+  line-height: 1;
+}
+
+/* === Pagination 點點樣式 === */
+:global(.swiper-pagination-bullet) {
+  width: 16px;
+  height: 16px;
+  background-color: #e2e5e4; /* 石頭灰 */
+  border-radius: 50%;
+  opacity: 0.6;
+  margin: 0 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: var(--text-ttitle-color); /* 青苔綠 */
+  transform: scale(1.2);
+  box-shadow: 0 0 6px rgba(100, 130, 100, 0.4);
+  
+}
+:global(.swiper-pagination-bullet:hover) {
+    transform: scale(1.1);
+    opacity: 1;
+  }
