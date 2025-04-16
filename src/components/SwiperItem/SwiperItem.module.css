@@ -20,6 +20,8 @@
   background: var(--img-color);
   opacity: 0.5;
   z-index: 2;
+  user-select: none;
+  pointer-events: none; /* 讓這個濾鏡層不會攔截滑鼠事件 */
 }
 
 .swiperSlide {
@@ -82,4 +84,27 @@
 :global(.swiper-pagination-bullet:hover) {
     transform: scale(1.1);
     opacity: 1;
+}
+
+
+@media (max-width: 992px) {
+    .Container{
+      aspect-ratio: 3 / 1; /* ✅ 這一行搞定一切 */
   }
+  
+  
+  .mySwiper {
+      aspect-ratio: 3 / 1; /* ✅ 這一行搞定一切 */
+  }
+}
+
+@media (max-width: 690px) {
+    .Container{
+      aspect-ratio: 2 / 1; /* ✅ 這一行搞定一切 */
+  }
+  
+  
+  .mySwiper {
+      aspect-ratio: 2 / 1; /* ✅ 這一行搞定一切 */
+  }
+}
