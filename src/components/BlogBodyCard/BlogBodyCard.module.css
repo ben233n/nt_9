@@ -1,0 +1,94 @@
+.bg{
+    display: flex;
+    flex: 1 1 calc(33.33% - var(--margin-m));
+    background-color: var(--bg-shop-color);
+    flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 柔和的陰影 */
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.bg:hover{
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 滑鼠懸停時增加陰影，強調層次感 */
+    transform: translateY(-3px); /* 微微上移，營造浮起的感覺 */
+}
+
+.up{
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    position: relative;
+}
+.up::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--img-color);
+    opacity: 0.5;
+    z-index: 2;
+    user-select: none;
+    pointer-events: none; /* 讓這個濾鏡層不會攔截滑鼠事件 */
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.down{
+    flex-grow: 1; /* 讓內容區域撐開，但不影響圖片 */
+    width: 100%;
+    padding: var(--margin-xs);
+}
+.name{
+    color: var(--text-ttitle-color);
+    font-weight: 700;
+    font-size: var(--size-s);
+    word-wrap: break-word; /* 遇到長單詞自動換行 */
+    overflow-wrap: break-word; /* 讓長字串換行 */
+    white-space: normal; /* 允許換行 */
+    text-align:left; /* 左對齊，避免過度拉伸 */
+    margin-bottom:8px ;
+    letter-spacing: 0.1rem; /* 調小字距，提升可讀性 */
+}
+
+.p {
+    color: var(--text-p-color);
+    font-weight: 500;
+    font-size: var(--size-xs);
+    word-wrap: break-word; /* 遇到長單詞自動換行 */
+    overflow-wrap: break-word; /* 讓長字串換行 */
+    white-space: normal; /* 允許換行 */
+    text-align:left; 
+    line-height: 1.6;
+    letter-spacing: 0.1rem; /* 調小字距，提升可讀性 */
+
+    display: -webkit-box;             /* 為舊版 Webkit 支持 */
+    -webkit-line-clamp: 2;            /* 設定最多顯示 3 行 */
+    -webkit-box-orient: vertical;     /* 設定為垂直排列 */
+    
+    line-clamp: 2;                    /* 標準屬性，適用於現代瀏覽器 */
+    box-orient: vertical;             /* 標準屬性 */
+    overflow: hidden;                 
+    text-overflow: ellipsis;          /* 超過部分顯示省略號 */
+}
+
+
+@media (max-width: 992px) {
+    .bg{
+
+        flex: 1 1 calc(50% - var(--margin-m));
+    }
+}
+
+@media (max-width: 690px) {
+    .bg{
+
+        flex: 1 1 100%;
+    }
+}

@@ -11,12 +11,12 @@ import 'swiper/css/scrollbar';
 import styles from './SwiperItem.module.css';
 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { FadeIn } from '../Anime';
+import { FadeIn, FadeInOne } from '../Anime';
 
 const SwiperItem = () => {
     return (
         <>
-            <motion.div className={styles.Container} {...FadeIn}>
+            <motion.div className={styles.Container} {...FadeInOne}>
                 <Swiper
                     slidesPerView={1}
                     loop={true}
