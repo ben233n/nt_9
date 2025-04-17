@@ -131,9 +131,9 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
 
                     
                 </motion.div>
-                <motion.div className={styles.down} {...DownLook}>
+                <div className={styles.down} >
                     {/* 留言區在左邊 */}
-                    <div className={styles.message_div}>
+                    <motion.div className={styles.message_div} {...DownLook}>
                         <h2 className={styles.h2}>顧客評價</h2>
                         <div className={styles.down_line}></div>
                         <div className={styles.message}>
@@ -143,9 +143,9 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                                 ))
                             }                            
                         </div>
-                    </div>
+                    </motion.div>
                     {/* 推薦商品在右邊 */}
-                    <div className={styles.advise}>
+                    <motion.div className={styles.advise} {...DownLook}>
                         <h2 className={styles.h2}>類似商品</h2>
                         <div className={styles.down_line}></div>
                         <div className={styles.storecard_div}>
@@ -161,8 +161,8 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         
                         
                         
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
             </div>
         </div>
     </>
