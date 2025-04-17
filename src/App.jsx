@@ -14,6 +14,7 @@ import Blog from "./pages/Blog/Blog";
 import Alert from "./components/Alert/Alert";
 import { useDispatch, useSelector } from 'react-redux';
 import { bangModel } from './redux/modelSlice';
+import TitleManager from "./components/TitleManager";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,13 +33,15 @@ function App() {
   return (
     <>
      <Head/>
+     <TitleManager/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/shop' element={<Shop/>}/>
         <Route path="/shop/:id" element={<Goods/>}/>
         <Route path="/cart" element={<Cartpage/>}/>
-        <Route path="/blog" element={<Blog/>}/>
+        <Route path="/blog/" element={<Blog/>}/>
       </Routes>
+
 
 
       <motion.div 
