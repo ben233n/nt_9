@@ -2,12 +2,16 @@ import React, { useState } from 'react'
 import styles from './Cartcard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartsub, cartadd,updateQuantity,removeItem } from '../../redux/cartSlice';
+import { showToast } from '../../redux/toastSlice';
 
 const Cartcard = ({name,num,image,price,idnum,onRemove}) => {
   const dispatch=useDispatch();
 
-  const subtraction=()=>{
-    dispatch(cartsub({name}));
+  const subtraction = () => {
+    if (num === 1) {
+      dispatch(showToast("🗑️ 已移除"));
+    }
+    dispatch(cartsub({ name }));
   }
   const add=()=>{
       dispatch(cartadd({name}));
@@ -20,10 +24,14 @@ const Cartcard = ({name,num,image,price,idnum,onRemove}) => {
     if (!isNaN(value) && value >= 0) {
       dispatch(updateQuantity({ name, num: value }));
     }
+
+    
+    
   }
   const remove=()=>{
     onRemove(); // 不直接 dispatch，交給父層控制 timing
     dispatch(removeItem({name}));
+    dispatch(showToast("🗑️ 已移除"));
   }
 
   return (

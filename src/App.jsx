@@ -11,17 +11,23 @@ import Sun from './assets/svg/sun.svg?react';
 import Moon from './assets/svg/moon.svg?react';
 import Head from "./components/Head/Head";
 import Blog from "./pages/Blog/Blog";
+import Alert from "./components/Alert/Alert";
+import { useDispatch, useSelector } from 'react-redux';
+import { bangModel } from './redux/modelSlice';
 
 function App() {
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.model.mode);
 
+  
   const location = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0); // 跳轉到頂部
   }, [location.pathname]); // 監聽 pathname 變化
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
 
   return (
     <>
@@ -37,18 +43,21 @@ function App() {
 
       <motion.div 
        className="dark_light"
-       animate={{rotateY:theme === "light" ? 0 :180}}
+       animate={{rotateY:mode === "light" ? 0 :180}}
        transition={{
         type: 'spring',
         stiffness: 300,
         damping: 30,
       }}
-      onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+      onClick={() => dispatch(bangModel())}>
         {
-          theme === "light" ?<Sun className='sun'/>:<Moon className='sun'/>
+          mode === "light" ?<Sun className='sun'/>:<Moon className='sun'/>
         }
 
       </motion.div>
+
+      {/*彈跳提示視窗  */}
+      <Alert/> 
     </>
   )
 }

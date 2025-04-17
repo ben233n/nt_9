@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import {addItems} from '../../redux/cartSlice'
 import { motion } from "motion/react"
+import { showToast } from '../../redux/toastSlice';
 
 const Storecard = ({name,price,image,itemid,isone}) => {
     const dispatch=useDispatch();
@@ -27,6 +28,13 @@ const Storecard = ({name,price,image,itemid,isone}) => {
 
           };
         dispatch(addItems(item));
+        dispatch(showToast("🛒 已加入購物車"));
+        
+    }
+
+    const love=(e)=>{
+        e.stopPropagation();
+        dispatch(showToast("❤️ 已加入收藏"));
         
     }
 
@@ -41,7 +49,7 @@ const Storecard = ({name,price,image,itemid,isone}) => {
                 <div className={styles.down}>
                     <h4 className={styles.h4}>${price}</h4>
                     <div className={styles.icon_div}>
-                        <Love className={styles.icon}/>
+                        <Love className={styles.icon} onClick={love}/>
                         <Car className={styles.icon} onClick={buyGoods}/>
                     </div>
                 </div>

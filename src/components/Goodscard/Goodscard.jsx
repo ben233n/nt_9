@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { motion } from "motion/react"
 import { DownLook, LeftLook } from '../Anime';
 import { useMediaQuery } from "react-responsive";
+import { showToast } from '../../redux/toastSlice';
 
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
@@ -44,6 +45,9 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
 
     const bangColor=()=>{
         SetLove(!islove);
+        if(!islove){
+            dispatch(showToast("❤️ 已加入收藏"));
+        }
     }
 
     const buyGoods=()=>{
@@ -56,6 +60,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
 
           };
         dispatch(addItems(item));
+        dispatch(showToast("🛒 已加入購物車"));
     }
 
     const isMobile = useMediaQuery({ maxWidth: 690 });
