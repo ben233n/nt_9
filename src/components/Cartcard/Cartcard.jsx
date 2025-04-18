@@ -3,6 +3,7 @@ import styles from './Cartcard.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { cartsub, cartadd,updateQuantity,removeItem } from '../../redux/cartSlice';
 import { showToast } from '../../redux/toastSlice';
+import { Link } from 'react-router';
 
 const Cartcard = ({name,num,image,price,idnum,onRemove}) => {
   const dispatch=useDispatch();
@@ -37,11 +38,11 @@ const Cartcard = ({name,num,image,price,idnum,onRemove}) => {
   return (
     <>
       <div className={styles.bg}>
-        <div className={styles.img_div}>
+        <Link to={`/shop/${idnum}`} className={styles.img_div}>
          <img src={image} alt="" className={styles.img}/>
-         </div>
+         </Link>
         <div className={styles.info}>
-          <h3 className={styles.name}>{name}</h3>
+          <Link to={`/shop/${idnum}`} className={styles.name}>{name}</Link>
           <div className={styles.price_and_num}>
             <h4 className={styles.price}>${price}</h4>
             
