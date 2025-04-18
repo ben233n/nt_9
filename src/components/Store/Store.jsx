@@ -143,47 +143,7 @@ const Store = () => {
                     />
                   )}
                 </AnimatePresence>
-                <motion.div
-                  className={styles.modal}
-                  initial={{ y: "100%" }}
-                  animate={{ y: showModal ? "0%" : "100%" }}
-                  transition={{ type: "spring", stiffness: 100, damping: 15 }}
-                  >
-                  <button className={styles.close_btn} onClick={() => setShowModal(false)}>&times;</button>
-                  <div className={styles.phone_search_div}>
-                    <label className={styles.label} htmlFor="phone_search" >搜尋商品</label>  
-                    <input id="phone_search" className={styles.phone_search} value={search} type="text"  placeholder="輸入商品名稱..."  onChange={(e)=>setSearch(e.target.value)}/>
-                  </div>
-                  <div className={styles.phone_line}></div>
-                  <h2 className={styles.label}>價格區間</h2>
-                  <div className={styles.line}></div>
-                  <div className={styles.money_div}>
-                    <div className={styles.price_input_div}>
-                      <label htmlFor="minp_phone" className={styles.label}>最低</label>     
-                      <input 
-                        placeholder="--" 
-                        type="number" 
-                        id="minp_phone" 
-                        value={minPrice}
-                        className={styles.price_input_phone}
-                        onChange={(e)=>setMinPrice(e.target.value)} 
-                      />
-                    </div>
-                    <div className={styles.price_line_phone}></div>
-                    <div className={styles.price_input_div}>
-                      <label htmlFor="maxp_phone" className={styles.label}>最高</label>     
-                      <input 
-                        placeholder="--" 
-                        type="number" 
-                        id="maxp_phone" 
-                        value={maxPrice}
-                        className={styles.price_input_phone}
-                        onChange={(e)=>setMaxPrice(e.target.value)} 
-                      />
-                    </div>
-                  </div>
-                  <button className={styles.ok_btn} onClick={() => setShowModal(false)}>篩選</button>
-                </motion.div>
+                
               </div>
 
             </div>
@@ -211,6 +171,47 @@ const Store = () => {
               }
             </motion.div>
           </div>
+        </motion.div>
+        <motion.div
+          className={styles.modal}
+          initial={{ y: "100%" }}
+          animate={{ y: showModal ? "0%" : "100%" }}
+          transition={{ type: "spring", stiffness: 100, damping: 15 }}
+          >
+          <button className={styles.close_btn} onClick={() => setShowModal(false)}>&times;</button>
+          <div className={styles.phone_search_div}>
+            <label className={styles.label} htmlFor="phone_search" >搜尋商品</label>  
+            <input id="phone_search" className={styles.phone_search} value={search} type="text"  placeholder="輸入商品名稱..."  onChange={(e)=>setSearch(e.target.value)}/>
+          </div>
+          <div className={styles.phone_line}></div>
+          <h2 className={styles.label}>價格區間</h2>
+          <div className={styles.line}></div>
+          <div className={styles.money_div}>
+            <div className={styles.price_input_div}>
+              <label htmlFor="minp_phone" className={styles.label}>最低</label>     
+              <input 
+                placeholder="--" 
+                type="number" 
+                id="minp_phone" 
+                value={minPrice}
+                className={styles.price_input_phone}
+                onChange={(e)=>setMinPrice(e.target.value)} 
+              />
+            </div>
+            <div className={styles.price_line_phone}></div>
+            <div className={styles.price_input_div}>
+              <label htmlFor="maxp_phone" className={styles.label}>最高</label>     
+              <input 
+                placeholder="--" 
+                type="number" 
+                id="maxp_phone" 
+                value={maxPrice}
+                className={styles.price_input_phone}
+                onChange={(e)=>setMaxPrice(e.target.value)} 
+              />
+            </div>
+          </div>
+          <button className={styles.ok_btn} onClick={() => setShowModal(false)}>篩選</button>
         </motion.div>
       </div>
     </>

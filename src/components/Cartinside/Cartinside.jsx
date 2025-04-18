@@ -4,7 +4,7 @@ import Cartcard from '../Cartcard/Cartcard'
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from "react-responsive";
 import { AnimatePresence,motion } from "motion/react"
-import { DownLook, FadeIn } from '../Anime';
+import { DownLook, FadeIn, FadeInOne } from '../Anime';
 
 const Cartinside = () => {
     const cartitems=useSelector(state=>state.cart.cartItems);
@@ -97,7 +97,7 @@ const Cartinside = () => {
                         <button className={styles.buy}>前往買單</button>
                     </div>
                 </motion.div>):(
-                    <motion.div className={styles.air} {...FadeIn}>
+                    <motion.div className={styles.air} {...FadeInOne}>
                         <div className={styles.phone_total} >
                             <div className={styles.phone_total_info}>
                                 <p className={styles.phone_total_p} onClick={()=>setShowModal(true)}>明細</p>

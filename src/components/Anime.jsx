@@ -8,7 +8,7 @@ export const FadeIn = {
   viewport: { once: false, amount: 0.8 }, // 每次都觸發，當元素約有 0% 進入畫面
 };
 
-export const FadeInOne = {
+export const FadeInOne = { 
   initial: { opacity: 0 }, // 初始透明
   animate: { opacity: 1 }, // 當進入畫面時變成不透明
   transition: { duration: 1, delay: 0 , ease: "easeInOut"}, // 動畫時間與延遲
