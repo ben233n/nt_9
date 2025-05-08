@@ -15,6 +15,7 @@ import Alert from "./components/Alert/Alert";
 import { useDispatch, useSelector } from 'react-redux';
 import { bangModel } from './redux/modelSlice';
 import TitleManager from "./components/TitleManager";
+import Blogpage from "./pages/Blogpage/Blogpage";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
         <Route path="/shop/:id" element={<Goods/>}/>
         <Route path="/cart" element={<Cartpage/>}/>
         <Route path="/blog/" element={<Blog/>}/>
+        <Route path="/blog/:id" element={<Blogpage/>}/>
       </Routes>
 
 

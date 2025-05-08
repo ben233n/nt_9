@@ -1,0 +1,26 @@
+.backgroundContainer {
+  background-image: url('/public/img/big.jpeg'); /* 放在 public/images 資料夾 */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 每頁 section 共通樣式 */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  height: 100vh;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4); /* ✅ 半透明背景，顯示底下圖片 */
+}
+
+/* 個別模式風格（可調整文字或其他裝飾） */
+.mode1 {}
+.mode2 {}
+.mode3 {}
+.mode4 {}
+.mode5 {}
