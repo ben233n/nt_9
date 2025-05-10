@@ -74,6 +74,26 @@ export const RightLookItem = {
 };
 
 
+// 套在父物體，搭配下面的函式，實現子物體延遲從右往左出現
+export const DownLookDelay = {
+  initial: "hidden",
+  whileInView: "visible",
+  transition: {
+    staggerChildren: 0.2
+  }
+
+};
+
+// 套在子物體，搭配上面的函式，實現子物體延遲從右往左出現
+export const DownLookItem = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeInOut" } }
+};
+
+
+
+
+
 
 
 // 從左往右滑出來

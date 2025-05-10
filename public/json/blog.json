@@ -7,27 +7,35 @@
       "bigimg": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744815116/arashiyama-2632036_1280_oybo68.jpg",
       "article": [
         {
-          "type": "cover",
-          "title": "山谷裡的石頭",
-          "date": "2025-05-01"
+          "type": "home",
+          "title": "嵐山石頭記",
+          "smalltitle":"一場與自然對話的旅程",
+          "date": "02 May, 2025"
+          
         },
         {
           "type": "imageLeft",
-          "image": "/images/stone1.jpg",
-          "text": "這是一顆在山谷深處撿到的石頭，表面光滑，像是被時間磨平了棱角。"
+          "image": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744815116/arashiyama-2632036_1280_oybo68.jpg",
+          "title":"緣起竹林",
+          "text": "2025年一月，我來到日本京都，展開一場傳統文化之旅。我計劃以逆時針方式遊覽京都名勝，從清水寺、平安神宮、銀閣寺、金閣寺一路遊到嵐山。來到嵐山，自然不能錯過著名的竹林小徑。走在翠綠竹林包圍的小徑中，那份寧靜與壯麗令人讚嘆。望著眼前搖曳的竹林，我腦中浮現出日本經典物語《竹取物語》，彷彿自己就是那位伐竹翁，而某樣命運的正等著我去發現。"
         },
         {
           "type": "imageRight",
-          "image": "/images/stone2.jpg",
-          "text": "我花了一整個下午等待陽光落在它身上，才拍下這張照片。"
+          "image": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744815116/arashiyama-2632036_1280_oybo68.jpg",
+          "title":"初遇奇石",
+          "text": "走著走著，有點累了，於是就坐在路旁的大石頭上休息。此時低頭一看，發現有一顆外型奇特、紋理細緻的石頭，散發著一種難以言喻的魅力，使我想要把他收入囊中帶回撫養。這是一顆約12公斤的石頭，大概長13公分，高18公分。如果把這顆石頭放在廚房的桌上，他的大小就跟旁邊的烤麵包機差不多大。"
         },
         {
           "type": "textCenter",
-          "text": "這趟旅程提醒我，自然的美，不需要修飾。"
+          "title":"創世計謀",
+          "text": "將這顆石頭帶回飯店後，新的問題就產生了，因為這顆石頭還蠻大顆的，如果直接放進行李箱運回台灣，那過海關的時候很容易被攔下來盤查，到時候還可能會面臨被指控盜採礦石罪，所以把這顆石頭運回台灣還是一項大問題。經過一整個晚上的思考，腦中浮現出一個大膽的想法，先從大阪搭飛機到沖繩再搭飛機到那國島。那國島距離台灣約100多公里，剩下的路程，就背著石頭游回台灣，這距離大概是泳渡日月潭的36倍左右，理論上不算太難，於是一拍即合，次日就展開行動。"
         },
         {
-          "type": "textGreenBox",
-          "text": "石頭不語，卻能說出一段歲月的故事。"
+          "type": "imageLeft",
+          "title":"乘風破浪",
+          "image": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744815116/arashiyama-2632036_1280_oybo68.jpg",
+          "text": "大江大海江大海，海上風浪非常大，但依舊不減我的決心，於是我花了約三天的時間，忍受飢餓與疲憊的煎熬，就在我幾乎筋疲力盡時，一隻瓶鼻海豚出現在我身旁，我替牠取名叫「奶油鼻子」，牠友善地載著我前行，讓我得以稍作休息，補充力氣。憑著意志與牠的協助，最終成功登陸花蓮七星潭，順利地將石頭運回台灣。",
+          "end":"true"
         }
       ]
     },
@@ -84,14 +92,6 @@
             "type": "imageRight",
             "image": "/images/wind2.jpg",
             "text": "我記得它從東邊吹來，吹過河岸、穿過帳篷，也吹亂了我的筆記。"
-          },
-          {
-            "type": "textCenter",
-            "text": "風不曾停留，但我在那一刻感受到它的存在。"
-          },
-          {
-            "type": "textGreenBox",
-            "text": "我們總想擁有風，其實只需要感受它經過。"
           }
         ]
       }

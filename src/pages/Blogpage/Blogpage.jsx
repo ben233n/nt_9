@@ -47,7 +47,7 @@ useEffect(() => {
 
     <>
      <Air/>
-     <Blogpagebody/>
+     <Blogpagebody blog={blogdata}/>
     </>
   )
 }

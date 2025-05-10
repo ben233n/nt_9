@@ -1,26 +1,316 @@
+/* Blogpagebody.module.css */
 .backgroundContainer {
-  background-image: url('/public/img/big.jpeg'); /* 放在 public/images 資料夾 */
+  position: relative;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  height: 100vh;
+  height: calc(100vh - 80px);
   overflow: hidden;
+}
+.fullpage{
+  width: 100%;
+}
+
+/* 毛玻璃遮罩層 */
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(var(--blur));
+  background-color: rgba(0, 0, 0, 0.2); /* 半透明白色 */
+  z-index: 1;
+}
+
+/* 頁面內容區塊放在遮罩上層 */
+.fullpageWrapper {
+  position: relative;
+  z-index: 1;
 }
 
 /* 每頁 section 共通樣式 */
 .section {
+
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
-  height: 100vh;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.4); /* ✅ 半透明背景，顯示底下圖片 */
+  height:calc(100vh - 80px) ;
+  color: var(--text-block-color);
+  background-color: rgba(0, 0, 0, 0.5); /* ✅ 半透明背景，顯示底下圖片 */
+  
+  
 }
 
-/* 個別模式風格（可調整文字或其他裝飾） */
-.mode1 {}
-.mode2 {}
-.mode3 {}
-.mode4 {}
-.mode5 {}
+.cover{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--margin-m);
+  overflow: hidden;
+  padding: 60px 0px;
+  width: 100%;
+
+}
+.title{
+  font-size: calc(var(--size-m) + var(--size-s));
+  font-weight: 700;
+  letter-spacing: 0.3rem; /* 調小字距，提升可讀性 */
+  line-height: 1.2;
+}
+.smalltitle{
+  font-size: var(--size-s);
+  font-weight: 400;
+  letter-spacing: 0.3rem; /* 調小字距，提升可讀性 */
+  line-height: 1.2;
+}
+.date{
+  background-color: var(  --plan-color);
+  padding: var(--margin-xs) var(--margin-big);
+  font-size: var(--size-xs);
+  font-weight: 400;
+  letter-spacing: 0.3rem; /* 調小字距，提升可讀性 */
+  line-height: 1.2;
+  margin: 1rem 0px; /* 讓段落有適當的間距 */
+}
+.downbtn{
+  all: unset; /* 移除所有預設樣式 */
+  cursor: pointer; /* 保留滑鼠游標樣式 */
+}
+.down{
+  width: var(--margin-big);
+  height:  var(--margin-big);
+  margin: var(--margin-m) 0px 0px 0px;
+}
+
+
+/* 第二模式圖片再左，文字在右 */
+.mode2{
+  position: relative;
+}
+.img_box{
+  position: absolute;
+}
+.img_mode2_box{
+  top: 6%;
+  left: 0;
+  width: 60vw; /* 確保全螢幕寬 */
+  aspect-ratio: 18/9;
+}
+.text_box{
+  position: absolute;
+  background-color: var(--plan-color);
+  z-index: 3;
+  padding: calc(var(--margin-m) + var(--margin-s)) ;
+  backdrop-filter: blur(5px);
+
+}
+.text_y_box{
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.text_y_box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.text_y_box::-webkit-scrollbar-thumb {
+  background-color:var(--bg-block-color);
+  border-radius: 4px;
+  
+  
+  
+}
+
+.text_y_box::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bg-small-color);
+}
+
+.text_y_box::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: var(--bg-block-color);
+}
+.text_y_box::-webkit-scrollbar-track:hover {
+  border-radius: 4px;
+  background-color: var(--bg-block-color);
+
+}
+
+.text_mode2_box{
+  top: 12%;
+  right: calc(var(--margin-big)+var(--margin-m)) ;
+  width: 45vw; /* 確保全螢幕寬 */
+  aspect-ratio: 3/2;
+}
+
+.img_mask{
+  width: 100%;              
+  height: 100%;   
+  position: relative;
+}
+.img_mask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* ✅ 半透明背景，顯示底下圖片 */
+  opacity: 0.4;
+  z-index: 1;
+}
+.img{
+  position: relative;
+  width: 100%;              
+  height: 100%;              
+  object-fit: cover;           
+  display: block;
+  opacity: 0.7;              
+}
+
+.chapter_title{
+  font-size: calc(var(--size-m));
+  font-weight: 700;
+  letter-spacing: 0.3rem; /* 調小字距，提升可讀性 */
+  line-height: 1.2;
+}
+.chapter_p{
+  font-size: var(--size-xs);
+  font-weight: 500;
+  letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+  text-align: left; /* 左對齊，避免過度拉伸 */
+  line-height: 2;
+  margin: 1rem 0px; /* 讓段落有適當的間距 */
+  opacity: 0.8;
+}
+.down_mode2{
+  position: absolute;
+  bottom: -48px;
+  right: 64px;
+}
+
+/* 模式3 照片在右 文字在左 */
+.img_mode3_box{
+  top: 8%;
+  right: 0;
+  width: 60vw; /* 確保全螢幕寬 */
+  aspect-ratio: 18/9;
+}
+.text_mode3_box{
+  top: 16%;
+  left: 64px ;
+  width: 45vw; /* 確保全螢幕寬 */
+  aspect-ratio: 3/2;
+}
+
+/* 模式4 文字在中間 */
+.mode4{
+  width: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.65); /* ✅ 半透明背景，顯示底下圖片 */
+}
+.text_center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--margin-m);
+    overflow: hidden;
+    padding: 60px 0px;
+    width: 720px;
+
+}
+/* 模式5 文字在中間 圖片在兩側 */
+.img_mode5_box{
+  top: 0%;
+  left: 0;
+  width: 20vw; /* 確保全螢幕寬 */
+  height: 100vh;
+  z-index: -1;
+}
+
+
+@media (max-width: 1024px) {
+  .img_mode2_box{
+    top: 16%;
+    left: 0;
+    width: 100vw; /* 確保全螢幕寬 */
+    aspect-ratio: 18/9;
+  }
+  .text_mode2_box{
+    top: 48%;
+    right: 0 ;
+    width: 80vw; /* 確保全螢幕寬 */
+    aspect-ratio: auto;
+  }
+
+  .img_mode3_box{
+    top: 16%;
+    right: 0;
+    width: 100vw; /* 確保全螢幕寬 */
+    aspect-ratio: 18/9;
+  }
+  .text_mode3_box{
+    top: 48%;
+    left: 0px ;
+    width: 80vw; /* 確保全螢幕寬 */
+    aspect-ratio: auto;
+  }
+  /* 模式4 文字在中間 */
+  .text_center{
+      width: 70vw;
+  
+  }
+
+}
+
+
+@media (max-width: 576px) {
+  .title{
+    font-size: calc(var(--size-m));
+  }
+  .smalltitle{
+    font-size: var(--size-xs);
+  }
+  .date{
+    padding: var(--margin-xs) var(--margin-m);
+    font-size: var(--size-xs);
+  }
+
+  .img_mode2_box{
+    top: 16%;
+    left: 0;
+    width: 100vw; /* 確保全螢幕寬 */
+    aspect-ratio: 3/2;
+  }
+  .text_box{
+    padding: var(--margin-m);
+  }
+  .text_mode2_box{
+    top: 36%;
+    right: 0 ;
+    width: 80vw; /* 確保全螢幕寬 */
+    aspect-ratio: auto;
+  }
+
+  .img_mode3_box{
+    top: 16%;
+    right: 0;
+    width: 100vw; /* 確保全螢幕寬 */
+    aspect-ratio: 3/2;
+  }
+  .text_mode3_box{
+    top: 36%;
+    left: 0 ;
+    width: 80vw; /* 確保全螢幕寬 */
+    aspect-ratio: auto;
+  }
+  .text_center{
+    width: 86vw;
+
+  }
+  .chapter_p{
+    line-height: 2;
+  }
+}

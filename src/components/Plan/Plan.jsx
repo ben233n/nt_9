@@ -4,6 +4,9 @@ import { motion } from "motion/react"
 import { DownLookMask, LeftLook, LeftLookDelay, RightLook, LeftLookItem } from '../Anime'
 
 const Plan = () => {
+
+
+
   return (
     <div className={styles.bg}>
       {/* 將原本偽元素轉為實體元素 */}
