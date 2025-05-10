@@ -279,7 +279,7 @@
   }
 
   .img_mode2_box{
-    top: 16%;
+    top: 8%;
     left: 0;
     width: 100vw; /* 確保全螢幕寬 */
     aspect-ratio: 3/2;
@@ -288,20 +288,20 @@
     padding: var(--margin-m);
   }
   .text_mode2_box{
-    top: 36%;
+    top: 16%;
     right: 0 ;
     width: 80vw; /* 確保全螢幕寬 */
     aspect-ratio: auto;
   }
 
   .img_mode3_box{
-    top: 16%;
+    top: 8cqh;
     right: 0;
     width: 100vw; /* 確保全螢幕寬 */
     aspect-ratio: 3/2;
   }
   .text_mode3_box{
-    top: 36%;
+    top: 16%;
     left: 0 ;
     width: 80vw; /* 確保全螢幕寬 */
     aspect-ratio: auto;
