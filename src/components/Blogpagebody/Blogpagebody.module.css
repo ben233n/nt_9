@@ -90,7 +90,7 @@
   position: absolute;
 }
 .img_mode2_box{
-  top: 6%;
+  top: 5%;
   left: 0;
   width: 60vw; /* 確保全螢幕寬 */
   aspect-ratio: 18/9;
@@ -138,11 +138,12 @@
 }
 
 .text_mode2_box{
-  top: 12%;
+  top: 10%;
   right: calc(var(--margin-big)+var(--margin-m)) ;
   width: 45vw; /* 確保全螢幕寬 */
   aspect-ratio: 3/2;
 }
+
 
 .img_mask{
   width: 100%;              
@@ -192,13 +193,13 @@
 
 /* 模式3 照片在右 文字在左 */
 .img_mode3_box{
-  top: 8%;
+  top: 5%;
   right: 0;
   width: 60vw; /* 確保全螢幕寬 */
   aspect-ratio: 18/9;
 }
 .text_mode3_box{
-  top: 16%;
+  top: 10%;
   left: 64px ;
   width: 45vw; /* 確保全螢幕寬 */
   aspect-ratio: 3/2;
@@ -231,15 +232,15 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
   .img_mode2_box{
-    top: 16%;
+    top: 5%;
     left: 0;
     width: 100vw; /* 確保全螢幕寬 */
     aspect-ratio: 18/9;
   }
   .text_mode2_box{
-    top: 48%;
+    top: 10%;
     right: 0 ;
     width: 80vw; /* 確保全螢幕寬 */
     aspect-ratio: auto;
