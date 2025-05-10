@@ -6,9 +6,13 @@ import { motion ,useAnimation} from "motion/react"
 // import Down from '../../assets/svg/down.svg?react';
 import Downjs from '../Downjs/Downjs';
 import { DownLook, DownLookDelay, DownLookItem } from '../Anime';
+import { Link, useNavigate } from 'react-router';
 
 const Blogpagebody = ({ blog }) => {
-
+  const navigate=useNavigate();
+  const goto=()=>{
+    navigate(`/shop/${blog.shopid}`);
+  }
   useEffect(() => {
     new fullpage('#fullpage', {
       licenseKey: 'YOUR_LICENSE_KEY',
@@ -16,6 +20,17 @@ const Blogpagebody = ({ blog }) => {
       navigation: false,
       anchors: blog.article.map((_, i) => `section${i}`),
       scrollingSpeed: 800,
+    
+      afterRender: function () {
+        // 清除 URL hash
+        history.replaceState(null, null, ' ');
+      
+        // 延遲一點時間再跳轉，避免鎖住滾輪
+        setTimeout(() => {
+          fullpage_api.moveTo(1);
+        }, 100); // 可以根據需要調整延遲時間（100~300ms 通常足夠）
+      }
+      
     });
 
     return () => {
@@ -114,33 +129,49 @@ const Blogpagebody = ({ blog }) => {
                     <motion.div className={styles.text_center} {...DownLookDelay}>
                       <motion.h1 variants={DownLookItem} className={styles.chapter_title}>{item.title}</motion.h1>
                       <motion.p variants={DownLookItem}  className={styles.chapter_p}>{item.text}</motion.p>
-                      <motion.div variants={DownLookItem} onClick={moveSectionDown}>
-                        <Downjs size='72'/>
-                      </motion.div>
+                      { item.end!=='true' &&(
+                        <motion.div variants={DownLookItem} onClick={moveSectionDown}>
+                          <Downjs size='72'/>
+                        </motion.div>
+                      )}
                     </motion.div>
 
                   </div>
                 );
-              case 'textCenterAndImg':
-                return (
-                  <div className={`section ${styles.section} ${styles.mode4}`} key={index}>
-                    <motion.div className={styles.text_center} {...DownLookDelay}>
-                      <motion.div variants={DownLookItem} className={`${styles.img_box} ${styles.img_mode5_box}`}>
+              case 'textCenterGreen':
+              return (
+                <div className={`section ${styles.section} ${styles.mode5}`} key={index}>
+                  <motion.div className={styles.text_center} {...DownLookDelay}>
+                    <motion.h1 variants={DownLookItem} className={styles.chapter_title}>{item.title}</motion.h1>
+                    <motion.p variants={DownLookItem}  className={styles.chapter_p}>{item.text}</motion.p>
+                    <motion.div variants={DownLookItem} onClick={moveSectionDown}>
+                      <Downjs size='72'/>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              );
+              case 'shop':
+              return (
+                <div className={`section ${styles.section} ${styles.shop}`} key={index}>
+                  <motion.div className={`${styles.cover} ${styles.shop}`} {...DownLookDelay}>
+                    <motion.div variants={DownLookItem} className={`${styles.img_shop_box}`} onClick={goto}> 
                         <div className={styles.img_mask}>
                           <img src={item.image} alt="" className={styles.img}/>
                         </div>
-
-                      </motion.div>
-                      <motion.h1 variants={DownLookItem} className={styles.chapter_title}>{item.title}</motion.h1>
-                      <motion.p variants={DownLookItem}  className={styles.chapter_p}>{item.text}</motion.p>
-                      <motion.div variants={DownLookItem} onClick={moveSectionDown}>
-                        <Downjs size='72'/>
-                      </motion.div>
-
                     </motion.div>
-
-                  </div>
-                );
+                    <motion.div variants={DownLookItem} className={styles.shop_text_box}>
+                      <motion.h1 className={styles.title}>{item.title}</motion.h1>
+                      <motion.h3  className={styles.buy} onClick={goto}>前往購買</motion.h3>
+                    </motion.div>
+                    
+                    { item.end!=='true' &&(
+                        <motion.div variants={DownLookItem} onClick={moveSectionDown}>
+                        <Downjs size='72'/>
+                      </motion.div>)
+                    }
+                  </motion.div>
+                </div>
+              );
               default:
                 return null;
             }

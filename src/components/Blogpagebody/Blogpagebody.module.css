@@ -223,16 +223,48 @@
 
 }
 /* 模式5 文字在中間 圖片在兩側 */
-.img_mode5_box{
-  top: 0%;
-  left: 0;
-  width: 20vw; /* 確保全螢幕寬 */
-  height: 100vh;
-  z-index: -1;
+.mode5{
+  background-color: var(--plan-color);
+}
+/* 模式6 往商店 文字在中間 圖片在兩側 */
+.shop{
+  flex-direction: row;
+  gap: var(--margin-big);
+  
+}
+.img_shop_box{
+  width: 30vw;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  cursor: pointer;
+
+  display: block;
 }
 
-
+.shop_text_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--margin-m);
+}
+.buy{
+    font-size: var(--size-s);
+    font-weight: 400;
+    letter-spacing: 0.3rem; /* 調小字距，提升可讀性 */
+    line-height: 1.2;
+    background-color: var(  --plan-color);
+    padding: var(--margin-xs) var(--margin-big);
+    margin: 1rem 0px; /* 讓段落有適當的間距 */
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+.buy:hover{
+  letter-spacing: 0.5rem; 
+  background-color: #576E61;
+}
 @media (max-width: 1024px) {
+
   .img_mode2_box{
     top: 16%;
     left: 0;
@@ -262,6 +294,18 @@
   .text_center{
       width: 70vw;
   
+  }
+  .img_shop_box{
+    width: 60vw;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    cursor: pointer;
+  
+    display: block;
+  }
+  .shop{
+    flex-direction:column;
+    
   }
 
 }
