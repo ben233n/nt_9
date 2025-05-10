@@ -232,15 +232,15 @@
 }
 
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .img_mode2_box{
-    top: 5%;
+    top: 16%;
     left: 0;
     width: 100vw; /* 確保全螢幕寬 */
     aspect-ratio: 18/9;
   }
   .text_mode2_box{
-    top: 10%;
+    top: 48%;
     right: 0 ;
     width: 80vw; /* 確保全螢幕寬 */
     aspect-ratio: auto;
