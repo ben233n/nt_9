@@ -37,9 +37,9 @@ const Foot = ({plan}) => {
           <p className={styles.copyright}>© 2025 Naturo All Rights Reserved.</p>
           {(plan) &&
             <>
-             <a className={styles.copyright} href="https://storyset.com/nature">Nature illustrations by Storyset</a>
-              <a className={styles.copyright} href="https://storyset.com/people">People illustrations by Storyset</a>
-              <a className={styles.copyright} href="https://storyset.com/hobby">Hobby illustrations by Storyset</a>
+             <a className={styles.copyright} style={{fontSize:'14px'}} href="https://storyset.com/nature">Nature illustrations by Storyset</a>
+              <a className={styles.copyright} style={{fontSize:'14px'}} href="https://storyset.com/people">People illustrations by Storyset</a>
+              <a className={styles.copyright} style={{fontSize:'14px'}} href="https://storyset.com/hobby">Hobby illustrations by Storyset</a>
             </>
           }
           
