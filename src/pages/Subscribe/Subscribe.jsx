@@ -1,5 +1,4 @@
 import React from 'react'
-import styles from './Subscribe.module.css'
 import Air from '../../components/Air/Air'
 import SubscribeBody from '../../components/SubscribeBody/SubscribeBody'
 import Taiwan from '../../assets/svg/taiwan.svg?react';
