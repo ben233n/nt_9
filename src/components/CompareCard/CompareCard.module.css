@@ -1,0 +1,96 @@
+.bg{
+    display: flex;
+    flex: 0 0 calc(33.33% - (var(--margin-m) * 2 / 3));
+    background-color: var(--bg-shop-color);
+    flex-direction: column;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 柔和的陰影 */
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: var(--margin-s);
+    gap: var(--margin-s);
+}
+.bg:hover{
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* 滑鼠懸停時增加陰影，強調層次感 */
+    transform: translateY(-3px); /* 微微上移，營造浮起的感覺 */
+}
+
+.up{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--margin-s);
+}
+.h3{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-s);
+    font-weight: 700;
+    
+}
+.money{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.h2{
+    color: var(--text-p-color);
+    font-size: calc(var(--size-m) + var(--size-s)) ;
+    font-weight: 700;
+}
+.h4{
+    color: var(--text-p-color);
+    font-size: var(--size-s) ;
+    font-weight: 700;
+}
+.buy{
+    all: unset;
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--bg-small-color);
+    display: flex;
+    justify-content: center;
+    color: var(--text-block-color);
+    font-size: var(--size-s);
+    font-weight: 700;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    padding: var(--margin-xs) 0px;
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+    border-radius: 5px;
+}
+.buy:hover{
+    letter-spacing: 0.5rem; 
+    background-color: #576E61;
+}
+.down{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+
+}
+.p_box{
+    display: flex;
+    align-items: center;
+    gap: var(--margin-xs);
+}
+.ok{
+    color: var(--text-p-color);
+}
+.p{
+    color: var(--text-p-color);
+    font-size: var(--size-s) ;
+    font-weight: 700;
+}
+
+
+
+@media (max-width: 992px) {
+    .bg{
+
+        flex: 1 1 100%;
+    }
+}

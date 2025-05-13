@@ -1,14 +1,17 @@
-import React from 'react'
+import React,{ useRef } from 'react'
 import styles from './SubscribeBody.module.css';
 import Title from '../Title/Title';
 import { motion } from 'motion/react';
 import { DownLookDelay, DownLookItem, LeftLook, RightLook } from '../Anime';
-const SubscribeBody = ({svg: SvgComponent,mode,text,into,title}) => {
+const SubscribeBody = ({svg: SvgComponent,mode,text,into,title,siblingRef }) => {
+    const scrollToTarget = () => {
+        siblingRef.current.scrollIntoView({ behavior: "smooth" });
+    };
     switch (mode) {
         case 'left':
             return (
                 <>
-                    <div className={styles.bg} >
+                    <div className={styles.bg}>
                         <motion.div className={`${styles.container} container `} {...LeftLook}>
                             <div className={styles.img_box}>
                                 <SvgComponent className={styles.svg}/>
@@ -21,7 +24,7 @@ const SubscribeBody = ({svg: SvgComponent,mode,text,into,title}) => {
                                 </motion.div>
                                 <motion.h3 variants={DownLookItem} className={styles.h3} dangerouslySetInnerHTML={{ __html: text }}/>
                                 <motion.div variants={DownLookItem}>
-                                    <button  className={styles.btn}>比較方案</button>
+                                    <button  className={styles.btn} onClick={scrollToTarget}>比較方案</button>
                                 </motion.div>
 
                                 <motion.p variants={DownLookItem} className={styles.p}>※內容物：{into}</motion.p>
@@ -46,7 +49,7 @@ const SubscribeBody = ({svg: SvgComponent,mode,text,into,title}) => {
                                 </motion.div>
                                 <motion.h3 variants={DownLookItem} className={styles.h3} style={{color:"var(--text-block-color)"}} dangerouslySetInnerHTML={{ __html: text }}/>
                                 <motion.div variants={DownLookItem}>
-                                    <button className={styles.btn_right}>比較方案</button>
+                                    <button className={styles.btn_right} onClick={scrollToTarget}>比較方案</button>
                                 </motion.div>
 
                                 <motion.p variants={DownLookItem} className={styles.p} style={{color:"var(--text-block-color)"}}>※內容物：{into}</motion.p>

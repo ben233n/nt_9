@@ -1,0 +1,24 @@
+.bg{
+    width: 100%;
+    padding: var(--margin-big) 0px;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+.blog{
+    width: 100%;
+    flex-wrap: wrap;
+    grid-gap: var(--margin-big) var(--margin-m);
+    display: flex;
+    flex-direction: row;
+    
+}
+
+@media (max-width: 690px) {
+    .blog{
+        grid-gap: var(--margin-s);
+        
+    }
+}
