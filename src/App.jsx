@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { bangModel } from './redux/modelSlice';
 import TitleManager from "./components/TitleManager";
 import Blogpage from "./pages/Blogpage/Blogpage";
+import Subscribe from "./pages/Subscribe/Subscribe";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,8 +41,10 @@ function App() {
         <Route path='/shop' element={<Shop/>}/>
         <Route path="/shop/:id" element={<Goods/>}/>
         <Route path="/cart" element={<Cartpage/>}/>
-        <Route path="/blog/" element={<Blog/>}/>
+        <Route path="/blog" element={<Blog/>}/>
         <Route path="/blog/:id" element={<Blogpage/>}/>
+        <Route path="/subscribe" element={<Subscribe/>}/>
+
       </Routes>
 
 

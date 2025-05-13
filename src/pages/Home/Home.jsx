@@ -6,7 +6,6 @@ import Hope from '../../components/Hope/Hope';
 import Fire from '../../components/Fire/Fire';
 import Plan from '../../components/Plan/Plan';
 import Foot from '../../components/Foot/Foot';
-
 const Home = () => {
 
   return (

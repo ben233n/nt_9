@@ -8,7 +8,7 @@ import { Link } from 'react-router'
 import { AnimatePresence,motion } from "motion/react"
 import { DownLook, FadeIn, LeftFuck, LeftLook, LeftLookDelay, LeftLookItem } from '../Anime'
 
-const Foot = () => {
+const Foot = ({plan}) => {
   return (
     <>
       <div className={styles.up}>
@@ -35,6 +35,14 @@ const Foot = () => {
       </div>
       <div className={styles.down}>
           <p className={styles.copyright}>© 2025 Naturo All Rights Reserved.</p>
+          {(plan) &&
+            <>
+             <a className={styles.copyright} href="https://storyset.com/nature">Nature illustrations by Storyset</a>
+              <a className={styles.copyright} href="https://storyset.com/people">People illustrations by Storyset</a>
+              <a className={styles.copyright} href="https://storyset.com/hobby">Hobby illustrations by Storyset</a>
+            </>
+          }
+          
       </div>
     </>
   )

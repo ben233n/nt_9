@@ -102,6 +102,8 @@
     align-items: center;
     color: #F5F5F5;
     font-weight: 300;
+    flex-direction: column;
+    gap: var(--margin-xs);
 
 }
 

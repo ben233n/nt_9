@@ -73,7 +73,7 @@ const Head = () => {
           <nav className={styles.nav}>
             <Link to="/" className={styles.nav_li}>首頁</Link>
             <Link to="/shop" className={styles.nav_li}>商店</Link>
-            <li className={styles.nav_li}>訂閱</li>
+            <Link to="/subscribe" className={styles.nav_li}>訂閱</Link>
             <Link to="/blog" className={styles.nav_li}>部落格</Link>
           </nav>
           <nav className={styles.nav}>
@@ -141,7 +141,7 @@ const Head = () => {
             <ul className={styles.phone_ul}>
               <Link to="/" className={styles.nav_li}>首頁</Link>
               <Link to="/shop" className={styles.nav_li}>商店</Link>
-              <li className={styles.nav_li}>訂閱</li>
+              <Link to="/subscribe" className={styles.nav_li}>訂閱</Link>
               <Link to="/blog" className={styles.nav_li}>部落格</Link>
             </ul>
             <ul className={styles.phone_ul}>

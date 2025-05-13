@@ -9,7 +9,6 @@
     overflow: hidden;
 }
 
-
 .text{
     color: var(--text-ttitle-color);
     font-size: var(--size-m);
@@ -20,4 +19,9 @@
     width: var(--size-big);
     height: 3.5px;
     background-color: var(--text-ttitle-color);
+}
+
+
+.Subscribe{
+    margin-bottom: var(--margin-s);
 }
