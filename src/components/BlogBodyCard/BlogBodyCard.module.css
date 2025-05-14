@@ -45,6 +45,18 @@
     width: 100%;
     padding: var(--margin-xs);
 }
+.down_home{
+    flex-grow: 1; /* 讓內容區域撐開，但不影響圖片 */
+    width: 100%;
+    padding: var(--margin-xs) var(--margin-xs) 0px  var(--margin-xs);
+}
+.end{
+    display: flex;
+    justify-content: right;
+    flex-grow: 1; /* 讓內容區域撐開，但不影響圖片 */
+    width: 100%;
+    padding: 0px var(--margin-xs) var(--margin-xs) var(--margin-xs);
+}
 .name{
     color: var(--text-ttitle-color);
     font-weight: 700;

@@ -6,14 +6,18 @@ import Hope from '../../components/Hope/Hope';
 import Fire from '../../components/Fire/Fire';
 import Plan from '../../components/Plan/Plan';
 import Foot from '../../components/Foot/Foot';
+import BlogBody from '../../components/BlogBody/BlogBody';
 const Home = () => {
 
   return (
     <>
         <Big/>
         <Hope/>
+        <BlogBody mode={"home"}/>
         <Fire/>
+
         <Plan/>
+
         <Foot/>
 
     </>

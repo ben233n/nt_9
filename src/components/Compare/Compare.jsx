@@ -4,9 +4,9 @@ import { motion } from 'motion/react'
 import { DownLook } from '../Anime'
 import CompareCard from '../CompareCard/CompareCard'
 
-const taiwan=["贈送一份台灣自然資源","自然資源與產地的合照"];
-const asia=["贈送一份亞洲自然資源","自然資源與產地的合照","當地風景明信片","一份當地伴手禮"];
-const earth=["贈送一份世界自然資源","自然資源與產地的合照","當地風景明信片","一份當地伴手禮","商品打九折"];
+const taiwan=["贈送一份台灣自然小物","自然資源與產地的合照"];
+const asia=["贈送一份亞洲自然小物","自然資源與產地的合照","當地風景明信片","一份當地伴手禮"];
+const earth=["贈送一份世界自然小物","自然資源與產地的合照","當地風景明信片","一份當地伴手禮","商品打九折"];
 const Compare = () => {
   return (
     <>

@@ -2,10 +2,13 @@ import React from 'react'
 import styles from './Plan.module.css'
 import { motion } from "motion/react"
 import { DownLookMask, LeftLook, LeftLookDelay, RightLook, LeftLookItem } from '../Anime'
-
+import { useNavigate } from 'react-router'
+import Ok from '../../assets/svg/ok.svg?react'
 const Plan = () => {
-
-
+  const goblog=useNavigate();
+  const goto=()=>{
+    goblog("/subscribe");
+  }
 
   return (
     <div className={styles.bg}>
@@ -31,15 +34,15 @@ const Plan = () => {
               提供三種方案
             </motion.h2>
             <motion.h3 className={styles.h3} variants={LeftLookItem}>
-              ✅ 採用月訂閱制
+              <Ok/> 採用月訂閱制
             </motion.h3>
             <motion.h3 className={styles.h3} variants={LeftLookItem}>
-              ✅ 每個月定時贈送自然小物與精美自然風景照
+              <Ok/> 贈品分為本土、區域、全球三種等級
             </motion.h3>
             <motion.h3 className={styles.h3} variants={LeftLookItem}>
-              ✅ 有機會可以抽到紐西蘭米佛峽灣的機票
+              <Ok/> 每個月贈送自然小物與風景照等好康的禮物！
             </motion.h3>
-            <button className={styles.btn}>查看更多方案</button>
+            <button className={styles.btn} onClick={goto}>查看更多方案</button>
           </motion.div>
         </motion.div>
         <motion.div

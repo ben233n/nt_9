@@ -4,6 +4,7 @@
       "name": "嵐山石頭記",
       "into":"這是一篇講述小編在嵐山偶遇一顆石頭，隨後踏上一場橫跨海域、前所未有的遷岩旅程",
       "shopid": 1,
+      "date": "2025-01-13",
       "bigimg": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744815116/arashiyama-2632036_1280_oybo68.jpg",
       "article": [
         {
@@ -49,6 +50,7 @@
       "name": "亞馬遜求生指南",
       "into":"一時欣然起行，卻在雨林中迷路，餓了三天三夜，最後靠盜伐者帶我走出雨林的故事",
       "shopid": 2,
+      "date": "2024-07-16",
       "bigimg": "https://res.cloudinary.com/daimwhvru/image/upload/f_webp,q_auto/v1744816897/forest-438432_1280_j9kzym.jpg",
       "article": [
         {
@@ -102,13 +104,14 @@
         "name": "馬達加斯加遊記",
         "into":"這是一篇紀錄我們在安達西貝-曼塔迪亞國家公園的遊記",
         "shopid": 5,
+        "date": "2024-04-03",
         "bigimg": "https://res.cloudinary.com/daimwhvru/image/upload/v1746881730/baobab-5030877_1280_rgbtlm.jpg",
         "article": [
           {
             "type": "home",
             "title": "馬達加斯加遊記",
             "smalltitle":"安達西貝-曼塔迪亞國家公園",
-            "date": "3 Oct, 2024"
+            "date": "3 Apr, 2024"
           },
           {
             "type": "imageLeft",

@@ -98,6 +98,9 @@
     font-weight: 700;
     margin:var(--margin-xs) 0px;
     letter-spacing: 0.15rem;
+    display: flex;
+    align-items: center;
+    gap: var(--margin-xs);
 }
 
 

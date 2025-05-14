@@ -11,7 +11,7 @@ const Blog = () => {
         <Head/>
         <Air/>
         <SwiperItem/>
-        <BlogBody/>
+        <BlogBody mode={"blog"}/>
         <Foot/>
     </>
 

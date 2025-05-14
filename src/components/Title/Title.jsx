@@ -4,7 +4,7 @@ import { DownLookMask, LeftLook,RightLook } from '../Anime';
 import { motion } from 'framer-motion'
 const Title = ({bigtitle,mar}) => {
   return (
-    <>
+    <> 
         <div className={`${styles.container} ${styles[mar]}`}>
             <motion.div className={styles.line} {... LeftLook}></motion.div>
             <motion.div className={styles.text} {... DownLookMask}>{bigtitle}</motion.div>
