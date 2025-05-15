@@ -325,7 +325,7 @@
         border-radius: 5px;
         border: 1.5px solid var(--bg-small-color);
         padding: 8px;
-        font-size: var(--margin-xs);
+        font-size: var(--size-xs);
         color: var(--text-ttitle-color);
         font-weight: 500;
         appearance: none;
@@ -342,7 +342,7 @@
         color: var(--text-block-color);
         border: none;
         /* width: 30%; */
-        font-size: var(--margin-xs);
+        font-size: var(--size-xs);
         font-weight: 500;
         padding: 10px var(--margin-m);
         border-radius: 5px;
