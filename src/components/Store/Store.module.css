@@ -311,7 +311,7 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
-        gap: var(--margin-xs); /* 設定內部間距 */
+        gap: 6px; /* 設定內部間距 */
         align-items: center;
     }
 
