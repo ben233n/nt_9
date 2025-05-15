@@ -20,6 +20,9 @@ const BlogBodyCard = ({img,name,content,blogid,mode,date}) => {
                       <h3 className={styles.name}>{name}</h3>
                       <p className={styles.p}>{content}</p>
                   </div>
+                  <div className={styles.end}>
+                          <p className={styles.p}>{date}</p>
+                    </div>
               </Link>
           </>
         )

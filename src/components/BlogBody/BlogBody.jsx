@@ -82,7 +82,7 @@ useEffect(() => {
                     {
                       data.map((oneblog)=>(
                         <>
-                          <BlogBodyCard mode={"blog"} key={oneblog.blogid} blogid={oneblog.blogid} name={oneblog.name} content={oneblog.into} img={oneblog.bigimg}/>
+                          <BlogBodyCard mode={"blog"} key={oneblog.blogid} blogid={oneblog.blogid} date={oneblog.date} name={oneblog.name} content={oneblog.into} img={oneblog.bigimg}/>
                         </>
                       ))
                     }

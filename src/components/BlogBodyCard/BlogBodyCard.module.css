@@ -56,6 +56,7 @@
     flex-grow: 1; /* 讓內容區域撐開，但不影響圖片 */
     width: 100%;
     padding: 0px var(--margin-xs) var(--margin-xs) var(--margin-xs);
+    opacity: 0.5;
 }
 .name{
     color: var(--text-ttitle-color);

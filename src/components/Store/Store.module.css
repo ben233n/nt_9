@@ -61,12 +61,29 @@
 .goods_up_phone{
     display: none;
 }
+.search_container_box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--margin-xs);
+}
+.select {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    font-size: var(--size-xs);
+    outline: none; /* 點擊時不顯示藍色外框 */
+    color: var(--text-ttitle-color); /* 保持文字顏色一致 */
+    font-weight: 500;
+    padding: 12px;
 
+  }
 .search_container{
     display: flex;
     position: relative;
     align-items: center;
 }
+
 
 .search_input{
     all: unset;
@@ -268,7 +285,7 @@
 
 
 /* 手機 */
-@media (max-width: 690px) {
+@media (max-width: 800px) {
     .choose{
         display: none;
     }
@@ -294,9 +311,10 @@
         flex-direction: row;
         width: 100%;
         justify-content: space-between;
-        gap: var(--margin-s); /* 設定內部間距 */
+        gap: var(--margin-xs); /* 設定內部間距 */
+        align-items: center;
     }
-    
+
     .phonebtn{
         all: unset;
         flex-grow: 1;
@@ -305,7 +323,7 @@
         height: auto;
         background-color: var(--bg-shop-color);
         border-radius: 5px;
-        border: 2px solid var(--bg-small-color);
+        border: 1.5px solid var(--bg-small-color);
         padding: 8px;
         font-size: var(--margin-xs);
         color: var(--text-ttitle-color);
@@ -323,10 +341,10 @@
         background-color: var(--bg-small-color);
         color: var(--text-block-color);
         border: none;
-        width: 30%;
+        /* width: 30%; */
         font-size: var(--margin-xs);
         font-weight: 500;
-        padding: 10px 20px;
+        padding: 10px var(--margin-m);
         border-radius: 5px;
         cursor: pointer;
         transition: all 0.3s ease-in-out;

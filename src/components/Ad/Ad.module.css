@@ -9,7 +9,7 @@
     height: auto;
     overflow: hidden;
     margin: var(--margin-big) 0px;
-    
+    cursor: pointer;
     
 }
 
