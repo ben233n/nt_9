@@ -12,13 +12,11 @@ import { motion } from "motion/react"
 import { DownLook, LeftLook } from '../Anime';
 import { useMediaQuery } from "react-responsive";
 import { showToast } from '../../redux/toastSlice';
-
+import { useQuery } from '@tanstack/react-query';
+import { fetchStores } from '../../api/firestore/fetchStores'; 
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
-    const [data, setData] = useState([]); // 存放商品資料
-    const [loading, setLoading] = useState(true); // 是否正在載入
-    const [error, setError] = useState(null); // 錯誤訊息
 
     const [numbang,SetNumBang]=useState(1);
     const [islove,SetLove]=useState(false);
@@ -66,25 +64,13 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const isMobile = useMediaQuery({ maxWidth: 690 });
 
 
-    useEffect(() => {
-        fetch("/json/store.json") // 從 public/json/store.json 載入
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("無法載入商品資料");
-            }
-            return res.json();
-          })
-          .then((json) => {
-            setData(json);
-            setLoading(false);
-          })
-          .catch((err) => {
-            setError(err.message);
-            setLoading(false);
-          });
-      }, []);
 
-      const product = data.find(item => item.name === name);//尋找我商品的留言用的
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['stores'],         // 快取的 key 名稱
+        queryFn: fetchStores          // API 函數
+      });
+
+      const product = data?.find(item => item.name === name);//尋找我商品的留言用的
     
   return (
     <>
@@ -139,7 +125,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         <div className={styles.message}>
                             {
                                 product?.message?.map(item=>(
-                                    <Message key={item.id} date={item.date} usename={item.usename} ueshead={item.head} star={item.star} speak={item.speak}/>
+                                    <Message key={`${item.usename}-${item.date}`} date={item.date} usename={item.usename} ueshead={item.head} star={item.star} speak={item.speak}/>
                                 ))
                             }                            
                         </div>
@@ -150,7 +136,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         <div className={styles.down_line}></div>
                         <div className={styles.storecard_div}>
                             {
-                                data.filter(item=>
+                                data?.filter(item=>
                                     item.category===category && item.name!=name
                                 ).slice(0, 3).map(item=>(
                                     <Storecard key={item.id} isone={true} name={item.name} price={item.price} image={item.image} itemid={item.id}/>

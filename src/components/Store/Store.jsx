@@ -21,17 +21,12 @@ const Store = () => {
   
       const isMobile = useMediaQuery({ maxWidth: 800 });
 
-  // 下面是匯入檔案的動態資料變數
-  // const [data, setData] = useState([]); // 存放商品資料
-  // const [loading, setLoading] = useState(true); // 是否正在載入
-  // const [error, setError] = useState(null); // 錯誤訊息
-
   //下面是動態資料變數，分類、關鍵字搜尋、最高最低價格
   const [storeCategory, setStoreCategory] = useState("全部");
   const [search, setSearch] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [minPrice, setMinPrice] = useState("");
-
+ 
   //彈跳視窗
   const [showModal, setShowModal] = useState(false); 
   const [sortShow, setSortShow] = useState(false); //排序的
@@ -39,30 +34,7 @@ const Store = () => {
   //排序
   const [selected, setSelected] = useState("date");
 
-  // useEffect(() => {
-  //   fetch("/json/store.json") // 從 public/json/store.json 載入
-  //     .then((res) => {
-  //       if (!res.ok) {
-  //         throw new Error("無法載入商品資料");
-  //       }
-  //       return res.json();
-  //     })
-  //     .then((json) => {
-  //       setData(json);
-  //       setLoading(false);
-  //     })
-  //     .catch((err) => {
-  //       setError(err.message);
-  //       setLoading(false);
-  //     });
-  // }, []);
-  // // if (loading) return <p>載入中...</p>;
-  // // if (error) return <p>錯誤: {error}</p>;
 
-  // const closeGlass=()=>{
-  //   setShowModal(false);
-  //   setSortShow(false);
-  // }
   const { data, isLoading, isError } = useQuery({
     queryKey: ['stores'],         // 快取的 key 名稱
     queryFn: fetchStores          // API 函數

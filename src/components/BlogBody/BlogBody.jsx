@@ -14,31 +14,6 @@ const BlogBody = ({mode}) => {
       queryKey: ['blog'],         // 快取的 key 名稱
       queryFn: fetchBlog          // API 函數
     });
-//     // 下面是匯入檔案的動態資料變數
-//     const [data, setData] = useState([]); // 存放商品資料
-//     const [loading, setLoading] = useState(true); // 是否正在載入
-//     const [error, setError] = useState(null); // 錯誤訊息
-// useEffect(() => {
-//     fetch("/json/blog.json") // 從 public/json/store.json 載入
-//       .then((res) => {
-//         if (!res.ok) {
-//           throw new Error("無法載入商品資料");
-//         }
-//         return res.json();
-//       })
-//       .then((json) => {
-//         const sortedData = json.sort((a, b) => new Date(b.date) - new Date(a.date));
-//         setData(sortedData);
-//         setData(json);
-//         setLoading(false);
-//       })
-//       .catch((err) => {
-//         setError(err.message);
-//         setLoading(false);
-//       });
-//   }, []);
-  // if (loading) return <p>載入中...</p>;
-  // if (error) return <p>錯誤: {error}</p>;
 
   const controls = useAnimation();
 

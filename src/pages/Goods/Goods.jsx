@@ -3,13 +3,20 @@ import Head from '../../components/Head/Head'
 import Foot from '../../components/Foot/Foot'
 import Air from '../../components/Air/Air'
 import { useParams } from 'react-router'
-import data from '../../../public/json/store.json'
 import Goodscard from '../../components/Goodscard/Goodscard'
+import { useQuery } from '@tanstack/react-query';
+import { fetchStores } from '../../api/firestore/fetchStores'; 
+
 
 const Goods = () => {
   const {id}=useParams();
 
-  const goodsdata = data.find(item=>item.id ===Number(id) );
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['stores'],         // 快取的 key 名稱
+    queryFn: fetchStores          // API 函數
+  });
+  
+  const goodsdata = data?.find(item=>item.id ===Number(id) );
   if(!goodsdata){
     return (
       <>
