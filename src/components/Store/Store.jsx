@@ -172,7 +172,7 @@ const Store = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      onClick={closeGlass}
+                      onClick={()=>setShowModal(false)}
                     />
                   )}
                 </AnimatePresence>
