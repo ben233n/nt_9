@@ -10,19 +10,21 @@ import Storecard from '../Storecard/Storecard';
 import Title from '../Title/Title';
 import { DownLook } from '../Anime';
 import { useMediaQuery } from "react-responsive";
-
+import { useQuery } from '@tanstack/react-query';
+import { fetchStores } from '../../api/firestore/fetchStores'; 
 
 const categorBtn = ["全部", "自然植物", "沙子土壤", "水資源", "岩石", "空氣"];
 
 
 
 const Store = () => {
+  
       const isMobile = useMediaQuery({ maxWidth: 800 });
 
   // 下面是匯入檔案的動態資料變數
-  const [data, setData] = useState([]); // 存放商品資料
-  const [loading, setLoading] = useState(true); // 是否正在載入
-  const [error, setError] = useState(null); // 錯誤訊息
+  // const [data, setData] = useState([]); // 存放商品資料
+  // const [loading, setLoading] = useState(true); // 是否正在載入
+  // const [error, setError] = useState(null); // 錯誤訊息
 
   //下面是動態資料變數，分類、關鍵字搜尋、最高最低價格
   const [storeCategory, setStoreCategory] = useState("全部");
@@ -37,34 +39,40 @@ const Store = () => {
   //排序
   const [selected, setSelected] = useState("date");
 
-  useEffect(() => {
-    fetch("/json/store.json") // 從 public/json/store.json 載入
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("無法載入商品資料");
-        }
-        return res.json();
-      })
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
-  // if (loading) return <p>載入中...</p>;
-  // if (error) return <p>錯誤: {error}</p>;
+  // useEffect(() => {
+  //   fetch("/json/store.json") // 從 public/json/store.json 載入
+  //     .then((res) => {
+  //       if (!res.ok) {
+  //         throw new Error("無法載入商品資料");
+  //       }
+  //       return res.json();
+  //     })
+  //     .then((json) => {
+  //       setData(json);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => {
+  //       setError(err.message);
+  //       setLoading(false);
+  //     });
+  // }, []);
+  // // if (loading) return <p>載入中...</p>;
+  // // if (error) return <p>錯誤: {error}</p>;
 
-  const closeGlass=()=>{
-    setShowModal(false);
-    setSortShow(false);
-  }
+  // const closeGlass=()=>{
+  //   setShowModal(false);
+  //   setSortShow(false);
+  // }
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['stores'],         // 快取的 key 名稱
+    queryFn: fetchStores          // API 函數
+  });
 
 
 
-  const storeFind = data.filter(
+
+
+  const storeFind = (data || []).filter(
     (item)=>{
       const storeCategoryBool= storeCategory==="全部" || storeCategory === item.category;
       const searchBool=item.name.includes(search);
@@ -213,9 +221,7 @@ const Store = () => {
               {
                 storeFind.length>0?(
                   storeFind.map((goodsitem)=>(
-                    <>
-                      <Storecard key={goodsitem.id} isone={false} itemid={goodsitem.id} name={goodsitem.name} price={goodsitem.price} image={goodsitem.image}/>
-                    </>
+                      <Storecard key={goodsitem.id} loading={isLoading} isone={false} itemid={goodsitem.id} name={goodsitem.name} price={goodsitem.price} image={goodsitem.image}/>
                   )
                   )
                 ):(

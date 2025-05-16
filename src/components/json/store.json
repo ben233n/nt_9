@@ -1,0 +1,161 @@
+[
+    {
+        "id": 1,
+        "name": "嵐山的岩石",
+        "text": "老闆在嵐山竹林小徑的路邊隨意撿起的一塊大石子，由於直接帶著大石頭過海關容易被盤查，萬一被判定為盜採礦石的話就回不來了，因此老闆靠著強大的意志力，扛著石頭，從日本千里迢迢游回台灣，所以這顆石頭非常的珍貴",
+        "price": 27990,
+        "category": "岩石",
+        "image": "/img/嵐山石.png",
+        "star": 4.5,
+        "like":980,
+        "discount": 0,
+        "date":"2025/01/13",
+        "size":"L13cm x W20cm x H18cm",
+        "photos":["/img/嵐山石.png","/img/嵐山石2.jpg"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "Xavier",
+            "speak":"幹，太屌了吧",
+            "star":5,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "剪刀",
+            "speak":"我輸了",
+            "star":1,
+            "date":"2025/2/30"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "布",
+            "speak":"會贏的",
+            "star":1,
+            "date":"2025/2/31"
+          }
+          ]
+      },
+      {
+        "id": 2,
+        "name": "亞馬遜雨林的草",
+        "text": "老闆在亞馬遜雨林中迷路，靠著吃雨林中的雜草維生，後來遇到盜伐樹木的伐木工，他說如果給他錢就帶我出去，我說：「有錢！有錢！賣草就有錢！」於是我現在賣掉的草一半的收益要交給他",
+        "price": 299,
+        "category": "自然植物",
+        "image": "/img/亞馬遜草.png",
+        "star": 4.3,
+        "like":300,
+        "discount": 0,
+        "date":"2024/07/16",
+        "size":"L0.15cm x W4.5cm x H1cm",
+        "photos":["/img/亞馬遜草.png"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "Xavier",
+            "speak":"亞馬遜聖戰士",
+            "star":5,
+            "date":"2025/2/30"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "巴塔哥尼亞的岩石",
+        "text": "老闆在巴塔哥尼亞草原上騎著羊駝，突然就被鐵盒給絆倒，於是我就打開鐵盒，發現裡面有許多塊石頭，我就想：「他媽的，通通拿去賣掉！」所以本商店就開始販售巴塔哥尼亞的岩石",
+        "price": 1816,
+        "category": "岩石",
+        "image": "/img/巴塔.png",
+        "star": 4.5,
+        "like":60,
+        "date":"2024/06/02",
+        "discount": 0,
+        "size":"L15cm x W27cm x H25cm",
+        "photos":["/img/巴塔.png"],
+        "message" :[
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "LOL",
+            "speak":"有沒有賣莫菲特",
+            "star":4,
+            "date":"2025/2/30"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "三葉草",
+        "text": "在大眾文化中，三葉草的三片葉子常被解釋為象徵：希望、信仰、愛。",
+        "price": 799,
+        "category": "自然植物",
+        "image": "/img/幸運草草草.jpg",
+        "star": 4.8,
+        "date":"2024/05/09",
+        "like":210,
+        "discount": 0,
+        "size":"L0.15cm x W3.5cm x H3.5cm",
+        "photos":["/img/幸運草草草.jpg","/img/幸運草.jpg","/img/幸運草草.jpg","/img/幸運草草草.jpg"],
+        "message" :[
+          {
+            "head":"/img/幸運草草草.jpg",
+            "usename": "hana",
+            "speak":"草草草草草wwwww",
+            "star":5,
+            "date":"2025/2/30"
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "馬達加斯加的土",
+        "text": "在馬達加斯加戶外野餐的時候，看到地上有馬達加斯加蟑螂經過，太可愛了，於是拿起盒子，隨地挖些土，然後把蟑螂與土放進盒子裡準備運回台灣。可是在運送過程中，蟑螂死了，留著土也沒用，所以就拿來賣",
+        "price": 49,
+        "date":"2024/04/03",
+        "category": "沙子土壤",
+        "image": "/img/馬達加斯加土1.jpg",
+        "star": 4.3,
+        "like":30,
+        "discount": 0,
+        "size":"L3cm x W3cm x H3cm",
+        "photos":["/img/馬達加斯加土1.jpg","/img/馬達加斯加土2.jpg","/img/馬達加斯加土3.jpg"],
+        "message" :[
+          {
+            "head":"/img/馬達加斯加土3.jpg",
+            "usename": "蟑螂愛好者",
+            "speak":"買這些土壤會附贈蟑螂嗎",
+            "star":5,
+            "date":"2025/2/31"
+          },
+          {
+            "head":"/img/嵐山石.png",
+            "usename": "蟑螂終結者",
+            "speak":"...",
+            "star":1,
+            "date":"2025/2/30"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "米爾福德峽灣的小碎石",
+        "text": "在米爾福德峽灣河邊欣賞U型谷的時候發現這些小碎石，於是想要拿來打水飄，但是效果不佳，這些小碎石都直接沉浸水裡，所以還是拿來賣比較實在",
+        "price": 169,
+        "date":"2024/03/14",
+        "category": "岩石",
+        "image": "/img/米爾福德峽灣的小碎石1.jpg",
+        "star": 4.3,
+        "like":30,
+        "discount": 0,
+        "size":"L1.7cm x 1.4cm x 1.6cm",
+        "photos":["/img/米爾福德峽灣的小碎石1.jpg","/img/米爾福德峽灣的小碎石2.jpg"],
+        "message" :[
+          {
+            "head":"/img/馬達加斯加土3.jpg",
+            "usename": "躺贏狗",
+            "speak":"你爸MVP",
+            "star":5,
+            "date":"2025/2/31"
+          }
+        ]
+      }
+]

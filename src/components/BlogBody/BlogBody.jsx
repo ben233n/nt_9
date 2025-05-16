@@ -6,66 +6,80 @@ import Title from '../Title/Title'
 import BlogBodyCard from '../BlogBodyCard/BlogBodyCard'
 import { DownLook } from '../Anime'
 import { Link } from 'react-router'
+import { useQuery } from '@tanstack/react-query';
+import { fetchBlog } from '../../api/firestore/fetchBlog'; 
 
 const BlogBody = ({mode}) => {
-    // 下面是匯入檔案的動態資料變數
-    const [data, setData] = useState([]); // 存放商品資料
-    const [loading, setLoading] = useState(true); // 是否正在載入
-    const [error, setError] = useState(null); // 錯誤訊息
-useEffect(() => {
-    fetch("/json/blog.json") // 從 public/json/store.json 載入
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("無法載入商品資料");
-        }
-        return res.json();
-      })
-      .then((json) => {
-        const sortedData = json.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setData(sortedData);
-        setData(json);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+    const { data, isLoading, isError } = useQuery({
+      queryKey: ['blog'],         // 快取的 key 名稱
+      queryFn: fetchBlog          // API 函數
+    });
+//     // 下面是匯入檔案的動態資料變數
+//     const [data, setData] = useState([]); // 存放商品資料
+//     const [loading, setLoading] = useState(true); // 是否正在載入
+//     const [error, setError] = useState(null); // 錯誤訊息
+// useEffect(() => {
+//     fetch("/json/blog.json") // 從 public/json/store.json 載入
+//       .then((res) => {
+//         if (!res.ok) {
+//           throw new Error("無法載入商品資料");
+//         }
+//         return res.json();
+//       })
+//       .then((json) => {
+//         const sortedData = json.sort((a, b) => new Date(b.date) - new Date(a.date));
+//         setData(sortedData);
+//         setData(json);
+//         setLoading(false);
+//       })
+//       .catch((err) => {
+//         setError(err.message);
+//         setLoading(false);
+//       });
+//   }, []);
   // if (loading) return <p>載入中...</p>;
   // if (error) return <p>錯誤: {error}</p>;
 
   const controls = useAnimation();
 
   useEffect(() => {
+    let isMounted = true; // 追蹤元件是否還活著
+  
     const sequence = async () => {
-      while (true) {
+      while (isMounted) {
         // 1. 畫出來
         await controls.start({
           pathLength: 1,
           transition: { duration: 8, ease: "easeOut" }
         });
-
+  
         // 2. 停頓
-        await new Promise(res => setTimeout(res, 1)); // 停頓 2 秒
-
+        await new Promise(res => setTimeout(res, 1000)); // 1秒停頓（原本你是1毫秒，好像太短了）
+  
         // 3. 閃爍
-        for (let i = 0; i < 3; i++) { // 3 秒內閃 6 次
+        for (let i = 0; i < 3; i++) {
+          if (!isMounted) return;
           await controls.start({ opacity: 0.2, transition: { duration: 1 } });
+          if (!isMounted) return;
           await controls.start({ opacity: 1, transition: { duration: 1 } });
         }
-
+  
         // 4. 畫回去
         await controls.start({
           pathLength: 0,
           transition: { duration: 8, ease: "easeInOut" }
         });
-
+  
         // 5. 再停頓
-        await new Promise(res => setTimeout(res, 2000)); // 再停 2 秒
+        await new Promise(res => setTimeout(res, 2000));
       }
     };
-
+  
     sequence();
+  
+    return () => {
+      isMounted = false; // 元件unmount，取消動畫循環
+    };
   }, [controls]);
 
 
@@ -80,10 +94,8 @@ useEffect(() => {
                   <Title bigtitle="部落格" />
                   <motion.div className={styles.blog} {...DownLook}>
                     {
-                      data.map((oneblog)=>(
-                        <>
-                          <BlogBodyCard mode={"blog"} key={oneblog.blogid} blogid={oneblog.blogid} date={oneblog.date} name={oneblog.name} content={oneblog.into} img={oneblog.bigimg}/>
-                        </>
+                      data?.map((oneblog)=>(
+                          <BlogBodyCard mode={"blog"} loading={isLoading} key={oneblog.blogid} blogid={oneblog.blogid} date={oneblog.date} name={oneblog.name} content={oneblog.into} img={oneblog.bigimg}/>
                       ))
                     }
                   </motion.div>
@@ -120,11 +132,9 @@ useEffect(() => {
                         </div>
                         <div className={styles.right}>
                           {
-                            data.slice(0, 3).map((oneblog)=>(
-                              <>
-                                <BlogBodyCard mode={"home"} key={oneblog.blogid} blogid={oneblog.blogid} date={oneblog.date} name={oneblog.name} content={oneblog.into} />
-                              </>
-                            ))
+                              (data ?? []).slice(0, 3).map((oneblog) => (
+                                <BlogBodyCard mode={"home"} loading={isLoading} key={oneblog.blogid} blogid={oneblog.blogid} date={oneblog.date} name={oneblog.name} content={oneblog.into} />
+                              ))
                           }
                         </div>
                     </div>
