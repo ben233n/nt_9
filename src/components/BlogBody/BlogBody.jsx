@@ -84,7 +84,7 @@ const BlogBody = ({mode}) => {
             <div className={styles.bg}>
                   <div className={`${styles.container} container `}>
                     <Title bigtitle={"最新故事"}/>
-                    <div className={styles.home}>
+                    <motion.div className={styles.home} {...DownLook}>
                         <div className={styles.left}>
                           <div className={styles.book_box}>
                           <motion.svg className={styles.book} 
@@ -112,7 +112,7 @@ const BlogBody = ({mode}) => {
                               ))
                           }
                         </div>
-                    </div>
+                    </motion.div>
                   </div>
             </div>
           </>

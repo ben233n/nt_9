@@ -8,6 +8,9 @@ const titles = [
   { path: '/shop/:id', title: 'Naturo 產品資訊' }, // 支援 /shop/123
   { path: '/cart', title: 'Naturo 購物車' },
   { path: '/blog', title: 'Naturo 部落格' },
+  { path: '/blog/:id', title: 'Naturo 部落格文章' },
+  { path: '/subscribe', title: 'Naturo 訂閱' },
+  
 ];
 
 // 小工具：判斷當前網址跟設定的 path 是否匹配

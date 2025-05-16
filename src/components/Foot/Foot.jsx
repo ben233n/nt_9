@@ -12,7 +12,7 @@ const Foot = ({plan}) => {
   return (
     <>
       <div className={styles.up}>
-        <motion.div className={`${styles.container} container `} {...DownLook}>
+        <motion.div className={`${styles.container} container `} {...LeftLook}>
           <div className={styles.call} >
             <Link to="/"><Logo className={styles.logo}/></Link>
             <div className={styles.dividing_line}></div>

@@ -52,7 +52,7 @@ const Storecard = ({ name, price, image, itemid, isone, loading }) => {
         </h3>
         <div className={styles.down}>
           <h4 className={styles.h4}>
-            {loading ? <Skeleton width={60}  baseColor="var(--loading-color)"/> : `${price}`}
+            {loading ? <Skeleton width={60}  baseColor="var(--loading-color)"/> : `$${price}`}
           </h4>
           <div className={styles.icon_div}>
             {loading ? (

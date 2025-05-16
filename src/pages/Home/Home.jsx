@@ -16,9 +16,8 @@ const Home = () => {
         <Hope/>
         <BlogBody mode={"home"}/>
         <Fire/>
-
         <Plan/>
-        <Updata/>
+        {/* <Updata/> */}
         <Foot/>
 
     </>
