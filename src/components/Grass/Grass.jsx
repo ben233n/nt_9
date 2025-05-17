@@ -1,0 +1,60 @@
+import React from 'react'
+import { motion, useAnimation } from 'motion/react'
+import { useState, useEffect} from "react";
+import styles from './Grass.module.css'
+const Grass = ({style}) => {
+    const controls = useAnimation();
+
+    useEffect(() => {
+      const animateLoop = async () => {
+        while (true) {
+          // 畫出來
+          await controls.start({
+            pathLength: 1,
+            transition: { duration: 5, ease: 'easeInOut' }
+          });
+  
+          // 停 5 秒
+          await new Promise((res) => setTimeout(res, 5000));
+  
+          // 擦掉
+          await controls.start({
+            pathLength: 0,
+            transition: { duration: 5, ease: 'easeInOut' }
+          });
+  
+          // 可選：再停一點再重來
+          // await new Promise((res) => setTimeout(res, 1000));
+        }
+      };
+  
+      animateLoop();
+    }, [controls]);
+  return (
+    <>
+        <motion.svg className={styles.book} 
+            style={style}
+            width="100%" 
+            height="100%" 
+            viewBox="0 0 52 38" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <motion.path d="M48.665 14.79C47.545 15.8916 46.2776 17.376 45.0859 19.3477C42.7634 23.1905 40.7619 28.8269 40.6104 37H34.8115C35.0158 27.6197 38.0925 22.0097 41.6309 18.7236C43.9457 16.5739 46.4971 15.3808 48.665 14.79ZM39.7598 7.21387C39.3016 7.53655 38.8242 7.89844 38.3389 8.30762C36.4075 9.93602 34.3717 12.2797 32.8154 15.7432C32.336 14.3232 31.7245 12.9306 30.9873 11.5742C32.3337 10.3052 34.0202 9.22353 35.9639 8.40234L36.4092 8.2207C37.4764 7.79991 38.5998 7.46316 39.7598 7.21387ZM14 36.0781L13.999 36.0566C13.6256 27.3748 10.795 21.8252 7.7373 18.25C6.41754 16.707 5.04087 15.5274 3.84082 14.6377C8.78891 15.3898 12.4437 17.3338 14.9932 20.4033C18.0571 24.0924 19.6595 29.5648 19.79 37H14V36.0781ZM24.4004 34.1826L24.3994 34.165C23.8874 19.6601 20.4816 11.2872 16.8242 6.31836C15.0725 3.93853 13.243 2.34222 11.7246 1.25586C14.3966 1.66967 17.7037 2.7514 20.7734 5.57227C25.5924 10.0008 30.0344 18.9218 30.1924 37H24.4004V34.1826Z" 
+            stroke="currentColor" 
+            strokeWidth="2"
+            initial={{ pathLength: 0, opacity: 1 }}
+            animate={controls}
+            />
+            
+        </motion.svg>
+        
+
+        
+    </>
+    
+
+  )
+}
+
+export default Grass

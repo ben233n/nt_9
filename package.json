@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.8.7",
     "@ap.cx/react-fullpage": "^0.3.0",
     "@fullpage/react-fullpage": "^0.1.48",
     "@reduxjs/toolkit": "^2.6.1",
     "@tanstack/react-query": "^5.76.1",
+    "antd": "^5.25.1",
     "firebase": "^11.7.3",
     "fullpage.js": "^4.0.35",
     "motion": "^12.5.0",

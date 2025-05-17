@@ -17,13 +17,19 @@ import { bangModel } from './redux/modelSlice';
 import TitleManager from "./components/TitleManager";
 import Blogpage from "./pages/Blogpage/Blogpage";
 import Subscribe from "./pages/Subscribe/Subscribe";
+import Login from "./pages/Login/Login";
+import MyUser from "./pages/MyUser/MyUser";
+import { setUser } from "./redux/userSlice";
+
+
 
 function App() {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.model.mode);
-
+  
   
   const location = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0); // 跳轉到頂部
   }, [location.pathname]); // 監聽 pathname 變化
@@ -44,7 +50,8 @@ function App() {
         <Route path="/blog" element={<Blog/>}/>
         <Route path="/blog/:id" element={<Blogpage/>}/>
         <Route path="/subscribe" element={<Subscribe/>}/>
-
+        <Route path="/Login" element={<Login/>}/>
+        <Route path="/myuser" element={<MyUser/>}/>
       </Routes>
 
 

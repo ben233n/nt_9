@@ -100,7 +100,9 @@ const Head = () => {
             </div>
 
             {/* 使用者 */}
-            <User className={`${styles.user} ${styles.icon}`} />
+              <Link to="/myuser">
+                <User className={`${styles.user} ${styles.icon}`} />
+              </Link>
             {/* 漢堡選單 */}
             <Menu className={`${styles.menu} ${styles.icon}`} onClick={() => SetIsHamburger(true)} />
           </nav>
@@ -146,7 +148,7 @@ const Head = () => {
             </ul>
             <ul className={styles.phone_ul}>
               <Link to="/cart" className={styles.nav_li}>購物車</Link>
-              <li className={styles.nav_li}>會員中心</li>
+              <Link to="/myuser" className={styles.nav_li}>會員中心</Link>
             </ul>
           </motion.div>
         }

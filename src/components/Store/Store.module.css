@@ -335,9 +335,20 @@
         background-size: 24px;
         padding-right: 30px; 
         cursor: pointer;
+        font-size: var(--size-xs);
+        font-weight: 500;
+        padding: 10px 12px;
+
+        letter-spacing: 0.05rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+        transition: all 0.3s ease-in-out;
     }
 
     .filter_btn {
+        
+        letter-spacing: 0.05rem;
         background-color: var(--bg-small-color);
         color: var(--text-block-color);
         border: none;

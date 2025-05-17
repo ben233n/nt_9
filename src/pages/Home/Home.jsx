@@ -8,6 +8,7 @@ import Plan from '../../components/Plan/Plan';
 import Foot from '../../components/Foot/Foot';
 import BlogBody from '../../components/BlogBody/BlogBody';
 import Updata from '../../components/Updata/Updata';
+import Grass from '../../components/Grass/Grass';
 const Home = () => {
 
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <BlogBody mode={"home"}/>
         <Fire/>
         <Plan/>
+        {/* <Grass/> */}
         {/* <Updata/> */}
         <Foot/>
 

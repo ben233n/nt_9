@@ -1,0 +1,9 @@
+.book{
+    width: 10rem;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-ttitle-color);
+    height: auto;
+}

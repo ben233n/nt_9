@@ -70,7 +70,8 @@ html[data-theme='dark']{
   --btn-color:#d2d7d4;
   /* 訂閱方案半透明顏色變化 */
   --plan-color:rgba(61, 67, 65, 0.6);
-
+  /* 加載顏色 */
+  --loading-color:#5a5b5a;
 }
 
 

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,5 +18,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// 初始化 Firestore 資料庫
-export const db = getFirestore(app);
+
+// 初始化 Authentication 和 Firestore
+const auth = getAuth(app);          // ✅ 初始化 auth
+const db = getFirestore(app);       // ✅ Firestore 已經正確
+
+export { auth, db };                // ✅ 導出兩個物件

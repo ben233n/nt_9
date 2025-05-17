@@ -42,7 +42,6 @@ const Foot = ({plan}) => {
               <a className={styles.copyright} style={{fontSize:'14px'}} href="https://storyset.com/hobby">Hobby illustrations by Storyset</a>
             </>
           }
-          
       </div>
     </>
   )
