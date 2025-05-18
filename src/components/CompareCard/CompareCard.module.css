@@ -63,7 +63,7 @@
 }
 .buy:hover{
     letter-spacing: 0.5rem; 
-    background-color: #576E61;
+    background-color: var(--on-bang-color);
 }
 .down{
     width: 100%;

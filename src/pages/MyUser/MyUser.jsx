@@ -5,19 +5,18 @@ import From from '../../components/From/From';
 import { Ad } from '../../components/Ad/Ad';
 import { useSelector } from 'react-redux';
 import Out from '../../components/Out/Out';
+import MyUserBody from '../../components/MyUserBody/MyUserBody';
 
 const MyUser = () => {
   const isLogin=useSelector((state)=>state.auth.user)
   return (
     <>
-        <Air/>
+      <Air/>
         {isLogin?(
-          <>
-            <Ad/>
-            <Out/>
-          </>
+            <MyUserBody/>
       ):(<From/>)}
-        <Foot/>
+      
+      <Foot/>
     </>
   )
 }

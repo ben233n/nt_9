@@ -1,12 +1,16 @@
 import {LockOutlined,UserOutlined,MailOutlined,} from '@ant-design/icons';
 import {LoginForm,ProFormText,ProFormCheckbox,ProFormDatePicker,} from '@ant-design/pro-components';
 import { Tabs } from 'antd';
-import { useState } from 'react';
+import { useState ,useRef} from 'react';
 import styles from './From.module.css'; // 你的 CSS Modules
 import Grass from '../Grass/Grass';
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'; // ✅ 修正
+import { doc, getDoc } from 'firebase/firestore'; // ✅ 匯入 Firestore 方法
 import { FadeInOne } from '../Anime';
-import { auth } from '../../api/firebaseConfig'; // 根據你的路徑調整
+import { auth,db } from '../../api/firebaseConfig'; // 根據你的路徑調整
+import { setTheme } from '../../redux/modelSlice';
+
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -18,7 +22,8 @@ import { setUser } from '../../redux/userSlice';
 
 const From = ({onLoginSuccess}) => {
   const dispatch = useDispatch();
-
+  const formRef = useRef(); // ✅ 修正：formRef 記得初始化
+  
   const [loginType, setLoginType] = useState('account');
   const [showStep2, setShowStep2] = useState(false);
   const [registerEmail, setRegisterEmail] = useState('');
@@ -28,6 +33,7 @@ const From = ({onLoginSuccess}) => {
 
         <Grass/>
         <LoginForm
+            formRef={formRef}
             onFinish={async (values) => {
                 try {
                     if (loginType === 'register' && !showStep2) {
@@ -53,12 +59,30 @@ const From = ({onLoginSuccess}) => {
                       const { email, password } = values;
                       await signInWithEmailAndPassword(auth, email, password);
                       alert("'登入成功'");
+                    
                       const userInfo = {
-                        uid: auth.currentUser.uid,                 // 使用者 ID
-                        email: auth.currentUser.email,             // 使用者 Email
-                        displayName: auth.currentUser.displayName, // 顯示名稱（如果有設定）
+                        uid: auth.currentUser.uid,
+                        email: auth.currentUser.email,
+                        displayName: auth.currentUser.displayName,
                       };
                       dispatch(setUser(userInfo));
+                    
+                      // 取得 Firestore 主題資料
+                      const themeDocRef = doc(db, 'users', userInfo.uid);
+                      const themeSnapshot = await getDoc(themeDocRef);
+                    
+                      if (themeSnapshot.exists()) {
+                        const docData = themeSnapshot.data();
+                        if (docData.theme) {
+                          dispatch(setTheme(docData.theme));
+                        }
+                      }
+                    
+                      // 呼叫登入成功後的 callback（可選）
+                      if (onLoginSuccess) {
+                        onLoginSuccess();
+                      }
+                    
                       return;
                     }
                   } catch (error) {

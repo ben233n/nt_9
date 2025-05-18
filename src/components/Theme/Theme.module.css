@@ -1,0 +1,73 @@
+.bg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+}
+
+.h2{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-m);
+    font-weight: 700;
+}
+.theme{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--margin-xs);
+}
+.h3{
+    color: var(--text-header-color);
+    font-size: var(--size-s);
+    font-weight: 700;
+}
+
+.theme_item{
+    width: 100%;
+    flex-wrap: wrap;
+    grid-gap: var(--margin-big) var(--margin-m);
+    display: flex;
+    flex-direction: row;
+    
+}
+.btn_box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.yes{
+    all: unset;
+    cursor: pointer;
+    background-color: var(--bg-small-color);
+    display: flex;
+    justify-content: center;
+    color: var(--text-block-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    padding: var(--margin-xs) var(--margin-m);
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: var(--margin-s);
+
+
+}
+.yes:hover{
+    letter-spacing: 0.5rem; 
+    background-color: var(--on-bang-color);
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 700px) {
+    .theme_item{
+
+        grid-gap: var(--margin-s) ;
+
+        
+    }
+}
+

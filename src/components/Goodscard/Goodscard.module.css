@@ -78,7 +78,7 @@
 .like{
     width: var(--margin-m);
     height: var(--margin-m);
-    color: #576E61;
+    color: var(--on-bang-color);
     cursor: pointer;
 }
 .nolike{
@@ -158,7 +158,7 @@
 }
 .buy:hover{
     letter-spacing: 0.5rem; 
-    background-color: #576E61;
+    background-color: var(--on-bang-color);
 }
 .shopicon{
     width: var(--size-s);

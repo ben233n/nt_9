@@ -55,7 +55,7 @@ useEffect(() => {
             className={styles.button} // 單個按鈕樣式
             style={{
                 width:`${containerWidth/images.length}px`, //按鈕寬等於父容器除按鈕數量
-                backgroundColor: selected===index? '#576E61':'var(--bg-small-color)'
+                backgroundColor: selected===index? 'var(--on-bang-color)':'var(--bg-small-color)'
             }}
             onClick={() => setSelected(index)} // [React] 點擊按鈕時，更新 selected 狀態
           />

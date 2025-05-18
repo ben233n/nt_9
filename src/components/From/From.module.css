@@ -31,7 +31,7 @@
   margin-top: var(--margin-m);
 }
 .btn:hover{
-  background-color: #576E61;
+  background-color: var(--on-bang-color);
 }
 
 .Tabs :global(.ant-tabs-nav) {

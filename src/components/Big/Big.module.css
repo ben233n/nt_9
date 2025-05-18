@@ -73,7 +73,7 @@
 }
 .btn:hover{ 
     background-color:var(--text-block-color);
-    color: #576E61;
+    color: var(--on-bang-color);
     font-weight:400;
 }
 .fogLayer {

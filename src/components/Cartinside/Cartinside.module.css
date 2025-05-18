@@ -85,7 +85,7 @@
 }
 .buy:hover{
     letter-spacing: 0.5rem; 
-    background-color: #576E61;
+    background-color: var(--on-bang-color);
 }
 .phone_total{
     position: fixed;
@@ -148,7 +148,7 @@
 
 }
 .phone_buy:hover{
-    background-color: #576E61;
+    background-color: var(--on-bang-color);
 }
 
 @media (max-width: 992px) {

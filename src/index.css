@@ -22,6 +22,11 @@
   /* 加載顏色 */
   --loading-color:rgb(219, 222, 220);
 
+  /* 不變的主題色 */
+  --on-bang-color:#576E61;
+
+  /* 照片遮罩顏色 */
+  --img-color:#576e614d;
 
   /* 字體大小設置 */
 
@@ -42,8 +47,7 @@
   --border-width: 1px;  /* 邊框寬度 */
   --border-radius: 30px; /* 圓角半徑 */
 
-    /* 照片遮罩顏色 */
-  --img-color:#576e614d
+
   
   
 
@@ -74,7 +78,451 @@ html[data-theme='dark']{
   --loading-color:#5a5b5a;
 }
 
+html[data-theme='冰川藍']{
+  /* 藍色最佳版 */
+  --bg-color: #dee6ea;
+  --bg-block-color: #5a7d8a;
+  --bg-small-color: #89aab5;
+  --bg-shop-color: #e8eef0;
+  
+  --text-header-color: #3a4c53;
+  --text-block-color: #dee6ea;
+  --text-ttitle-color: #5a7d8a;
+  --text-p-color: #6f8389;
+  
+  --btn-color: #5a7d8a;
+  --plan-color: #5a7d8a99;
+  
+  --loading-color: rgb(213, 225, 230);
+  --on-bang-color: #5a7d8a;
+  --img-color: #5a7d8a4d;
+}
 
+html[data-theme='玫瑰粉']{
+  --bg-color: #f2ebea;             /* 柔霧灰粉背景 */
+  --bg-block-color: #9e5e63;       /* 豆沙紅（深粉紅） */
+  --bg-small-color: #c98c90;       /* 淡玫瑰紅 */
+  --bg-shop-color: #f7f3f2;        /* 接近白的灰粉 */
+  
+  --text-header-color: #5b3e40;    /* 深豆沙文字 */
+  --text-block-color: #f2ebea;     
+  --text-ttitle-color: #9e5e63;    
+  --text-p-color: #88686a;         /* 中性色調文字 */
+  
+  --btn-color: #9e5e63;
+  --plan-color: #9e5e6399;
+  
+  --loading-color: rgb(236, 225, 224);  /* 微灰粉加載色 */
+  --on-bang-color: #9e5e63;
+  --img-color: #9e5e634d;
+}
+
+html[data-theme='摩卡奶茶']{
+  --bg-color: #f1ebe5;             /* 淺咖啡色 */
+  --bg-block-color: #8c6f5b;       /* 太妃糖棕 */
+  --bg-small-color: #b69d89;       /* 淺摩卡 */
+  --bg-shop-color: #f8f3ee;
+  
+  --text-header-color: #5b4539;    /* 深咖啡 */
+  --text-block-color: #f1ebe5;
+  --text-ttitle-color: #8c6f5b;
+  --text-p-color: #7a6456;
+  
+  --btn-color: #8c6f5b;
+  --plan-color: #8c6f5b99;
+  --loading-color: rgb(232, 222, 213);
+  --on-bang-color: #8c6f5b;
+  --img-color: #8c6f5b4d;
+}
+
+html[data-theme='焦糖拿鐵']{
+  --bg-color: #ede7e2;             /* 象牙白 */
+  --bg-block-color: #6a5546;       /* 巧克力棕 */
+  --bg-small-color: #a28879;       /* 柔木棕 */
+  --bg-shop-color: #f5f1ed;        /* 淡象牙白 */
+  
+  --text-header-color: #4a392f;    /* 深棕標題 */
+  --text-block-color: #ede7e2;     /* 象牙白區塊文字 */
+  --text-ttitle-color: #6a5546;    /* 巧克力棕標題 */
+  --text-p-color: #7a6b62;         /* 柔灰棕段落文字 */
+  
+  --btn-color: #6a5546;            /* 巧克力棕按鈕 */
+  --plan-color: #6a554699;         /* 巧克力棕透明層 */
+  --loading-color: rgb(236, 230, 224); /* 象牙白灰 */
+  --on-bang-color: #6a5546;        /* 巧克力棕提示色 */
+  --img-color: #6a55464d;          /* 巧克力棕半透明圖層 */
+}
+
+html[data-theme='遞出橄欖枝']{
+  /* 橄欖綠 */
+  /* 背景色 */
+  --bg-color: #e7eae3;
+  --bg-block-color: #5c6b4f;
+  --bg-small-color: #b7c2a6;
+  --bg-shop-color: #f2f4f0;
+  
+  /* 文字顏色 */
+  --text-header-color: #3a4037;
+  --text-block-color: #e7eae3;
+  --text-ttitle-color: #5c6b4f;
+  --text-p-color: #6d7268;
+  
+  /* 特別按鈕設計顏色變化 */
+  --btn-color: #5c6b4f;
+  /* 訂閱方案半透明顏色變化 */
+  --plan-color: #5c6b4f99;
+  
+  /* 加載顏色 */
+  --loading-color: rgb(220, 224, 216);
+  
+  /* 不變的主題色 */
+  --on-bang-color: #5c6b4f;
+  
+  /* 照片遮罩顏色 */
+  --img-color: #5c6b4f4d;
+
+}
+
+html[data-theme='聖誕樹綠']{
+  /* 聖誕綠 比我原本飽和而已 */
+/* 背景色 */
+--bg-color: #f0f3f1;             /* 原 #e2e5e4 → 更雪白清新 */
+--bg-block-color: #47624F;       /* 原 #576E61 → 主色改為松綠 */
+--bg-small-color: #aabfb0;       /* 原 #87a194 → 柔和綠灰過渡 */
+--bg-shop-color: #f5f8f6;        /* 原 #e8eae9 → 更明亮輕盈 */
+
+/* 文字顏色 */
+--text-header-color: #2f3b34;    /* 原 #3D4341 → 深墨綠灰，更穩重 */
+--text-block-color: #f0f3f1;     /* 同 bg-color，保持一致背景白 */
+--text-ttitle-color: #47624F;    /* 原 #576E61 → 主色呼應 */
+--text-p-color: #6a706c;         /* 原 #737675 → 略偏冷灰綠調整 */
+
+/* 特別按鈕設計顏色變化 */
+--btn-color: #47624F;            /* 主色，松針綠 */
+/* 訂閱方案半透明顏色變化 */
+--plan-color: #47624F99;         /* 半透明版本的主色 */
+
+/* 加載顏色 */
+--loading-color: rgb(229, 235, 232);  /* 原 #dbd edc → 更偏冷淺灰綠 */
+
+/* 不變的主題色 */
+--on-bang-color: #47624F;        /* 主色保持一致 */
+
+/* 照片遮罩顏色 */
+--img-color: #47624F4D;          /* 同樣主色透明版本 */
+  
+}
+
+html[data-theme='派大星']{
+  --bg-color: #fcecee;             /* 淡霧莓粉（背景主色） */
+  --bg-block-color: #e68795;       /* 柔亮莓紅（主卡片區塊） */
+  --bg-small-color: #9ec89e;       /* 柔和抹茶綠（褲子） */
+  --bg-shop-color: #fff7f8;        /* 幾近白的淡粉背景 */
+
+  /* 文字顏色 */
+  --text-header-color: #704b58;    /* 深莓豆沙（標題） */
+  --text-block-color: #fcecee;     /* 與主背景一致 */
+  --text-ttitle-color: #e68795;    /* 主副標粉紅 */
+  --text-p-color: #736769;         /* 溫柔灰褐字體 */
+
+  /* 特別按鈕設計顏色變化 */
+  --btn-color: #e68795;            /* 按鈕粉紅 */
+  --plan-color: #e6879599;         /* 半透明粉紅 */
+
+  /* 加載顏色 */
+  --loading-color: #f7e3e6;        /* 柔粉白背景 */
+
+  /* 不變的主題色 */
+  --on-bang-color: #e68795;        /* 主主題色 */
+
+  /* 照片遮罩顏色 */
+  --img-color: #e687954d;/* 半透明海星粉紅 */
+
+
+}
+
+html[data-theme='藍黃色盲']{
+  /* 藍黃色盲 藍橙對比主題*/
+/* 背景色 */
+--bg-color: #f5f5f5;
+--bg-block-color: #005f73;
+--bg-small-color: #94d2bd;
+--bg-shop-color: #e9d8a6;
+
+/* 文字顏色 */
+--text-header-color: #0a0908;
+--text-block-color: #f5f5f5;
+--text-ttitle-color: #005f73;
+--text-p-color: #6c757d;
+
+/* 特別按鈕設計顏色變化 */
+--btn-color: #005f73;
+/* 訂閱方案半透明顏色變化 */
+--plan-color: #005f7399;
+
+/* 加載顏色 */
+--loading-color: rgb(233, 216, 166);
+
+/* 不變的主題色 */
+--on-bang-color: #005f73;
+
+/* 照片遮罩顏色 */
+--img-color: #005f734d;
+
+}
+
+html[data-theme='全色盲']{
+  /* 全色盲  高對比黑白主題*/
+/* 背景色 */
+--bg-color: #ffffff;
+--bg-block-color: #000000;
+--bg-small-color: #d3d3d3;
+--bg-shop-color: #f0f0f0;
+
+/* 文字顏色 */
+--text-header-color: #000000;
+--text-block-color: #ffffff;
+--text-ttitle-color: #000000;
+--text-p-color: #4f4f4f;
+
+/* 特別按鈕設計顏色變化 */
+--btn-color: #000000;
+/* 訂閱方案半透明顏色變化 */
+--plan-color: #00000099;
+
+/* 加載顏色 */
+--loading-color: rgb(240, 240, 240);
+
+/* 不變的主題色 */
+--on-bang-color: #000000;
+
+/* 照片遮罩顏色 */
+--img-color: #0000004d;
+
+}
+
+html[data-theme='紅綠色盲']{
+/* 背景色 */
+--bg-color: #e2e6e8;
+--bg-block-color: #4c6b82;
+--bg-small-color: #8daab8;
+--bg-shop-color: #ecf0f2;
+
+/* 文字顏色 */
+--text-header-color: #2e3e48;
+--text-block-color: #e2e6e8;
+--text-ttitle-color: #4c6b82;
+--text-p-color: #6d7c86;
+
+/* 特別按鈕設計顏色變化 */
+--btn-color: #4c6b82;
+/* 訂閱方案半透明顏色變化 */
+--plan-color: #4c6b8299;
+
+/* 加載顏色 */
+--loading-color: rgb(222, 226, 230);
+
+/* 不變的主題色 */
+--on-bang-color: #4c6b82;
+
+/* 照片遮罩顏色 */
+--img-color: #4c6b824d;
+
+}
+
+html[data-theme='薰衣草']{
+  --bg-color: #ece9f1;
+  --bg-block-color: #7b6d85;
+  --bg-small-color: #a3b59e;
+  --bg-shop-color: #f3f0f7;
+  
+  --text-header-color: #463b4d;
+  --text-block-color: #ece9f1;
+  --text-ttitle-color: #7b6d85;
+  --text-p-color: #6d6c70;
+  
+  --btn-color: #7b6d85;
+  --plan-color: #7b6d8599;
+  
+  --loading-color: rgb(239, 234, 244);
+  --on-bang-color: #7b6d85;
+  --img-color: #7b6d854d;
+
+}
+
+html[data-theme='熬夜派大星']{
+  /* 熬夜派大星 */
+  --bg-color: #0e0f11;
+  --bg-block-color: #39ff14;
+  --bg-small-color: #ff4f87;
+  --bg-shop-color: #1c1c22;
+  
+  --text-header-color: #ffffff;
+  --text-block-color: #0e0f11;
+  --text-ttitle-color: #ff4f87;
+  --text-p-color: #b3b3b3;
+  
+  --btn-color: #39ff14;
+  --plan-color: #39ff1499;
+  
+  --loading-color: rgb(20, 20, 20);
+  --on-bang-color: #ff4f87;
+  --img-color: #39ff144d;
+
+}
+
+html[data-theme='夢幻樂園']{
+--bg-color: #f6f6fa;
+--bg-block-color: #c9d9e6;
+--bg-small-color: #ffcfdc;
+--bg-shop-color: #e7f0f7;
+
+--text-header-color: #3b3753;      /* 加深 header 色 */
+--text-block-color: #f6f6fa;
+--text-ttitle-color: #a5b7c6;      /* 淺藍略收灰 */
+--text-p-color: #6c6a7a;           /* 原來的灰紫再加深 */
+
+--btn-color: #ffcfdc;
+--plan-color: #ffcfdc99;
+
+--loading-color: rgb(245, 245, 250);
+--on-bang-color: #ffcfdc;
+--img-color: #ffcfdc4d;
+  
+
+}
+
+html[data-theme='華國美學']{
+  --bg-color: #fff800;          /* 早餐店招牌黃 */
+  --bg-block-color: #ff0000;    /* 廟宇紅字 */
+  --bg-small-color: #00aaff;    /* 補習班藍底 */
+  --bg-shop-color: #00ff44;     /* 柑仔店綠 */
+  
+  --text-header-color: #000000;     /* 黑體強力字 */
+  --text-block-color: #fff800;
+  --text-ttitle-color: #ff0000;
+  --text-p-color: #002244;
+  
+  --btn-color: #ff0000;
+  --plan-color: #ff000099;
+  
+  --loading-color: rgb(255, 248, 0);
+  --on-bang-color: #ff0000;
+  --img-color: #ff00004d;
+    
+  
+}
+
+html[data-theme='北歐風']{
+  --bg-color: #f0f1f3;              /* 淡霧白（背景） */
+  --bg-block-color: #78849b;        /* 藍灰主色（模組區） */
+  --bg-small-color: #a9a9ab;        /* 霧灰區塊（次要色） */
+  --bg-shop-color: #fafafa;         /* 幾近純白的內容背景 */
+  
+  --text-header-color: #3c3f45;     /* 深岩灰（主標） */
+  --text-block-color: #f0f1f3;
+  --text-ttitle-color: #78849b;
+  --text-p-color: #626b7c;
+  
+  --btn-color: #78849b;
+  --plan-color: #78849b99;
+  --loading-color: #e3e5e9;
+  --on-bang-color: #78849b;
+  --img-color: #78849b4d;
+  
+}
+
+html[data-theme='花見團子']{
+  /* 日系 */
+  --bg-color: #f5f4f0;
+  --bg-block-color: #92b29f;
+  --bg-small-color: #f2cfd6;
+  --bg-shop-color: #f8f6f2;
+  
+  --text-header-color: #4e4a3f;
+  --text-block-color: #f5f4f0;
+  --text-ttitle-color: #92b29f;
+  --text-p-color: #6f6e66;
+  
+  --btn-color: #92b29f;
+  --plan-color: #92b29f99;
+  
+  --loading-color: rgb(245, 244, 240);
+  --on-bang-color: #92b29f;
+  --img-color: #92b29f4d;
+  
+}
+
+html[data-theme='drak']{
+  --bg-color: #f4f7f8;               /* 雪霧底色 */
+  --bg-block-color: #9daeb7;         /* 霧藍灰（晨霧） */
+  --bg-small-color: #bfcab5;         /* 軟灰綠 */
+  --bg-shop-color: #ffffff;          /* 全白 */
+  
+  --text-header-color: #414a4e;      /* 石板黑灰 */
+  --text-block-color: #f4f7f8;
+  --text-ttitle-color: #9daeb7;
+  --text-p-color: #6e7578;
+  
+  --btn-color: #9daeb7;
+  --plan-color: #9daeb799;
+  --loading-color: #e9edef;
+  --on-bang-color: #9daeb7;
+  --img-color: #9daeb74d;    /* 柔白遮罩 */
+  
+}
+
+html[data-theme='昭和懷舊']{
+  /* 昭和 */
+  --bg-color: #e7dcbe;
+  --bg-block-color: #7d3d2b;
+  --bg-small-color: #b79d58;
+  --bg-shop-color: #f3e8cd;
+  
+  --text-header-color: #352a21;
+  --text-block-color: #e7dcbe;
+  --text-ttitle-color: #7d3d2b;
+  --text-p-color: #655442;
+  
+  --btn-color: #7d3d2b;
+  --plan-color: #7d3d2b99;
+  
+  --loading-color: rgb(231, 220, 190);
+  --on-bang-color: #7d3d2b;
+  --img-color: #7d3d2b4d;
+  
+}
+
+html[data-theme='昭和懷舊'] body::before {
+  /* 昭和背景 */
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url(/img/old.jpg) center/cover no-repeat;
+  opacity: 0.3; /* 控制透明度 */
+  z-index: -1;
+  pointer-events: none;
+}
+
+html[data-theme='蒙德里安']{
+  --bg-color: #f2f2f2;               /* 淺灰白背景 */
+  --bg-block-color: #d42a2a;         /* 紅色方塊 */
+  --bg-small-color: #2a4bdd;         /* 藍色方塊 */
+  --bg-shop-color: #ffe600;          /* 工業亮黃（亮） */
+  
+  --text-header-color: #1f1f1f;      /* 深灰標題 */
+  --text-block-color: #f2f2f2;
+  --text-ttitle-color: #d42a2a;      /* 紅色小標題 */
+  --text-p-color: #595959;           /* 中灰文字 */
+  
+  --btn-color: #2a4bdd;              /* 藍色按鈕 */
+  --plan-color: #2a4bdd99;
+  --loading-color: #f5f5f5;
+  --on-bang-color: #d42a2a;
+  --img-color: #2a4bdd4d;         /* 藍色 透明遮罩 */           /* 柔白遮罩 */
+  
+}
+  
 
 
 

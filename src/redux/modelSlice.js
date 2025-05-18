@@ -11,11 +11,15 @@ const modelSlice = createSlice({
     bangModel: (state) => {
         // 切換模式
         state.mode = state.mode === 'light' ? 'dark' : 'light';
-      }
+      },
+
+    setTheme: (state, action) => {
+      state.mode = action.payload;
+    },
 
   }
 });
 
-export const { bangModel } = modelSlice.actions;
+export const { setTheme,bangModel } = modelSlice.actions;
 
 export default modelSlice.reducer
