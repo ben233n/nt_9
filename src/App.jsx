@@ -29,6 +29,7 @@ import { setTheme } from './redux/modelSlice';
 function App() {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.model.mode);
+  const user = useSelector((state) => state.auth.user);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -80,21 +81,23 @@ function App() {
       </Routes>
 
 
+      {!user &&
+         <motion.div 
+         className="dark_light"
+         animate={{rotateY:mode === "light" ? 0 :180}}
+         transition={{
+          type: 'spring',
+          stiffness: 300,
+          damping: 30,
+        }}
+        onClick={() => dispatch(bangModel())}>
+          {
+            mode === "light" ?<Sun className='sun'/>:<Moon className='sun'/>
+          }
 
-      <motion.div 
-       className="dark_light"
-       animate={{rotateY:mode === "light" ? 0 :180}}
-       transition={{
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-      }}
-      onClick={() => dispatch(bangModel())}>
-        {
-          mode === "light" ?<Sun className='sun'/>:<Moon className='sun'/>
-        }
+        </motion.div>
+      }
 
-      </motion.div>
 
       {/*彈跳提示視窗  */}
       <Alert/> 
