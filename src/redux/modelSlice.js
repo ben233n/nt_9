@@ -16,6 +16,10 @@ const modelSlice = createSlice({
     setTheme: (state, action) => {
       state.mode = action.payload;
     },
+    clearTheme: (state) => {
+      // 把 user 設為 null，等於登出
+      state.user = null;
+  }
 
   }
 });

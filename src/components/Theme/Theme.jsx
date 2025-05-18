@@ -32,6 +32,9 @@ const Theme = () => {
                 <ThemeCard apColor={"#e2e5e4"} supColor={"#576E61"} onSelect={handleThemeSelect}
                 adColor={"#87a194"} topColor={"#e8eae9"} themeName={"預設"}/>
 
+                <ThemeCard apColor={"#2D2E2D"} supColor={"#3D4341"} onSelect={handleThemeSelect}
+                adColor={"#7e8f86"} topColor={"#414241"} themeName={"dark"}/>
+
                 <ThemeCard apColor={"#dee6ea"} supColor={"#5a7d8a"} onSelect={handleThemeSelect}
                 adColor={"#89aab5"} topColor={"#e8eef0"} themeName={"冰川藍"}/>
 
@@ -54,7 +57,7 @@ const Theme = () => {
                 adColor={"#b79d58"} topColor={"#f3e8cd"} themeName={"昭和懷舊"}/>
 
                 <ThemeCard apColor={"#f5f4f0"} supColor={"#92b29f"} onSelect={handleThemeSelect}
-                adColor={"#f2cfd6"} topColor={"#f8f6f2"} themeName={"花見團子"}/>
+                adColor={"#f2cfd6"} topColor={"#f8f6f2"} themeName={"花見糰子"}/>
 
                 <ThemeCard apColor={"#fcecee"} supColor={"#e68795"} onSelect={handleThemeSelect}
                 adColor={"#9ec89e"} topColor={"#fff7f8"} themeName={"派大星"}/>

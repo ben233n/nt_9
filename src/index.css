@@ -432,7 +432,7 @@ html[data-theme='北歐風']{
   
 }
 
-html[data-theme='花見團子']{
+html[data-theme='花見糰子']{
   /* 日系 */
   --bg-color: #f5f4f0;
   --bg-block-color: #92b29f;
@@ -453,22 +453,28 @@ html[data-theme='花見團子']{
   
 }
 
-html[data-theme='drak']{
-  --bg-color: #f4f7f8;               /* 雪霧底色 */
-  --bg-block-color: #9daeb7;         /* 霧藍灰（晨霧） */
-  --bg-small-color: #bfcab5;         /* 軟灰綠 */
-  --bg-shop-color: #ffffff;          /* 全白 */
-  
-  --text-header-color: #414a4e;      /* 石板黑灰 */
-  --text-block-color: #f4f7f8;
-  --text-ttitle-color: #9daeb7;
-  --text-p-color: #6e7578;
-  
-  --btn-color: #9daeb7;
-  --plan-color: #9daeb799;
-  --loading-color: #e9edef;
-  --on-bang-color: #9daeb7;
-  --img-color: #9daeb74d;    /* 柔白遮罩 */
+html[data-theme='留白']{
+  --bg-color: #fefefe;              /* 純白背景 */
+  --bg-block-color: #fefefe;        /* 淡灰白區塊 */
+  --bg-small-color: #fefefe;        /* 微冷白區塊 */
+  --bg-shop-color: #fcfcfc;         /* 霧白商城區塊 */
+
+  /* 文字色調（低對比白灰） */
+  --text-header-color: #bbbbbb;     /* 高灰白（大標） */
+  --text-block-color: #bbbbbb;      /* 純白文字塊背景 */
+  --text-ttitle-color: #bbbbbb;     /* 亮灰副標 */
+  --text-p-color: #bbbbbb;          /* 內文柔灰色 */
+
+  /* 按鈕與點綴 */
+  --btn-color: #fefefe;             /* 淡灰白按鈕 */
+  --plan-color: #fefefe;            /* 全白方案區塊 */
+  --loading-color: #fefefe;         /* 載入背景淡灰 */
+
+  /* 主題固定點綴色 */
+  --on-bang-color: #fefefe;         /* 強調用色也不突兀 */
+
+  /* 圖片遮罩（接近全白） */
+  --img-color: #fefefe;             /* 柔白遮罩 */
   
 }
 

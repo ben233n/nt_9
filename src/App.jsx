@@ -21,12 +21,37 @@ import Login from "./pages/Login/Login";
 import MyUser from "./pages/MyUser/MyUser";
 import { setUser } from "./redux/userSlice";
 
-
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './api/firebaseConfig';
+import { fetchUserTheme } from './api/firestore/userService'; // 你寫好的 fetch function
+import { setTheme } from './redux/modelSlice';
 
 function App() {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.model.mode);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // 使用者已登入，更新 Redux 狀態
+        const userInfo = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+        };
+        dispatch(setUser(userInfo));
   
+        // 🔁 同步 Firestore 中的主題
+        const savedTheme = await fetchUserTheme(user.uid);
+        dispatch(setTheme(savedTheme));
+      } else {
+        // 使用者未登入，這邊可以選擇清空 user 狀態（可選）
+        dispatch(clearUser());
+      }
+    });
+  
+    return () => unsubscribe(); // 離開時取消監聽
+  }, []);
   
   const location = useLocation();
 
