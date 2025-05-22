@@ -6,30 +6,32 @@ const Grass = ({style}) => {
     const controls = useAnimation();
 
     useEffect(() => {
+      let isMounted = true;
+    
       const animateLoop = async () => {
-        while (true) {
-          // 畫出來
+        while (isMounted) {
           await controls.start({
             pathLength: 1,
             transition: { duration: 5, ease: 'easeInOut' }
           });
-  
-          // 停 5 秒
-          await new Promise((res) => setTimeout(res, 5000));
-  
-          // 擦掉
+          await new Promise(res => setTimeout(res, 5000));
+    
           await controls.start({
             pathLength: 0,
             transition: { duration: 5, ease: 'easeInOut' }
           });
-  
-          // 可選：再停一點再重來
-          // await new Promise((res) => setTimeout(res, 1000));
+          // 等待時間也可以加，但看需求
         }
       };
-  
+    
       animateLoop();
+    
+      return () => {
+        isMounted = false;  // 元件卸載時跳出迴圈
+      };
     }, [controls]);
+    
+    
   return (
     <>
         <motion.svg className={styles.book} 

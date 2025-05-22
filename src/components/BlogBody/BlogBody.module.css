@@ -119,7 +119,15 @@
 
 @media (max-width: 690px) {
     .blog{
-        grid-gap: var(--margin-s);
+        grid-gap: var(--margin-xs);
         
+    }
+    .right{
+
+        gap: var(--margin-xs);
+    }
+
+    .btn{
+        margin-top: unset;
     }
 }

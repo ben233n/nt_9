@@ -25,7 +25,7 @@ const Theme = () => {
 
   return (
     <div className={styles.bg} >
-        <h2 className={styles.h2}>外觀設定</h2>
+        {/* <h2 className={styles.h2}>外觀設定</h2> */}
         <div className={styles.theme}>
             <h3 className={styles.h3}>主題</h3>
             <div className={styles.theme_item}>

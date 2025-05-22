@@ -7,13 +7,14 @@ import UserEdit from '../../assets/svg/useredit.svg?react'
 import Brush from '../../assets/svg/brush.svg?react'
 import { color } from 'motion/react'
 import Theme from '../Theme/Theme'
+import MyData from '../MyData/MyData'
 const MyUserBody = () => {
     const [whoLight,setWhoLight]=useState(3);
 
     const renderContent = () => {
         switch (whoLight) {
           case 0:
-            return <div>基本資料內容</div>
+            return <MyData/>
           case 1:
             return <div>訂單查詢內容</div>
           case 2:

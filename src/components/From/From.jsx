@@ -35,69 +35,82 @@ const From = ({onLoginSuccess}) => {
         <LoginForm
             formRef={formRef}
             onFinish={async (values) => {
+              if (loginType === 'register' && !showStep2) {
+                setShowStep2(true);
+                return;
+              }
+            
+              if (loginType === 'register' && showStep2) {
+                // ✅ 註冊流程
                 try {
-                    if (loginType === 'register' && !showStep2) {
-                      setShowStep2(true);
-                      return;
+                  const email = registerEmail;
+                  const { password, username } = values;
+            
+                  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            
+                  await updateProfile(userCredential.user, {
+                    displayName: username,
+                  });
+            
+                  alert('註冊成功');
+                  return;
+                } catch (error) {
+                  if (error.code === 'auth/email-already-in-use') {
+                    alert('這個 Email 已經被註冊過了！');
+                  } else if (error.code === 'auth/invalid-email') {
+                    alert('Email 格式錯誤，請重新輸入。');
+                  } else if (error.code === 'auth/weak-password') {
+                    alert('密碼強度不足，請設定一個更強的密碼。');
+                  } else {
+                    console.error(error);
+                    alert('註冊失敗，請稍後再試！');
+                  }
+                  return; // 無論成功或失敗都 return
+                }
+              }
+            
+              if (loginType === 'account') {
+                // ✅ 登入流程
+                try {
+                  const { email, password } = values;
+            
+                  await signInWithEmailAndPassword(auth, email, password);
+            
+                  alert('登入成功');
+            
+                  const userInfo = {
+                    uid: auth.currentUser.uid,
+                    email: auth.currentUser.email,
+                    displayName: auth.currentUser.displayName,
+                  };
+            
+                  dispatch(setUser(userInfo));
+            
+                  // 抓取 Firestore 的主題資料
+                  const themeDocRef = doc(db, 'users', userInfo.uid);
+                  const themeSnapshot = await getDoc(themeDocRef);
+            
+                  if (themeSnapshot.exists()) {
+                    const docData = themeSnapshot.data();
+                    if (docData.theme) {
+                      dispatch(setTheme(docData.theme));
                     }
-                  
-                    if (loginType === 'register' && showStep2) {
-                        const email = registerEmail;
-                      const { password, username } = values;
-                      
-                      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                  
-                      // 將使用者名稱設為 Firebase 使用者的 displayName
-                      await updateProfile(userCredential.user, {
-                        displayName: username,
-                      });
-                      alert("'註冊成功'");
-                      return;
-                    }
-                  
-                    if (loginType === 'account') {
-                      const { email, password } = values;
-                      await signInWithEmailAndPassword(auth, email, password);
-                      alert("'登入成功'");
-                    
-                      const userInfo = {
-                        uid: auth.currentUser.uid,
-                        email: auth.currentUser.email,
-                        displayName: auth.currentUser.displayName,
-                      };
-                      dispatch(setUser(userInfo));
-                    
-                      // 取得 Firestore 主題資料
-                      const themeDocRef = doc(db, 'users', userInfo.uid);
-                      const themeSnapshot = await getDoc(themeDocRef);
-                    
-                      if (themeSnapshot.exists()) {
-                        const docData = themeSnapshot.data();
-                        if (docData.theme) {
-                          dispatch(setTheme(docData.theme));
-                        }
-                      }
-                    
-                      // 呼叫登入成功後的 callback（可選）
-                      if (onLoginSuccess) {
-                        onLoginSuccess();
-                      }
-                    
-                      return;
-                    }
-                  } catch (error) {
-                    if (error.code === 'auth/email-already-in-use') {
-                        alert('這個 Email 已經被註冊過了！');
-                      } else if (error.code === 'auth/invalid-email') {
-                        alert('Email 格式錯誤，請重新輸入。');
-                      } else if (error.code === 'auth/weak-password') {
-                        alert('密碼強度不足，請設定一個更強的密碼。');
-                      } else {
-                        console.error(error);
-                        alert('操作失敗，請稍後再試！');
-                      }
                   }
             
+                  // 執行登入成功的 callback
+                  if (onLoginSuccess) {
+                    onLoginSuccess();
+                  }
+            
+                  return;
+                } catch (error) {
+
+                    console.error(error);
+                    alert('帳號或密碼錯誤');
+                  
+                  return;
+                }
+              }
             }}
             submitter={{
                 render: (_, dom) => (

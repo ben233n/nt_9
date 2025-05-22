@@ -12,6 +12,7 @@ const MyUser = () => {
   return (
     <>
       <Air/>
+      {/* <From/> */}
         {isLogin?(
             <MyUserBody/>
       ):(<From/>)}

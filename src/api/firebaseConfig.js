@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from 'firebase/storage';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,4 +24,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);          // ✅ 初始化 auth
 const db = getFirestore(app);       // ✅ Firestore 已經正確
 
-export { auth, db };                // ✅ 導出兩個物件
+const storage = getStorage(app); // Storage 初始化 ✅
+
+export { auth, db , storage};                // ✅ 導出兩個物件
