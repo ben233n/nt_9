@@ -2,6 +2,12 @@
     width: 100%;
     gap: var(--margin-xs);
 }
+.h3{
+    color: var(--text-header-color);
+    font-size: var(--size-s);
+    font-weight: 700;
+    margin-bottom: var(--margin-xs);
+}
 .data{
     width: 100%;
     display: flex;
@@ -21,7 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     gap: var(--margin-xs);
 }
 .head_and_name{
@@ -240,6 +246,11 @@
     .btn_box{
 
         padding: var(--margin-xs);
+    }
+    .head_loading{
+        width: calc(var(--margin-m) * 3) ;
+        height: calc(var(--margin-m) * 3);
+
     }
     
 }

@@ -22,7 +22,7 @@ const Cartinside = () => {
     <>
         <div className={styles.bg}>
             <div className={`${styles.container} container `}>
-                <motion.div className={styles.cart} {...DownLook}>
+                <motion.div className={styles.cart} {...FadeInOne}>
                     <h2 className={styles.h2}>購物清單</h2>
                     <div className={styles.down_line}></div>
                     <div className={styles.card_div}>
@@ -68,7 +68,7 @@ const Cartinside = () => {
                     </div>
 
                 </motion.div>
-                {!isMobile? (<motion.div className={styles.total} {...DownLook}>
+                {!isMobile? (<motion.div className={styles.total} {...FadeInOne}>
                     <div className={styles.total_card}>
                         <h2 className={styles.h2}>摘要</h2>
                         <div className={styles.down_line}></div>

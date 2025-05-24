@@ -12,7 +12,7 @@ export const FadeIn = {
 export const FadeInOne = { 
   initial: { opacity: 0 }, // 初始透明
   animate: { opacity: 1 }, // 當進入畫面時變成不透明
-  transition: { duration: 1, delay: 0 , ease: "easeInOut"}, // 動畫時間與延遲
+  transition: { duration:0.5, delay: 0 , ease: "easeInOut"}, // 動畫時間與延遲
 };
 
 export const FadeInBangBig = {
@@ -65,7 +65,7 @@ export const RightLookDelay = {
   transition: {
     staggerChildren: 0.2
   },
-  
+   
 };
 
 // 套在子物體，搭配上面的函式，實現子物體延遲從右往左出現

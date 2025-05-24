@@ -96,6 +96,9 @@
     display: flex;
     gap: var(--margin-xs);
 }
+.loveicon{
+    color: var(--text-ttitle-color);
+}
 .icon{
     color: var(--text-p-color);
     cursor: pointer;

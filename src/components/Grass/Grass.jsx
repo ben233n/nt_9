@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion, useAnimation } from 'motion/react'
+import { motion, useAnimation } from 'framer-motion';
 import { useState, useEffect} from "react";
 import styles from './Grass.module.css'
 const Grass = ({style}) => {

@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'
 import modelReducer from './modelSlice'
 import { persistReducer,persistStore } from 'redux-persist';
 import authReducer from './userSlice';
+import favoriteReducer from './favoriteSlice';
 
 const persistConfig={
   key:'shoppingCart',
@@ -15,6 +16,7 @@ const persistConfig={
 const persistedCartReducer = persistReducer(persistConfig,cartReducer);
 const persistedModelReducer = persistReducer(persistConfig,modelReducer);
 const persistedAuthReducer = persistReducer(persistConfig,authReducer);
+const persistedFavoriteReducer = persistReducer(persistConfig,favoriteReducer);
 
 export const store = configureStore({
   reducer: {
@@ -22,6 +24,7 @@ export const store = configureStore({
     toast: toastReducer, // 新增的彈跳視窗狀態
     model:persistedModelReducer,
     auth: persistedAuthReducer,
+    favorites: favoriteReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

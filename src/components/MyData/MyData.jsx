@@ -119,7 +119,7 @@ const MyData = () => {
 
   return (
     <div className={styles.bg}>
-
+      <h3 className={styles.h3}>基本資料</h3>
       {/* ✅ 加入骨架屏包裹表單內容 */}
       {loading ? (
         <Skeleton
@@ -134,7 +134,7 @@ const MyData = () => {
             {/* 顯示使用者大頭貼與暱稱 */}
             <div className={styles.head_and_name}>
               {uploading || avatarUrl === null ? (
-                <div className={styles.head_loading} >
+                <div className={styles.head_loading}  >
                   <ClipLoader color="var(--text-ttitle-color)" size={40} />
                 </div>
               ) : (
@@ -144,13 +144,13 @@ const MyData = () => {
             
             {/* 上傳頭像欄位 */}
             <Form.Item   className={styles.upload}>
-              <p className={styles.mb}>上傳檔案最大2MB</p>
+              <p className={styles.mb}>上傳檔案最大3MB</p>
               <Upload
                 className={styles.btn_box_box}
                 beforeUpload={async (file) => {
-                  const isLt2M = file.size / 1024 / 1024 < 2;
-                  if (!isLt2M) {
-                    alert('圖片大小不能超過 2MB'); // ✅ 圖片大小限制提示
+                  const isLt3M = file.size / 1024 / 1024 < 3;
+                  if (!isLt3M) {
+                    alert('圖片大小不能超過 3MB'); // ✅ 圖片大小限制提示
                     return false;
                   }
                 

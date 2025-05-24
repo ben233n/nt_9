@@ -14,6 +14,9 @@ import { useMediaQuery } from "react-responsive";
 import { showToast } from '../../redux/toastSlice';
 import { useQuery } from '@tanstack/react-query';
 import { fetchStores } from '../../api/firestore/fetchStores'; 
+import { addFavorite, removeFavorite } from '../../redux/favoriteSlice'; // Redux 收藏
+import { toggleFavorite } from '../../api/firestore/favoriteService'; // Firestore 收藏
+
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
@@ -22,6 +25,11 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
     const [islove,SetLove]=useState(false);
 
     const dispatch = useDispatch(); // 初始化 dispatch 來執行 action
+
+    const user = useSelector(state => state.auth.user); // 目前登入者
+    const favoriteList = useSelector(state => state.favorites.items); // 收藏清單
+    const isFavorite = favoriteList.includes(goodsid); // 判斷是否收藏此商品
+
 
     const subtraction=()=>{
         SetNumBang(numbang>1?numbang-1:numbang);
@@ -39,14 +47,23 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
         }
     }
 
-
-
-    const bangColor=()=>{
-        SetLove(!islove);
-        if(!islove){
+    const bangColor = async () => {
+        if (!user) return;
+      
+        try {
+          await toggleFavorite(user.uid, goodsid, isFavorite); // Firebase 同步
+          if (isFavorite) {
+            dispatch(removeFavorite(goodsid)); // Redux：移除
+            dispatch(showToast("💔 已移除收藏"));
+          } else {
+            dispatch(addFavorite(goodsid)); // Redux：新增
             dispatch(showToast("❤️ 已加入收藏"));
+          }
+        } catch (error) {
+          dispatch(showToast("⚠️ 收藏操作失敗"));
+          console.error("收藏切換失敗:", error);
         }
-    }
+      };
 
     const buyGoods=()=>{
         const item = {
@@ -91,7 +108,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                         {/* 價格 */}
                         <div className={styles.price_and_like}>
                             <h3 className={styles.goods_price}>${price}</h3>
-                            <Love className={islove?styles.like:styles.nolike} onClick={bangColor}/>
+                            <Love className={isFavorite?styles.like:styles.nolike} onClick={bangColor}/>
                         </div>
 
                         {/* 加減商品數量 */}

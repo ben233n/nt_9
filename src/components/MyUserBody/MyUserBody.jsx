@@ -8,6 +8,11 @@ import Brush from '../../assets/svg/brush.svg?react'
 import { color } from 'motion/react'
 import Theme from '../Theme/Theme'
 import MyData from '../MyData/MyData'
+import { motion } from "motion/react"
+import { FadeInOne } from '../Anime'
+import MyLove from '../MyLove/MyLove'
+
+
 const MyUserBody = () => {
     const [whoLight,setWhoLight]=useState(3);
 
@@ -18,7 +23,7 @@ const MyUserBody = () => {
           case 1:
             return <div>訂單查詢內容</div>
           case 2:
-            return <div>我的收藏內容</div>
+            return <MyLove/>
           case 3:
             return <Theme/>
           default:
@@ -31,8 +36,8 @@ const MyUserBody = () => {
     <>
         <div className={styles.bg}>
              <div className={`${styles.container} container `}>
-                 <div className={styles.left}>
-                  <div className={styles.up_box}>
+                 <motion.div className={styles.left} {...FadeInOne}>
+                  <div className={styles.up_box} >
                       {/* 照片容器 */}
                       <div className={styles.head_div}>
                         <img src="/img/馬達加斯加土1.jpg" alt="/img/嵐山石.png" className={styles.head}/>
@@ -57,10 +62,10 @@ const MyUserBody = () => {
 
                     </div>
 
-                </div>
-                <div className={styles.right}>
+                </motion.div>
+                <motion.div className={styles.right}  {...FadeInOne} key={whoLight}>
                     {renderContent()}
-                </div>
+                </motion.div>
              </div>
         </div>
     </>

@@ -5,11 +5,12 @@ import { useState ,useRef} from 'react';
 import styles from './From.module.css'; // 你的 CSS Modules
 import Grass from '../Grass/Grass';
 import { motion } from 'framer-motion'; // ✅ 修正
-import { doc, getDoc } from 'firebase/firestore'; // ✅ 匯入 Firestore 方法
+import { doc, getDoc, setDoc } from 'firebase/firestore'; // ✅ 匯入 Firestore 方法
 import { FadeInOne } from '../Anime';
 import { auth,db } from '../../api/firebaseConfig'; // 根據你的路徑調整
 import { setTheme } from '../../redux/modelSlice';
-
+import { getFavorites } from '../../api/firestore/favoriteService';
+import { setFavorites } from '../../redux/favoriteSlice';
 
 import {
   signInWithEmailAndPassword,
@@ -47,6 +48,14 @@ const From = ({onLoginSuccess}) => {
                   const { password, username } = values;
             
                   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+                   // ✅ 新增：將使用者資料存進 Firestore
+                  const userData = {
+                    displayName: username,
+                    avatarUrl:"https://res.cloudinary.com/daimwhvru/image/upload/v1748076311/%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A8%AD%E8%A8%88_1_xhzdjj.jpg"
+                  };
+                  await setDoc(doc(db, 'users', userCredential.user.uid), userData);
+
             
                   await updateProfile(userCredential.user, {
                     displayName: username,
@@ -89,6 +98,9 @@ const From = ({onLoginSuccess}) => {
                   // 抓取 Firestore 的主題資料
                   const themeDocRef = doc(db, 'users', userInfo.uid);
                   const themeSnapshot = await getDoc(themeDocRef);
+
+                  // const favorites = await getFavorites(userInfo.uid);
+                  // dispatch(setFavorites(favorites)); // ⬅️ 存進 Redux
             
                   if (themeSnapshot.exists()) {
                     const docData = themeSnapshot.data();

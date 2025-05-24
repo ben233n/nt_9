@@ -15,11 +15,13 @@
     display: flex;
     flex-direction: column;
     gap: var(--margin-xs);
+    
 }
 .h3{
     color: var(--text-header-color);
     font-size: var(--size-s);
     font-weight: 700;
+    margin-bottom: var(--margin-xs);
 }
 
 .theme_item{
@@ -28,6 +30,7 @@
     grid-gap: var(--margin-big) var(--margin-m);
     display: flex;
     flex-direction: row;
+    margin-bottom: var(--margin-m);
     
 }
 .btn_box{

@@ -19,12 +19,14 @@ import Blogpage from "./pages/Blogpage/Blogpage";
 import Subscribe from "./pages/Subscribe/Subscribe";
 import Login from "./pages/Login/Login";
 import MyUser from "./pages/MyUser/MyUser";
-import { setUser } from "./redux/userSlice";
+import { setUser, clearUser } from "./redux/userSlice";
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './api/firebaseConfig';
 import { fetchUserTheme } from './api/firestore/userService'; // 你寫好的 fetch function
 import { setTheme } from './redux/modelSlice';
+import { getFavorites } from './api/firestore/favoriteService'; // 加這行
+import { setFavorites } from './redux/favoriteSlice'; // 加這行
 
 function App() {
   const dispatch = useDispatch();
@@ -45,10 +47,15 @@ function App() {
         // 🔁 同步 Firestore 中的主題
         const savedTheme = await fetchUserTheme(user.uid);
         dispatch(setTheme(savedTheme));
+        // ✅ 同步收藏
+        const favorites = await getFavorites(user.uid); // <-- Firestore 撈資料
+        dispatch(setFavorites(favorites)); // <-- 存進 Redux
       } else {
         // 使用者未登入，這邊可以選擇清空 user 狀態（可選）
         dispatch(clearUser());
       }
+
+      
     });
   
     return () => unsubscribe(); // 離開時取消監聽

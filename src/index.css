@@ -528,9 +528,102 @@ html[data-theme='蒙德里安']{
   --img-color: #2a4bdd4d;         /* 藍色 透明遮罩 */           /* 柔白遮罩 */
   
 }
+
+html[data-theme='太極拳']{
+  --bg-color: #f2f2f2;
+  --bg-block-color: #1c1c1c;
+  --bg-small-color: #555;
+  --bg-shop-color: #e0e0e0;
+
+  --text-header-color: #111;
+  --text-block-color: #f2f2f2;
+  --text-ttitle-color: #333;
+  --text-p-color: #666;
+
+  --btn-color: #111;
+  --plan-color: #1119;
+
+  --loading-color: #ccc;
+
+  --on-bang-color: #111;
+
+  --img-color: #1114d;
+
+}
+
+html[data-theme='太極拳'] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url(/img/太極.png) center/cover no-repeat;
+  opacity: 0.1; 
+  z-index: -1;
+  pointer-events: none ;
+}
+html[data-theme='黑白人生']{
+--bg-color: #1a1a1a;
+--bg-block-color: #2e2e2e;
+--bg-small-color: #444444;
+--bg-shop-color: #2c2c2c;
+
+--text-header-color: #fafafa;
+--text-block-color: #e5e5e5;
+--text-ttitle-color: #d0d0d0;
+--text-p-color: #bbbbbb;
+
+--btn-color: #666666;
+--plan-color: #66666699;
+
+--loading-color: #3d3d3d;
+
+--on-bang-color: #eeeeee;
+
+--img-color: #ffffff1a;
+
+
+}
+
+html[data-theme='夜幕降臨']{
+--bg-color: #0b0c1a;
+--bg-block-color: #1b1e3c;
+--bg-small-color: #2c2f50;
+--bg-shop-color: #13142a;
+
+--text-header-color: #eaeaff;
+--text-block-color: #cfd1ff;
+--text-ttitle-color: #b0b3e6;
+--text-p-color: #8a8dc4;
+
+--btn-color: #6366f1;
+--plan-color: #6366f199;
+
+--loading-color: #202345;
+
+--on-bang-color: #6366f1;
+
+--img-color: #6366f14d;
   
 
-
+}
+html[data-theme='東漫酒吧']{
+  --bg-color: #0e0b08;
+  --bg-block-color: #2d2119;
+  --bg-small-color: #4a3627;
+  --bg-shop-color: #1b1612;
+  
+  --text-header-color: #fbe6d4;
+  --text-block-color: #eac7a8;
+  --text-ttitle-color: #ce9c72;
+  --text-p-color: #a37754;
+  
+  --btn-color: #d18b5f;
+  --plan-color: #d18b5f99;
+  
+  --loading-color: #291e16;
+  --on-bang-color: #d18b5f;
+  --img-color: #d18b5f4d;
+  
+}
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
