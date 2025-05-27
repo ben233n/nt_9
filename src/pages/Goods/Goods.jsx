@@ -28,7 +28,7 @@ const Goods = () => {
   return (
     <>
     <Air/>
-    <Goodscard goodsid={goodsdata.id} category={goodsdata.category} name={goodsdata.name} text={goodsdata.text} price={goodsdata.price} image={goodsdata.image} photos={goodsdata.photos} size={goodsdata.size}/>
+    <Goodscard star={goodsdata.star} goodsid={goodsdata.id} category={goodsdata.category} name={goodsdata.name} text={goodsdata.text} price={goodsdata.price} image={goodsdata.image} photos={goodsdata.photos} size={goodsdata.size}/>
     <Foot/>
     </>
   )

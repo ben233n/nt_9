@@ -16,13 +16,26 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchStores } from '../../api/firestore/fetchStores'; 
 import { addFavorite, removeFavorite } from '../../redux/favoriteSlice'; // Redux 收藏
 import { toggleFavorite } from '../../api/firestore/favoriteService'; // Firestore 收藏
+import Star from "../../assets/svg/star.svg?react";
+import Receipt from "../../assets/svg/receipt.svg?react";
 
-
-const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
+const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) => {
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
 
+    const [selectedStyle, setSelectedStyle] = useState('標準版');
     const [numbang,SetNumBang]=useState(1);
     const [islove,SetLove]=useState(false);
+    const [money,setMoney]=useState(price);//價格，有沒有豪華版的價格，有加350元
+    
+    const chooseSimple=()=>{
+      setSelectedStyle('標準版');
+      setMoney(price);
+    }
+
+    const chooseVIP=()=>{
+      setSelectedStyle('豪華套裝(履歷+商品特寫照+精美包裝)');
+      setMoney(price+350);
+    }
 
     const dispatch = useDispatch(); // 初始化 dispatch 來執行 action
 
@@ -65,18 +78,27 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
         }
       };
 
-    const buyGoods=()=>{
+      const buyGoods = () => {
+        if (!selectedStyle) {
+          dispatch(showToast("⚠️ 請先選擇款式"));
+          return;
+        }
+        if (numbang <= 0 || isNaN(numbang)) {
+          dispatch(showToast("⚠️ 請選擇數量"));
+          return;
+        }
+      
         const item = {
-            name: name,  // 商品名稱
-            image: image,    // 商品圖片
-            price:price,
-            num:numbang,
-            goodsid:goodsid,
-
-          };
+          name,
+          image,
+          price:money,
+          num: numbang,
+          goodsid,
+          style: selectedStyle // 將款式加進商品項目
+        };
         dispatch(addItems(item));
         dispatch(showToast("🛒 已加入購物車"));
-    }
+      };
 
     const isMobile = useMediaQuery({ maxWidth: 690 });
 
@@ -101,33 +123,95 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid}) => {
                     <motion.div className={styles.info} {...!isMobile ? LeftLook : {}}>
                         {/* 商品名稱 */}
                         <h2 className={styles.goods_name}>{name}</h2>
-                        <p className={styles.goods_size}>尺寸：約{size}</p>
-                        <div className={styles.line}></div>
+                        <div  className={styles.star_box}>
+                                <div className={styles.star}>
+                                {Array.from({ length: 5 }, (_, index) => {
+                                  const full = index + 1 <= Math.floor(star); // 滿星
+                                  const half = index + 1 === Math.ceil(star) && star % 1 !== 0; // 半星
+                                  const empty = !full && !half; // 空星
+                                                                
+                                  return (
+                                    <div key={index} className={styles.star_wrapper}>
+                                      {/* 滿星 */}
+                                      {full && <Star className={styles.star_icon} />}
+                                      
+                                      {/* 半星（要背景星 + 一半的深色星）*/}
+                                      {half && (
+                                        <>
+                                          <Star className={styles.star_no_icon} />
+                                          <div className={styles.half_star}>
+                                            <Star className={styles.star_icon} />
+                                          </div>
+                                        </>
+                                      )}
+                                
+                                      {/* 空星 */}
+                                      {empty && <Star className={styles.star_no_icon} />}
+                                    </div>
+                                  );
+                                })}
+                                </div>
+                                <p className={styles.star_num}>{star}</p>
+                            </div>
+                        {/* <p className={styles.goods_size}>尺寸：約{size}</p> */}
+                        {/* <div className={styles.line}></div> */}
                         {/* 商品介紹 */}
                         <p className={styles.goods_text}>{text}</p>
                         {/* 價格 */}
+                                      <div className={styles.line}></div>
                         <div className={styles.price_and_like}>
-                            <h3 className={styles.goods_price}>${price}</h3>
-                            <Love className={isFavorite?styles.like:styles.nolike} onClick={bangColor}/>
+                            <h3 className={styles.goods_price}>NT${money}</h3>
+                            {/* <Love className={isFavorite?styles.like:styles.nolike} onClick={bangColor}/> */}
                         </div>
 
-                        {/* 加減商品數量 */}
-                        <div className={styles.how_many}> {/* 包住按鈕與數字顯示的區塊 */}
-                          <button className={styles.how_many_button} onClick={subtraction}>−</button> {/* 減號按鈕 */}
-                          <input
-                           type="number"
-                           className={styles.value} // 原本 p 的樣式也可應用在 input 上，或微調
-                           value={numbang}
-                           onChange={handleChange}
-                           min="0"
-                         />
-                          <button className={styles.how_many_button} onClick={add}>＋</button> {/* 加號按鈕 */}
+                        <div className={styles.choose}>
+                          <div className={styles.label}>選擇</div>
+                          <div className={styles.choose_btn_box}>
+                            <button
+                              className={`${styles.choose_btn} ${selectedStyle === '標準版' ? styles.selected : ''}`}
+                              onClick={chooseSimple}
+                            >
+                             標準版
+                            </button>
+                            <button
+                              className={`${styles.choose_btn} ${selectedStyle === '豪華套裝(履歷+商品特寫照+精美包裝)' ? styles.selected : ''}`}
+                              onClick={chooseVIP}
+                            >
+                              豪華套裝(履歷+商品特寫照+精美包裝)
+                            </button>
+                          </div>
                         </div>
 
-                        <button className={styles.buy} onClick={buyGoods}> 
-                        <Shopicon className={styles.shopicon}/>
-                        <p>加入購物車</p>
-                        </button>
+                        <div className={styles.choose}>
+                          {/* 加減商品數量 */}
+                          <div className={styles.label}>數量</div>
+                          <div className={styles.how_many}> {/* 包住按鈕與數字顯示的區塊 */}
+                            <div className={styles.how_many_button} onClick={subtraction}>−</div> {/* 減號按鈕 */}
+                            <input
+                             type="number"
+                             className={styles.value} // 原本 p 的樣式也可應用在 input 上，或微調
+                             value={numbang}
+                             onChange={handleChange}
+                             min="0"
+                           />
+                            <div className={styles.how_many_button} onClick={add}>＋</div> {/* 加號按鈕 */}
+                          </div>
+                        </div>
+                        
+
+                        <div className={styles.btn_box}>
+                          <button className={styles.buy_air} onClick={buyGoods}> 
+                          <Shopicon className={styles.shopicon}/>
+                          <p>加入購物車</p>
+                          </button>
+
+                          <button className={styles.buy} onClick={bangColor}> 
+                          {/* <Love className={isFavorite?styles.like:styles.nolike}/> */}
+                          <Receipt className={styles.shopicon}/>
+                          <p>立刻結帳</p>
+                          </button>
+                        </div>
+
 
 
                     </motion.div>

@@ -21,6 +21,7 @@ const Message = ({usename,ueshead,star,speak,date}) => {
                             <Star key={index} className={star>index?styles.star_icon:styles.star_no_icon}/>
                         ))
                     }
+                    
                     <p className={styles.speak}>
                         {speak}
                     </p>

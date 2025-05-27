@@ -1,0 +1,65 @@
+/* 外層包裝，置中排列 */
+.bg {
+    width: 100%;
+    padding:  var(--margin-big) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: var(--margin-xs);
+
+}
+.one_step{
+  display: flex;
+  align-items: center; /* 線和 icon 對齊 */
+  width: auto;
+  gap: var(--margin-xs);
+}
+.icon_box{
+  width: auto;
+  display: flex;
+  flex-direction: column; /* icon 和文字垂直 */
+  align-items: center; /* 水平置中對齊 */
+  gap: var(--margin-xs);
+  position: relative;
+}
+.icon{
+  width: var(--margin-m);
+  height: var(--margin-m);
+  transition: all 0.3s ease-in-out;
+}
+.no_light{
+  color: var(--text-p-color);
+  opacity: 0.5;
+}
+.yes_light{
+  color: var(--text-ttitle-color);
+}
+.no_light_line{
+  background-color: var(--text-p-color);
+  opacity: 0.5;
+}
+.yes_light_line{
+  background-color: var(--text-ttitle-color);
+}
+
+.line{
+
+  width: 15vw;
+  height: 2px;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+.p{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -32px;
+  width: auto;
+  font-size: var(--size-xs);
+  font-weight: 500;
+  white-space: nowrap; 
+  transition: all 0.3s ease-in-out;
+}
+
+

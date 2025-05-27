@@ -1,0 +1,61 @@
+.bg{
+    width: 100%;
+    padding: var(--margin-s) 0px var(--margin-big) 0px;
+    position: relative;
+    overflow: hidden;
+
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: var(--margin-m);
+}
+.left{
+    display: flex;
+    flex: 0 0 65%;
+    background-color: var(--bg-shop-color);
+    padding: var(--margin-s);
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.h3{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-s);
+    font-weight: 700;
+    border-bottom: 2px solid var(--loading-color);
+    padding-bottom: var(--margin-xs);
+    border-radius: 2px;
+}
+.card_div{
+    display: flex;
+    flex-direction: column;
+}
+.no_item{
+    width: 100%;
+    margin: var(--margin-big) 0px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-p-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+}
+.right{
+    display: flex;
+    flex: 1 1 auto;
+    background-color: var(--bg-shop-color);
+    padding: var(--margin-s);
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+
+
+

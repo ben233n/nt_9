@@ -28,7 +28,6 @@
     width: 40%;
     display: flex;
     flex-direction:column;
-    gap: var(--margin-xs);
 }
 .goods_name{
     color: var(--text-ttitle-color);
@@ -38,20 +37,19 @@
     
 }
 .goods_size{
-    /* margin-top:var(--size-xs) ; */
+    margin-top:var(--size-xs) ;
     color: var(--text-p-color);
     font-size: var(--size-xs);
     font-weight: 500;
     letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
     text-align: left; /* 左對齊，避免過度拉伸 */
     line-height: 1.2;
-    /* margin-bottom: var(--margin-xs); */
 }
 .line{
     width: 100%;
     height: 0.5px;
-    background-color: var(--img-color);
-    /* margin:var(--margin-xs) 0px; */
+    background-color: var(--text-p-color);
+    margin:var(--margin-xs) 0px;
 }
 .goods_text{
     color: var(--text-p-color);
@@ -59,21 +57,15 @@
     font-weight: 500;
     letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
     text-align: left; /* 左對齊，避免過度拉伸 */
-    /* margin-bottom: var(--margin-xs  ); */
+    margin-bottom: var(--margin-big);
     line-height: 2;
 
 }
-.btn_box{
-    margin-top: var(--margin-xs);
-    display: flex;
-    align-items:center;
-    justify-content: space-between;
-    gap: var(--margin-xs);
-}
+
 .goods_price{
-    color: var(--text-ttitle-color);
+    color: var(--text-p-color);
     font-size: var(--size-m);
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.15rem;
 
 }
@@ -81,8 +73,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: space-between; */
-    gap: var(--margin-s);
+    justify-content: space-between;
 }
 .like{
     width: var(--margin-m);
@@ -96,87 +87,64 @@
     color:var(--text-p-color);
     cursor: pointer;
 }
-.choose{
-    display:flex;
-    flex-direction: column;
-    gap: 6px;
-    /* margin: var(--margin-xs) 0px; */
-}
-.label{
-    color: var(--text-p-color);
-    font-size: var(--size-xs);
-    font-weight: 500;
-}
+
 
 
 .how_many {
     display: flex;
-    width: calc(50% - var(--margin-xs) / 2);
-    justify-content: space-between;
-    /* background-color: aqua; */
-    align-items: center;
-    overflow: hidden;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    background-color: var(--bg-shop-color);
+    margin: var(--margin-s) 0px;
+    
 }
 
 .how_many_button {
     width: calc(var(--margin-xs) * 3);
     height: calc(var(--margin-xs) * 3);
-    aspect-ratio: 1 / 1;
-    flex-shrink: 0; /* 避免按鈕縮小 */
     border: 1px solid var(--text-p-color);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-p-color);
-    font-weight: 700;
+    font-weight: 800;
     font-size: var(--size-xs);
     background-color: var(--bg-shop-color);
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    
 }
-
-.how_many_button:hover {
-    background-color: var(--btn-color);
+.how_many_button:hover{
+    background-color:var(--btn-color);
     color: var(--bg-color);
+    font-size: calc(var(--size-xs)*1.5);
 }
-
+  
 .value {
-    flex: 1; /* 讓 input 自動撐開中間空間 */
-    min-width: 0; /* 重要：防止超出 flex 容器 */
-    text-align: center;
-    background-color: var(--bg-shop-color);
-    color: var(--text-p-color);
-    font-size: var(--size-xs);
-    font-weight: 500;
-    height: calc(var(--margin-xs) * 3);
+    all: unset;
+    display: flex;
+    align-items: center;
     border-top: 1px solid var(--text-p-color);
     border-bottom: 1px solid var(--text-p-color);
-    border-left: none;
-    border-right: none;
-    outline: none;
-    box-sizing: border-box;
+    justify-content: center;
+    flex: 1;
+    font-size: var(--size-xs);
+    font-weight: 500;
+    color: var(--text-p-color);
+    text-align:center;
+    background-color: var(--bg-shop-color);
+
+
 }
 
-/* 左邊按鈕加左圓角 */
-.how_many_button:first-child {
-    border-radius: 5px 0 0 5px;
-  }
-  
-  /* 右邊按鈕加右圓角 */
-  .how_many_button:last-child {
-    border-radius: 0 5px 5px 0;
-  }
-  
-  /* 中間 input 不要圓角 */
-  .value {
-    border-radius: 0;
-  }
+
 
 
 .buy{
     all: unset;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     background-color: var(--bg-small-color);
     display: flex;
     justify-content: center;
@@ -187,40 +155,17 @@
     padding: var(--margin-xs) 0px;
     transition: all 0.3s ease-in-out;
     align-items: center;
-    border-radius: 5px;
+
+
 }
 .buy:hover{
     letter-spacing: 0.5rem; 
     background-color: var(--on-bang-color);
 }
-.buy_air{
-    all: unset;
-    cursor: pointer;
-    width: 50%;
-    background-color:var(--bg-shop-color);
-    border: 1.5px solid var(--bg-small-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--bg-small-color);
-    font-size: var(--size-xs);
-    font-weight: 500;
-    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
-    padding: var(--margin-xs) 0px;
-    transition: all 0.3s ease-in-out;
-    align-items: center;
-    border-radius: 5px;
-}
-.buy_air:hover{
-    letter-spacing: 0.5rem; 
-    background-color: var(--on-bang-color);
-    color: var(--text-block-color);
-    border: 1.5px solid var(--on-bang-color);
-}
 .shopicon{
     width: var(--size-s);
     height: var(--size-s);
-    margin-right: 6px;
+    margin-right: var(--size-xs);
 }
 
 .down{
@@ -263,75 +208,8 @@
     background-color: var(--bg-small-color);
 }
 
-.star_icon{
-    color: var(--text-ttitle-color);
-    width: var(--size-s);
-    height:var(--size-s) ;
-}
-.star_no_icon{
-    color: var(--text-ttitle-color);
-    opacity: 0.3;
-    width: var(--size-s);
-    height:var(--size-s) ;
-}
-
-.star_wrapper {
-    position: relative;
-    display: inline-block;
-    width: var(--size-s);
-    height: var(--size-s);
-}
-  
-.half_star {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%; /* 裁掉右半邊 */
-  height: 100%;
-  overflow: hidden;
-  
-}
-.star_box{
-    /* margin: var(--margin-xs) 0px; */
-    display: flex;
-    align-items: center;
-
-}
-.star{
-    display: flex;
-    align-items: center;
-
-}
-.star_num{
-    margin-left: 6px;
-    color: var(--text-p-color);
-    font-size: var(--size-xs);
-    font-weight: 700;
-}
-.choose_btn_box{
-    display: flex;
-    flex-direction: row;
-    gap: var(--margin-xs);
-}
-.choose_btn{
-    all:unset;
-    color: var(--text-p-color);
-    font-size: var(--size-xs);
-    font-weight: 500;
-    padding: 6px 12px;
-    border: 1px solid var(--text-p-color);
-    background-color: var(--bg-shop-color);
-    border-radius: 5px;
-    /* transition: all 0.3s ease-in-out; */
-    cursor: pointer;
 
 
-}
-.selected{
-    color: var(--text-ttitle-color);
-    border: 1px solid var(--text-ttitle-color);
-    transition: all 0.2s ease-in-out;
-}
 
 
 @media (max-width: 992px) {
@@ -353,30 +231,6 @@
 
 
 }
-
-.select_box {
-    display: flex;
-    align-items: center;
-    margin-bottom: var(--margin-s);
-  }
-  
-  .label {
-    font-size: var(--size-xs);
-    font-weight: 500;
-    margin-right: var(--margin-xs);
-    color: var(--text-p-color);
-  }
-  
-  .select {
-    padding: 4px 8px;
-    font-size: var(--size-xs);
-    color: var(--text-p-color);
-    border: 1px solid var(--text-p-color);
-    background-color: var(--bg-color);
-    border-radius: 5px;
-  }
-
-
 @media (max-width: 690px) {
     .up{
         padding: var(--margin-xs) 0px var(--margin-big) 0px;

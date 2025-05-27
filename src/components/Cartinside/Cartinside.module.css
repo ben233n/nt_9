@@ -3,12 +3,10 @@
     overflow: hidden;
     height: auto;
 
-
 }
 .container{
     display: flex;
     flex-direction: row;
-    padding: var(--margin-big) 0px;
     gap: calc(var(--margin-s) * 2);
 }
 .cart{
