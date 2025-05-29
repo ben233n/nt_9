@@ -11,7 +11,7 @@ import { auth,db } from '../../api/firebaseConfig'; // 根據你的路徑調整
 import { setTheme } from '../../redux/modelSlice';
 import { getFavorites } from '../../api/firestore/favoriteService';
 import { setFavorites } from '../../redux/favoriteSlice';
-
+import { useLocation, useNavigate } from 'react-router';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -22,6 +22,8 @@ import { setUser } from '../../redux/userSlice';
 
 
 const From = ({onLoginSuccess}) => {
+  const location = useLocation(); // ⬅️ 抓網址列資訊
+  const navigate = useNavigate(); // ⬅️ 用來跳轉
   const dispatch = useDispatch();
   const formRef = useRef(); // ✅ 修正：formRef 記得初始化
   
@@ -110,9 +112,12 @@ const From = ({onLoginSuccess}) => {
                   }
             
                   // 執行登入成功的 callback
-                  if (onLoginSuccess) {
-                    onLoginSuccess();
-                  }
+                  // 嘗試從 URL 取得 redirect 參數，沒有就預設跳首頁
+                  const searchParams = new URLSearchParams(location.search);
+                  const redirectTo = searchParams.get('redirect') || '/myuser';
+
+                  // 導向原本想前往的頁面
+                  navigate(redirectTo);
             
                   return;
                 } catch (error) {

@@ -85,16 +85,41 @@
     gap: var(--margin-s);
 }
 .like{
-    width: var(--margin-m);
-    height: var(--margin-m);
+    width: var(--margin-s);
+    height: var(--margin-s);
     color: var(--on-bang-color);
-    cursor: pointer;
+
 }
 .nolike{
-    width: var(--margin-m);
-    height: var(--margin-m);
+    width: var(--margin-s);
+    height: var(--margin-s);
     color:var(--text-p-color);
+
+}
+.love_box{
+    margin-top: var(--margin-xs);
+    width: 100%;
+    display:flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 0.15rem; 
+}
+.love_box:hover{
+    letter-spacing: 0.5rem; 
+}
+.love_p{
+    color: var(--on-bang-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    
+}
+.nolove_p{
+    color: var(--text-p-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
 }
 .choose{
     display:flex;
@@ -106,6 +131,7 @@
     color: var(--text-p-color);
     font-size: var(--size-xs);
     font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
 }
 
 
@@ -131,7 +157,7 @@
     color: var(--text-p-color);
     font-weight: 700;
     font-size: var(--size-xs);
-    background-color: var(--bg-shop-color);
+    /* background-color: var(--bg-shop-color); */
     transition: all 0.2s ease-in-out;
 }
 
@@ -144,7 +170,7 @@
     flex: 1; /* 讓 input 自動撐開中間空間 */
     min-width: 0; /* 重要：防止超出 flex 容器 */
     text-align: center;
-    background-color: var(--bg-shop-color);
+    background-color:rgba(0, 0, 255, 0);
     color: var(--text-p-color);
     font-size: var(--size-xs);
     font-weight: 500;
@@ -197,12 +223,12 @@
     all: unset;
     cursor: pointer;
     width: 50%;
-    background-color:var(--bg-shop-color);
-    border: 1.5px solid var(--bg-small-color);
+    background-color:rgba(0, 0, 0, 0);
+    border: 1.5px solid var(--plan-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--bg-small-color);
+    color: var(--plan-color);
     font-size: var(--size-xs);
     font-weight: 500;
     letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
@@ -312,20 +338,26 @@
     display: flex;
     flex-direction: row;
     gap: var(--margin-xs);
+    flex-wrap: wrap;
 }
 .choose_btn{
     all:unset;
     color: var(--text-p-color);
     font-size: var(--size-xs);
     font-weight: 500;
-    padding: 6px 12px;
+    padding: 8px 16px;
     border: 1px solid var(--text-p-color);
-    background-color: var(--bg-shop-color);
+    /* background-color: var(--bg-shop-color); */
     border-radius: 5px;
     /* transition: all 0.3s ease-in-out; */
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
 
-
+}
+.choose_btn:hover{
+    background-color: var(--btn-color);
+    color: var(--bg-color);
 }
 .selected{
     color: var(--text-ttitle-color);

@@ -27,6 +27,8 @@ import { fetchUserTheme } from './api/firestore/userService'; // 你寫好的 fe
 import { setTheme } from './redux/modelSlice';
 import { getFavorites } from './api/firestore/favoriteService'; // 加這行
 import { setFavorites } from './redux/favoriteSlice'; // 加這行
+import CartFormPage from "./pages/CartFormPage/CartFormPage";
+import CartCheckPage from "./pages/CartCheckPage/CartCheckPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +87,8 @@ function App() {
         <Route path="/subscribe" element={<Subscribe/>}/>
         <Route path="/Login" element={<Login/>}/>
         <Route path="/myuser" element={<MyUser/>}/>
+        <Route path="/cart/step2" element={<CartFormPage/>}/>
+        <Route path="/cart/step3" element={<CartCheckPage/>}/>
       </Routes>
 
 

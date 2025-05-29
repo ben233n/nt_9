@@ -17,7 +17,16 @@
     gap:var(--margin-m);
 
 }
-
+.no_item{
+    width: 100%;
+    margin: var(--margin-big) 0px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-p-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+}
 @media (max-width: 800px) {
     .card_div{
         display: flex;

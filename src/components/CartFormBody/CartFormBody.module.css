@@ -21,6 +21,7 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    gap: var(--margin-xs);
 }
 
 .h3{
@@ -102,6 +103,86 @@
     letter-spacing: 0.5rem; 
     background-color: var(--on-bang-color);
 }
+
+.input{
+
+    background-color: var(--bg-shop-color);
+    cursor: text;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: var(--size-xs);
+    font-weight: 400;
+    color: var(--text-header-color);
+    letter-spacing: 0.05rem;
+    border: 1px solid var(--text-p-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.input:hover{
+
+    background-color: var(--bg-shop-color);
+    cursor: text;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: var(--size-xs);
+    font-weight: 400;
+    color: var(--text-header-color);
+    letter-spacing: 0.05rem;
+    border: 1px solid var(--text-p-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 2px rgba(110, 131, 112, 0.2);
+    display: flex;
+    align-items: center;
+}
+
+.input:focus{
+
+    background-color: var(--bg-shop-color);
+    cursor: text;
+    width: 100%;
+    padding: 12px 16px;
+    font-size: var(--size-xs);
+    font-weight: 400;
+    color: var(--text-header-color);
+    letter-spacing: 0.05rem;
+    border: 1px solid var(--text-p-color);
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+:global(input:-webkit-autofill) {
+    /* box-shadow: 0 0 0px 1000px var(--bg-shop-color) inset !important; */
+    -webkit-text-fill-color: var(--text-header-color) !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+
+}
+
+.skeleton :global(.ant-skeleton) {
+    background-color: var(--loading-color) !important; /* 底色（整個骨架區域） */
+  }
+  
+  .skeleton :global(.ant-skeleton-content .ant-skeleton-title),
+  .skeleton :global(.ant-skeleton-content .ant-skeleton-paragraph > li) {
+    background-color: var(--loading-color) !important; /* 每個骨架元素的底色 */
+    height: var(--margin-s);
+  }
+  
+  .skeleton :global(.ant-skeleton-content .ant-skeleton-title::after),
+  .skeleton :global(.ant-skeleton-content .ant-skeleton-paragraph > li::after) {
+    background: linear-gradient(90deg, transparent, rgba(200,200,200,0.2), transparent) !important; /* shimmer 光條顏色 */
+  }
+
 
 @media (max-width: 992px) {
     .left{
@@ -190,3 +271,4 @@
 
 
 }
+

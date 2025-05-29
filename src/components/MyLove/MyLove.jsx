@@ -25,7 +25,7 @@ const MyLove = () => {
                 <Storecard key={goodsitem.id} loading={isLoading} isone={false} itemid={goodsitem.id} name={goodsitem.name} price={goodsitem.price} image={goodsitem.image}/>
             ))
           ) : (
-            <p className={styles.empty}>尚未收藏任何商品</p>
+            <p className={styles.no_item}>尚未收藏任何商品</p>
           )}
         </div>
     </div>

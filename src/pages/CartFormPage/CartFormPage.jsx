@@ -9,18 +9,21 @@ import Bar from '../../components/Bar/Bar'
 import CartGoods from '../../components/CartGoods/CartGoods'
 import { motion } from "motion/react"
 import { FadeInOne } from '../../components/Anime'
+import { useSelector } from 'react-redux'
+import CartFormBody from '../../components/CartFormBody/CartFormBody'
 
-const Cartpage = () => {
-    const isMobile = useMediaQuery({ maxWidth: 992 });
 
+const CartFormPage = () => {
+  const isMobile = useMediaQuery({ maxWidth: 992 });
+  const checkout = useSelector(state => state.checkout);
+  console.log('Redux checkout 狀態：', checkout);
   return (
     <>
         <Air/>
-        <Bar step={1}/>
-        <motion.div {...FadeInOne} >
-          <CartGoods/>
+        <Bar step={2}/>
+        <motion.div {...FadeInOne}>
+          <CartFormBody/>
         </motion.div>
-
         {!isMobile ?(<Foot/>):(
           <Air/>
         )}
@@ -28,4 +31,4 @@ const Cartpage = () => {
   )
 }
 
-export default Cartpage
+export default CartFormPage

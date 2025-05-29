@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Goodscard.module.css'
 import Carouselgoods from '../Carouselgoods/Carouselgoods';
 import Shopicon from '../../assets/svg/shop.svg?react';
-import Love from '../../assets/svg/love.svg?react';
+import Love from '../../assets/svg/loveair.svg?react';
 import Storecard from '../Storecard/Storecard';
 import Message from '../Message/Message';
 import { useDispatch } from 'react-redux';
@@ -18,8 +18,13 @@ import { addFavorite, removeFavorite } from '../../redux/favoriteSlice'; // Redu
 import { toggleFavorite } from '../../api/firestore/favoriteService'; // Firestore 收藏
 import Star from "../../assets/svg/star.svg?react";
 import Receipt from "../../assets/svg/receipt.svg?react";
+import { setCheckoutItems, setTotal } from '../../redux/checkoutSlice'; // 根據你的路徑調整
+import { useNavigate } from 'react-router';
 
 const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) => {
+
+  const navigate=useNavigate();
+
     const cartItems=useSelector(state=> state.cart.cartItems); //全域狀態變數 購物車內的東西
 
     const [selectedStyle, setSelectedStyle] = useState('標準版');
@@ -33,7 +38,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
     }
 
     const chooseVIP=()=>{
-      setSelectedStyle('豪華套裝(履歷+商品特寫照+精美包裝)');
+      setSelectedStyle('豪華套裝(證書+商品特寫照+精美包裝)');
       setMoney(price+350);
     }
 
@@ -100,6 +105,36 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
         dispatch(showToast("🛒 已加入購物車"));
       };
 
+
+      const buyNow = () => {
+        if (!user) {
+          dispatch(showToast("⚠️ 請先登入"));
+          navigate('/login?redirect=/cart/step2');
+          return;
+        }
+        if (!selectedStyle) {
+          dispatch(showToast("⚠️ 請先選擇款式"));
+          return;
+        }
+        if (numbang <= 0 || isNaN(numbang)) {
+          dispatch(showToast("⚠️ 請選擇數量"));
+          return;
+        }
+      
+        const item = {
+          name,
+          image,
+          price: money,
+          num: numbang,
+          goodsid,
+          style: selectedStyle,
+        };
+      
+        dispatch(setCheckoutItems([item])); // 將單一商品直接放進結帳項目
+        dispatch(setTotal(money * numbang + 1200)); // 加入運費
+        navigate('/cart/step2'); // 直接跳轉至 Step 2
+      };
+
     const isMobile = useMediaQuery({ maxWidth: 690 });
 
 
@@ -161,7 +196,7 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
                                       <div className={styles.line}></div>
                         <div className={styles.price_and_like}>
                             <h3 className={styles.goods_price}>NT${money}</h3>
-                            {/* <Love className={isFavorite?styles.like:styles.nolike} onClick={bangColor}/> */}
+                            
                         </div>
 
                         <div className={styles.choose}>
@@ -174,10 +209,10 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
                              標準版
                             </button>
                             <button
-                              className={`${styles.choose_btn} ${selectedStyle === '豪華套裝(履歷+商品特寫照+精美包裝)' ? styles.selected : ''}`}
+                              className={`${styles.choose_btn} ${selectedStyle === '豪華套裝(證書+商品特寫照+精美包裝)' ? styles.selected : ''}`}
                               onClick={chooseVIP}
                             >
-                              豪華套裝(履歷+商品特寫照+精美包裝)
+                              豪華套裝(證書+商品特寫照+精美包裝)
                             </button>
                           </div>
                         </div>
@@ -205,15 +240,19 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
                           <p>加入購物車</p>
                           </button>
 
-                          <button className={styles.buy} onClick={bangColor}> 
-                          {/* <Love className={isFavorite?styles.like:styles.nolike}/> */}
-                          <Receipt className={styles.shopicon}/>
-                          <p>立刻結帳</p>
+                          <button className={styles.buy} onClick={buyNow}> 
+                            <Receipt className={styles.shopicon}/>
+                            <p>立刻結帳</p>
                           </button>
                         </div>
 
-
-
+                        <div className={styles.love_box} onClick={bangColor}>
+                          <Love className={isFavorite?styles.like:styles.nolike} />
+                          {isFavorite?(
+                            <p className={isFavorite?styles.love_p:styles.nolove_p}>已加入收藏</p>):
+                            (<p className={isFavorite?styles.love_p:styles.nolove_p}>加入收藏清單</p>)
+                          }                         
+                        </div>
                     </motion.div>
 
                     

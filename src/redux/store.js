@@ -6,17 +6,39 @@ import modelReducer from './modelSlice'
 import { persistReducer,persistStore } from 'redux-persist';
 import authReducer from './userSlice';
 import favoriteReducer from './favoriteSlice';
+import checkoutReducer from './checkoutSlice';
 
-const persistConfig={
-  key:'shoppingCart',
+const cartPersistConfig = {
+  key: 'cart',
   storage,
-}
+};
+
+const modelPersistConfig = {
+  key: 'model',
+  storage,
+};
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+};
+
+const favoritePersistConfig = {
+  key: 'favorites',
+  storage,
+};
+
+const checkoutPersistConfig = {
+  key: 'checkout',
+  storage,
+};
 
 
-const persistedCartReducer = persistReducer(persistConfig,cartReducer);
-const persistedModelReducer = persistReducer(persistConfig,modelReducer);
-const persistedAuthReducer = persistReducer(persistConfig,authReducer);
-const persistedFavoriteReducer = persistReducer(persistConfig,favoriteReducer);
+const persistedCartReducer = persistReducer(cartPersistConfig,cartReducer);
+const persistedModelReducer = persistReducer(modelPersistConfig,modelReducer);
+const persistedAuthReducer = persistReducer(authPersistConfig,authReducer);
+const persistedFavoriteReducer = persistReducer(favoritePersistConfig,favoriteReducer);
+const persistedCheckoutReducer = persistReducer(checkoutPersistConfig,checkoutReducer);
 
 export const store = configureStore({
   reducer: {
@@ -24,7 +46,8 @@ export const store = configureStore({
     toast: toastReducer, // 新增的彈跳視窗狀態
     model:persistedModelReducer,
     auth: persistedAuthReducer,
-    favorites: favoriteReducer,
+    favorites: persistedFavoriteReducer,
+    checkout: persistedCheckoutReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>

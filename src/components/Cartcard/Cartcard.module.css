@@ -10,15 +10,27 @@
     position: relative;
     border-bottom:2px solid var(--loading-color) ;
     border-radius: 2px;
+    align-items: flex-start;
+    align-items: center;
 }
 
 .img_div{
-    width: calc(var(--margin-m)*4) ;
-    aspect-ratio: 1/1;
+    width: calc(var(--margin-m) * 4);
+    min-width: calc(var(--margin-m) * 4);  /* ⭐ 不可縮小 */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     border-radius: 5px;
+    flex-shrink: 0;  /* ⭐ 不讓它被壓縮 */
     
 
+}
+.img_div_1{
+    width: calc(var(--margin-m) * 3.5);
+    min-width: calc(var(--margin-m) * 3.5);  /* ⭐ 不可縮小 */
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 5px;
+    flex-shrink: 0;  /* ⭐ 不讓它被壓縮 */
 }
 .img{
     width: 100%;
@@ -26,17 +38,30 @@
     object-fit: cover; 
 }
 .info{
-    flex: 1;
+    flex: 1 1 auto; /* ⭐ 可以收縮並填滿剩餘空間 */
+    min-width: 0;   /* ⭐ 防止文字撐爆容器 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: var(--margin-xs);
     
+}
+.info_1{
+    flex: 1 1 auto; /* ⭐ 可以收縮並填滿剩餘空間 */
+    min-width: 0;   /* ⭐ 防止文字撐爆容器 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
 }
 .text_box{
     display: flex;
     gap: 6px;
     flex-direction: column;
 
+}
+.name_box{
+    width: 90%;
 }
 .name{
     color: var(--text-ttitle-color);
@@ -46,7 +71,20 @@
     overflow-wrap: break-word; /* 讓長字串換行 */
     white-space: normal; /* 允許換行 */
 }
+.name_1{
+    color: var(--text-p-color);
+    font-weight: 700;
+    font-size:   var(--size-xs);
+    word-wrap: break-word; /* 遇到長單詞自動換行 */
+    overflow-wrap: break-word; /* 讓長字串換行 */
+    white-space: normal; /* 允許換行 */
+}
 .p{
+    color: var(--text-p-color);
+    font-weight: 500;
+    font-size:   var(--size-xs);
+}
+.p_1{
     color: var(--text-p-color);
     font-weight: 500;
     font-size:   var(--size-xs);
@@ -121,7 +159,7 @@
 .close_btn{
     position: absolute;
     top: var(--margin-xs);
-    right: var(--margin-xs);
+    right: 0;
     background: none;
     border: none;
     font-size: 24px;
@@ -132,13 +170,15 @@
 
 
 @media (max-width: 992px) {
-    .bg{
-        justify-content: space-between;
-        padding: calc(var(--margin-s)/2) ;
+
+    .img_div{
+        width: calc(var(--margin-m) * 3);
+        min-width: calc(var(--margin-m) * 3);  /* ⭐ 不可縮小 */
 
     }
-    .img_div{
-        width: var(--margin-big);
+    .img_div_1{
+        width: calc(var(--margin-m) * 3);
+        min-width: calc(var(--margin-m) * 3);  /* ⭐ 不可縮小 */
 
     }
     .name{
@@ -149,7 +189,10 @@
         overflow-wrap: break-word; /* 讓長字串換行 */
         white-space: normal; /* 允許換行 */
         margin: 0px 0px 12px 0px;
+        width: 50%;
+        /* background-color: aqua; */
     }
+    
     .how_many_button {
         width: calc(var(--margin-s) );
         height: calc(var(--margin-s) );
@@ -165,6 +208,12 @@
         top: calc(var(--margin-xs)/3);
         right: calc(var(--margin-s)/2);
 
+    }
+
+    .p_1{
+        color: var(--text-p-color);
+        font-weight: 500;
+        font-size:   12px;
     }
 
 }

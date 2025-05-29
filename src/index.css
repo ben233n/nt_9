@@ -73,7 +73,7 @@ html[data-theme='dark']{
   /* 特別按鈕設計顏色變化 */
   --btn-color:#d2d7d4;
   /* 訂閱方案半透明顏色變化 */
-  --plan-color:rgba(61, 67, 65, 0.6);
+  --plan-color:rgba(130, 160, 144, 0.6);
   /* 加載顏色 */
   --loading-color:#5a5b5a;
 }
@@ -567,7 +567,7 @@ html[data-theme='黑白人生']{
 --bg-shop-color: #2c2c2c;
 
 --text-header-color: #fafafa;
---text-block-color: #e5e5e5;
+--text-block-color: #b0b0b0;
 --text-ttitle-color: #d0d0d0;
 --text-p-color: #bbbbbb;
 
