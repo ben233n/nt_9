@@ -17,7 +17,7 @@ const CartGoods = ({setStep}) => {
   const navigate = useNavigate();
 
   const user = useSelector(state => state.auth.user); // 取得登入狀態
-
+  const shippingFee=useSelector(state => state.checkout.shippingFee);
 
      const cartitems=useSelector(state=>state.cart.cartItems);
         const [moneyTotal,SetMoneyTotal]=useState(0);
@@ -32,19 +32,21 @@ const CartGoods = ({setStep}) => {
         const [removingItems, setRemovingItems] = useState([]); //「哪些商品正在執行移除動畫」
 
         const goToStep2=()=>{
-          if (!user) {
-            dispatch(showToast("⚠️ 請先登入"));
-            navigate('/login?redirect=/cart/step2');
-            return;
-          }
+
 
           if(cartitems.length<=0){
             dispatch(showToast(" 🈚️ 購物車是空的"));
             return
           }
 
+          if (!user) {
+            dispatch(showToast("⚠️ 請先登入"));
+            navigate('/login?redirect=/cart/step2');
+            return;
+          }
+
           dispatch(setCheckoutItems(cartitems));
-          dispatch(setTotal(moneyTotal + 1200));
+          dispatch(setTotal(moneyTotal + shippingFee));
           navigate('/cart/step2'); // 導向結帳第二步
         }
 
@@ -112,7 +114,7 @@ const CartGoods = ({setStep}) => {
                 <div className={styles.details}>
                   <div className={styles.one_money_info}>
                     <p className={styles.p}>商品總額</p>
-                    <p className={styles.p}>{moneyTotal+1200}</p>
+                    <p className={styles.p}>{moneyTotal+shippingFee}</p>
                   </div>
                   
                 </div>
@@ -124,7 +126,7 @@ const CartGoods = ({setStep}) => {
             <motion.div className={styles.air} {...FadeInOne}>
                     <div className={styles.phone_total_info}>
                         <p className={styles.phone_total_p} onClick={()=>setShowModal(true)}>明細</p>
-                        <h3 className={styles.total_h3}>總計 ${cartitems.length>0?moneyTotal+1200:moneyTotal}</h3>
+                        <h3 className={styles.total_h3}>總計 ${cartitems.length>0?moneyTotal+shippingFee:moneyTotal}</h3>
                     </div>
                     <button className={styles.phone_buy} onClick={goToStep2}> 前往買單</button>
             </motion.div>
@@ -165,7 +167,7 @@ const CartGoods = ({setStep}) => {
               <div className={styles.details}>
                 <div className={styles.one_money_info}>
                   <p className={styles.p}>商品總額</p>
-                  <p className={styles.p}>{moneyTotal+1200}</p>
+                  <p className={styles.p}>{moneyTotal+shippingFee}</p>
                 </div>
                 
               </div>

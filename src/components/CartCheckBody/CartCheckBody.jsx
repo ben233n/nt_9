@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router';
 import { getAuth } from 'firebase/auth';
 import { clearCart } from '../../redux/cartSlice'; // 你需要新增這個 reducer
 import { db } from '../../api/firebaseConfig';
-import { doc, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, collection, addDoc, serverTimestamp,setDoc } from 'firebase/firestore';
 import { resetCheckout } from '../../redux/checkoutSlice';
 import { showToast } from '../../redux/toastSlice';
+import { Timestamp } from 'firebase/firestore';
+
 const CartCheckBody = () => {
   const navigator=useNavigate();
   const auth = getAuth();
@@ -54,7 +56,26 @@ const CartCheckBody = () => {
     };
 
     try{
-      await addDoc(collection(doc(db, 'users', uid), 'orders'),orderData);
+      await addDoc(collection(db, 'users', uid, 'orders'), orderData);
+
+        // 🔥 根據方案計算到期日
+        const now = new Date();
+        const subscriptionEnd = new Date(now);
+
+        subscriptionEnd.setDate(subscriptionEnd.getDate() + 30);
+
+      const subscriptionItem = items.find(item => item.mode === 2);
+      if (subscriptionItem) {
+        const userRef = doc(db, 'users', uid);
+        await setDoc(userRef, {
+          subscriptionTier: items[0].name,
+          subscriptionActive: true,
+          subscriptionSince: serverTimestamp(),
+          subscriptionUntil: Timestamp.fromDate(subscriptionEnd)
+        }, { merge: true }); // ✅ merge 表示只更新部分欄位，不會覆蓋整份文件
+      }
+      
+
       dispatch(clearCart());
       dispatch(resetCheckout());
       dispatch(showToast("✔️ 完成訂單"));
@@ -109,7 +130,7 @@ const CartCheckBody = () => {
                         num={item.num}
                         image={item.image}
                         choose={item.style}
-                        mode={1}
+                        mode={item.mode}
                       />
                   </motion.div>
                 );

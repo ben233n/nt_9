@@ -167,7 +167,9 @@
     z-index: 4;
     color: var(--text-p-color);
 }
-
+.plan_p_box{
+    
+}
 
 @media (max-width: 992px) {
 

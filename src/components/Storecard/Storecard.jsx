@@ -34,7 +34,8 @@ const Storecard = ({ name, price, image, itemid, isone, loading }) => {
       price: price,
       num: 1,
       goodsid: itemid,
-      style:'標準版'
+      style:'標準版',
+      mode:1,
     };
     dispatch(addItems(item));
     dispatch(showToast("🛒 已加入購物車"));

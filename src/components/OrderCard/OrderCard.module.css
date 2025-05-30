@@ -1,0 +1,144 @@
+.bg{
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-shop-color);
+    padding: var(--margin-xs) 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    /* gap: var(--margin-xs); */
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: var(--margin-m);
+
+}
+
+.img_div_1{
+    width: calc(var(--margin-m) * 3.5);
+    min-width: calc(var(--margin-m) * 3.5);  /* ⭐ 不可縮小 */
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 5px;
+    flex-shrink: 0;  /* ⭐ 不讓它被壓縮 */
+}
+
+.top{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom:2px solid var(--loading-color) ;
+    border-radius: 2px;
+    padding-bottom:var(--size-xs);
+}
+.h3{
+    color: var(--text-header-color);
+    font-size: var(--size-xs);
+    font-weight: 700;
+
+
+}
+.h3_color{
+    color: var(--text-ttitle-color);
+    font-size: var(--size-xs);
+    font-weight: 700;
+}
+.p{
+    color: var(--text-p-color);
+    font-weight: 500;
+    font-size:   var(--size-xs);
+}
+.ap{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    border-bottom:2px solid var(--loading-color) ;
+    border-radius: 2px;
+    padding:var(--margin-xs) 0px;
+}
+
+.ad{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+
+
+
+    
+
+}
+.btn_box{
+    cursor: pointer;
+    margin-top: var(--margin-xs);
+    width: 100%;
+    /* border-bottom:2px solid var(--loading-color) ; */
+    /* border-radius: 2px;
+    padding-bottom:var(--size-m); */
+    
+}
+.icon_p{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    color: var(--text-p-color);
+    font-weight: 500;
+    font-size:   var(--size-xs);
+}
+.icon{
+    width: var(--margin-s);
+    height: var(--margin-s);
+}
+
+.delete_btn_box{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    margin-top: var(--margin-xs);
+}
+.delete_btn{
+    all: unset;
+    cursor: pointer;
+    background-color: var(--bg-small-color);
+    display: flex;
+    justify-content: center;
+    color: var(--text-block-color);
+    font-size: var(--size-xs);
+    font-weight: 500;
+    letter-spacing: 0.15rem; /* 調小字距，提升可讀性 */
+    padding: var(--margin-xs) var(--margin-s);
+    transition: all 0.3s ease-in-out;
+    align-items: center;
+    border-radius: 5px;
+
+}
+.delete_btn:hover{
+    background-color: var(--on-bang-color);
+}
+@media (max-width: 992px) {
+
+
+    .p{
+        color: var(--text-p-color);
+        font-weight: 500;
+    }
+
+    .bg{
+
+        padding: var(--margin-xs);
+    
+    }
+    .btn_box{
+        cursor: pointer;
+        margin-top: var(--margin-xs);
+        /* padding-bottom:var(--size-xs); */
+    }
+    .icon{
+        width: var(--margin-xs);
+        height: var(--margin-xs);
+    }
+    
+
+}

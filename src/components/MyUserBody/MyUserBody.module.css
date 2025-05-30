@@ -27,7 +27,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 12px;
+    position: relative;
 }
 .head_div{
     width: 70%;
@@ -41,6 +42,16 @@
     border: 3px solid var(--text-ttitle-color);
 }
 
+.loader{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hidden {
+    display: none;
+  }
 .head {
     width: 100%;
     height: 100%;
@@ -52,13 +63,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 6px;
 }
-
+.name_and_member{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
 .name{
     color: var(--text-ttitle-color);
     font-weight: 700;
     font-size: var(--size-s);
 }
+
 .out{
     font-weight: 500;
     color: var(--text-p-color);
@@ -74,6 +92,9 @@
 }
 
 .serve{
+    border-top:2px solid var(--loading-color) ; 
+    border-radius: 2px;
+   padding-top:var(--size-s);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -109,6 +130,73 @@
     padding: var(--margin-m);
     min-height: 0; /* 防止子元素擠爆 flex 容器 */
 }
+.right_order{
+    flex: 1 1 80%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow-y: auto; /* 內容超出時滾動 */
+    min-height: 0; /* 防止子元素擠爆 flex 容器 */
+}
+
+.member {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--bg-block-color);
+    color: var(--text-block-color);
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 999px;
+
+    font-weight: 500;
+    z-index: 0;
+  }
+  
+  /* 加入光澤動畫的偽元素 */
+  .member::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shimmer 2.5s infinite;
+    z-index: 1;
+  }
+  
+  /* 保持文字在上層 */
+  .member span,
+  .member strong {
+    position: relative;
+    z-index: 2;
+  }
+
+  .out_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+        border-top:2px solid var(--loading-color) ; 
+     border-radius: 2px;
+    padding-top:var(--size-s);
+  }
+  
+  @keyframes shimmer {
+    0% {
+      left: -75%;
+    }
+    100% {
+      left: 125%;
+    }
+  }
 
 @media (max-width: 992px) {
     .left{
@@ -143,9 +231,12 @@
         padding: var(--margin-s);
         width: 100%;
     }
+    .right_order{
+        width: 100%;
+    }
     .up_box{
         flex-direction: row;
-        gap: var(--margin-s);
+        gap: var(--margin-xs);
     }
     
     .head_div{
@@ -183,5 +274,19 @@
         transform: unset;
     
     }
+
+    .member {
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--bg-block-color);
+        color: var(--text-block-color);
+        font-size: 12px;
+        padding: 2px 16px;
+        border-radius: 999px;
+    
+        font-weight: 500;
+        z-index: 0;
+      }
     
 }

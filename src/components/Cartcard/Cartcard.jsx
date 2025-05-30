@@ -86,6 +86,29 @@ const Cartcard = ({ name, num, image, price, idnum, onRemove, choose,mode=0 }) =
           </div>
         </>
       )
+    case 2:
+      return(
+        <>
+          <div className={styles.bg}>
+            <div  className={styles.img_div_1}>
+              <img src={image} alt="" className={styles.img} />
+            </div>
+    
+            <div className={styles.info_1}>
+                  <h3  className={styles.name_1}>{name}</h3>
+                  <div className={styles.plan_p_box}><span className={styles.p_1}>內容物：</span>
+                    {
+                      
+                      choose?.map((p)=>(
+                        <span className={styles.p_1}>{p}，</span>
+                      ))
+                    }
+                  </div>
+                <h3 className={styles.name_1}>NT${price}/月</h3>
+            </div>
+          </div>
+        </>
+      )
     default:
       return null
   }

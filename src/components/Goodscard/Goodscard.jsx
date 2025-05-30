@@ -99,7 +99,8 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
           price:money,
           num: numbang,
           goodsid,
-          style: selectedStyle // 將款式加進商品項目
+          style: selectedStyle ,// 將款式加進商品項目
+          mode:1,
         };
         dispatch(addItems(item));
         dispatch(showToast("🛒 已加入購物車"));
@@ -107,11 +108,6 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
 
 
       const buyNow = () => {
-        if (!user) {
-          dispatch(showToast("⚠️ 請先登入"));
-          navigate('/login?redirect=/cart/step2');
-          return;
-        }
         if (!selectedStyle) {
           dispatch(showToast("⚠️ 請先選擇款式"));
           return;
@@ -120,7 +116,8 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
           dispatch(showToast("⚠️ 請選擇數量"));
           return;
         }
-      
+
+        
         const item = {
           name,
           image,
@@ -128,10 +125,19 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
           num: numbang,
           goodsid,
           style: selectedStyle,
+          mode:1,
         };
-      
         dispatch(setCheckoutItems([item])); // 將單一商品直接放進結帳項目
         dispatch(setTotal(money * numbang + 1200)); // 加入運費
+        
+        if (!user) {
+          dispatch(showToast("⚠️ 請先登入"));
+          navigate('/login?redirect=/cart/step2');
+          return;
+        }
+
+      
+        
         navigate('/cart/step2'); // 直接跳轉至 Step 2
       };
 

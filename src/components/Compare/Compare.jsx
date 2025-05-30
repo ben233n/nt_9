@@ -13,9 +13,9 @@ const Compare = () => {
         <div className={styles.bg}>
             <div className={`${styles.container} container `}>
                 <motion.div className={styles.blog} {...DownLook}>
-                    <CompareCard planp={taiwan} planname={"本土拾荒者"} money={199}/>
-                    <CompareCard planp={asia} planname={"區域收集者"} money={599}/>
-                    <CompareCard planp={earth} planname={"地球開拓者"} money={999}/>
+                    <CompareCard planp={taiwan} planname={"本土拾荒者"} money={199} image={"/img/taiwan.png"}/>
+                    <CompareCard planp={asia} planname={"區域收集者"} money={599} image={"/img/asia.png"}/>
+                    <CompareCard planp={earth} planname={"地球開拓者"} money={999} image={"/img/earth.png"}/>
                 </motion.div>
             </div>
         </div>
