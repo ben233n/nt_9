@@ -1,15 +1,23 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Theme.module.css';
 import ThemeCard from '../ThemeCard/ThemeCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from '../../redux/modelSlice';
-import { saveUserTheme,fetchUserTheme } from '../../api/firestore/userService';
+import { saveUserTheme, fetchUserTheme } from '../../api/firestore/userService';
+import { useLocation, useNavigate } from 'react-router';
+
 
 const Theme = () => {
     const dispatch = useDispatch();
-    const user = useSelector((state) => (state.auth.user))
+    const location = useLocation();
+    const navigate = useNavigate();
+    
+    const user = useSelector((state) => (state.auth.user));
 
     const [selectedTheme, setSelectedTheme] = useState(null);
+    const [currentSavedTheme, setCurrentSavedTheme] = useState(null); // ✅ 新增：追蹤目前已儲存的主題
+
+    
 
     const handleThemeSelect = (theme) => {
         dispatch(setTheme(theme));        // 即時改主題
@@ -19,20 +27,37 @@ const Theme = () => {
     const handleSave = async () => {
         if (!user || !selectedTheme) return;
         await saveUserTheme(user.uid, selectedTheme);
+        setCurrentSavedTheme(selectedTheme); // ✅ 修改：儲存後更新目前儲存狀態
         alert('主題已儲存！');
     };
 
-
+    useEffect(() => {
+        const fetchTheme = async () => {
+            if (!user) return;
+            const theme = await fetchUserTheme(user.uid);
+            setSelectedTheme(theme);         // ✅ 設定選中的框框
+            setCurrentSavedTheme(theme);     // ✅ 新增：同步目前已儲存的主題
+            dispatch(setTheme(theme));       // ✅ 設定實際套用的主題
+        };
+        fetchTheme();
+    }, [user, dispatch]);
 
     useEffect(() => {
-      const fetchTheme = async () => {
-        if (!user) return;
-        const theme = await fetchUserTheme(user.uid);
-        setSelectedTheme(theme);       // ✅ 設定選中的框框
-        dispatch(setTheme(theme));     // ✅ 設定實際套用的主題
-      };
-      fetchTheme();
-    }, [user, dispatch]);
+        const handleBeforeUnload = (e) => {
+            if (selectedTheme && selectedTheme !== currentSavedTheme) {
+                e.preventDefault();
+                e.returnValue = ''; // ✅ 新增：讓瀏覽器顯示預設的離開提示
+            }
+        };
+        window.addEventListener('beforeunload', handleBeforeUnload); // ✅ 新增：監聽離開事件
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload); // ✅ 新增：記得移除事件監聽
+        };
+    }, [selectedTheme, currentSavedTheme]); // ✅ 新增：依賴項包含選取與儲存狀態
+    
+
+
+    
 
     return (
         <div className={styles.bg}>
