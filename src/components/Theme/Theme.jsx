@@ -4,20 +4,15 @@ import ThemeCard from '../ThemeCard/ThemeCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from '../../redux/modelSlice';
 import { saveUserTheme, fetchUserTheme } from '../../api/firestore/userService';
-import { useLocation, useNavigate } from 'react-router';
+
 
 
 const Theme = () => {
     const dispatch = useDispatch();
-    const location = useLocation();
-    const navigate = useNavigate();
-    
     const user = useSelector((state) => (state.auth.user));
 
     const [selectedTheme, setSelectedTheme] = useState(null);
     const [currentSavedTheme, setCurrentSavedTheme] = useState(null); // ✅ 新增：追蹤目前已儲存的主題
-
-    
 
     const handleThemeSelect = (theme) => {
         dispatch(setTheme(theme));        // 即時改主題
@@ -54,7 +49,6 @@ const Theme = () => {
             window.removeEventListener('beforeunload', handleBeforeUnload); // ✅ 新增：記得移除事件監聽
         };
     }, [selectedTheme, currentSavedTheme]); // ✅ 新增：依賴項包含選取與儲存狀態
-    
 
 
     
@@ -130,8 +124,8 @@ const Theme = () => {
                     <ThemeCard apColor={"#fff800"} supColor={"#ff0000"} onSelect={handleThemeSelect}
                         adColor={"#00aaff"} topColor={"#00ff44"} themeName={"華國美學"} selected={selectedTheme === "華國美學"} />
 
-                    <ThemeCard apColor={"#fefefe"} supColor={"#f7f7f7"} onSelect={handleThemeSelect}
-                        adColor={"#f3f3f3"} topColor={"#fcfcfc"} themeName={"留白"} selected={selectedTheme === "留白"} />
+                    <ThemeCard apColor={"#fefefe"} supColor={"#fefefe"} onSelect={handleThemeSelect}
+                        adColor={"#fefefe"} topColor={"#fefefe"} themeName={"留白"} selected={selectedTheme === "留白"} />
 
                     <ThemeCard apColor={"#0e0f11"} supColor={"#39ff14"} onSelect={handleThemeSelect}
                         adColor={"#ff4f87"} topColor={"#1c1c22"} themeName={"熬夜派大星"} selected={selectedTheme === "熬夜派大星"} />

@@ -454,16 +454,16 @@ html[data-theme='花見糰子']{
 }
 
 html[data-theme='留白']{
-  --bg-color: #fefefe;              /* 純白背景 */
-  --bg-block-color: #fefefe;        /* 淡灰白區塊 */
-  --bg-small-color: #fefefe;        /* 微冷白區塊 */
-  --bg-shop-color: #fcfcfc;         /* 霧白商城區塊 */
+  --bg-color: #fefefe00;              /* 純白背景 */
+  --bg-block-color: #fefefe00;        /* 淡灰白區塊 */
+  --bg-small-color: #fefefe00;        /* 微冷白區塊 */
+  --bg-shop-color: #fefefe00;         /* 霧白商城區塊 */
 
   /* 文字色調（低對比白灰） */
-  --text-header-color: #bbbbbb;     /* 高灰白（大標） */
-  --text-block-color: #bbbbbb;      /* 純白文字塊背景 */
-  --text-ttitle-color: #bbbbbb;     /* 亮灰副標 */
-  --text-p-color: #bbbbbb;          /* 內文柔灰色 */
+  --text-header-color: #fefefe00;     /* 高灰白（大標） */
+  --text-block-color: #fefefe00;      /* 純白文字塊背景 */
+  --text-ttitle-color: #fefefe00;     /* 亮灰副標 */
+  --text-p-color: #fefefe00;          /* 內文柔灰色 */
 
   /* 按鈕與點綴 */
   --btn-color: #fefefe;             /* 淡灰白按鈕 */
