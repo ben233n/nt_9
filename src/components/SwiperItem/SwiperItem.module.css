@@ -31,6 +31,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .img {
@@ -38,7 +39,6 @@
   height: 100%;
   object-fit: cover;
 }
-
 
 :global(.swiper-button-next),
 :global(.swiper-button-prev) {
@@ -85,6 +85,65 @@
     transform: scale(1.1);
     opacity: 1;
 }
+
+.one_ad{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--margin-xs);
+  background: var(--plan-color); /* 半透明背景 */
+  backdrop-filter: blur(10px); /* 毛玻璃效果 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 支援 */
+  padding: 1.5rem 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* 更立體 */
+  width: auto;
+}
+.h3{
+  color: var(--text-block-color);
+  font-size: var(--size-m);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.p{
+  color: var(--text-block-color);
+  font-size: var(--size-big-m);
+  font-weight: 500;
+
+
+}
+
+.btn{
+  background-color:rgba(240, 248, 255, 0);
+  cursor: pointer;
+  color: var(--text-block-color);
+  padding: 10px 30px;
+  border: 1.5px  solid var(--text-block-color);
+  border-radius: var(--border-radius);
+  font-size:var(--size-s);
+  letter-spacing: 0.1rem;
+  font-weight:500;    
+  transition: all 0.3s ease-in-out;
+}
+.btn:hover{ 
+  background-color:var(--btn-color);
+  color: var(--bg-color);
+}
+
 
 
 @media (max-width: 992px) {

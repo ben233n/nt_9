@@ -1,5 +1,5 @@
 .bg{
-    padding:0px 0px var(--margin-big) 0px;
+    padding:var(--margin-big) 0px var(--margin-big) 0px;
     width: 100%;
     overflow: hidden;
 }

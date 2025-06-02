@@ -74,7 +74,6 @@ const Store = () => {
 
   return (
     <>
-      <Ad/>
       <div className={styles.bg}>
         <motion.div className={`${styles.container} container`} {...DownLook}>
           <div className={styles.choose}>
