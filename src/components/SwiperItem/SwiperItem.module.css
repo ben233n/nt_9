@@ -166,4 +166,7 @@
   .mySwiper {
       aspect-ratio: 2 / 1; /* ✅ 這一行搞定一切 */
   }
+  .h3{
+    font-size: var(--size-s);
+  }
 }
