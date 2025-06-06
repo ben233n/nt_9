@@ -66,7 +66,11 @@ const Goodscard = ({name,text,price,photos,size,category,image,goodsid,star}) =>
     }
 
     const bangColor = async () => {
-        if (!user) return;
+
+        if (!user) {
+          dispatch(showToast("⚠️ 請先登入"));
+          return;
+        }
       
         try {
           await toggleFavorite(user.uid, goodsid, isFavorite); // Firebase 同步

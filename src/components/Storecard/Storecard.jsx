@@ -43,7 +43,11 @@ const Storecard = ({ name, price, image, itemid, isone, loading }) => {
 
   const love = async (e) => {
     e.stopPropagation();
-    if (loading || !user) return;
+
+    if (!user) {
+      dispatch(showToast("⚠️ 請先登入"));
+      return;
+    }
 
     try {
       await toggleFavorite(user.uid, itemid, isFavorite); // ✅ [同步 Firebase]
